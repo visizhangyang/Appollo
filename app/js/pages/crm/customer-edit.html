@@ -1,0 +1,107 @@
+<ion-view view-title="{{'customer_edit_title'|translate}}"
+          hide-back-button="true"
+          class="customer-edit-page">
+  <ion-nav-buttons>
+    <back-btn state="tab.crm"></back-btn>
+  </ion-nav-buttons>
+
+  <ion-content>
+    <form class="m-form" name="form" novalidate>
+      <div class="list margin-top">
+        <ion-input class="item item-input">
+          <ion-label>{{'customer_edit_client_name'|translate}}</ion-label>
+          <input type="text"
+                 placeholder="{{'customer_edit_client_name_placeholder'|translate}}"
+                 ng-change="vm.formUtil.onInputChange(form)"
+                 ng-model="vm.formUtil.data.name"
+                 name="customerName"
+                 required>
+        </ion-input>
+        <ion-input class="item item-input">
+          <ion-label>{{'customer_edit_phone_number'|translate}}</ion-label>
+          <input type="tel"
+                 placeholder="{{'customer_edit_placeholder_please_input'|translate}}"
+                 ng-pattern="/1[3|4|5|7|8][0-9]\d{8}$|^0{6}\d{5}$|^(0\d{2,3}-)?(\d{7,8})(-\d{1,4})?$/"
+                 name="telNum"
+                 ng-model="vm.formUtil.data.phone">
+        </ion-input>
+        <ion-input class="item item-input">
+          <ion-label>{{'customer_edit_company'|translate}}</ion-label>
+          <input type="text"
+                 ng-model="vm.formUtil.data.company"
+                 placeholder="{{'customer_edit_placeholder_please_input'|translate}}" >
+        </ion-input>
+        <ion-input class="item item-input">
+          <ion-label>{{'customer_edit_client_position'|translate}}</ion-label>
+          <input type="text"
+                 ng-model="vm.formUtil.data.job_position"
+                 placeholder="{{'customer_edit_placeholder_please_input'|translate}}" >
+        </ion-input>
+        <ion-input class="item item-input">
+          <ion-label>{{'customer_edit_address'|translate}}</ion-label>
+          <input type="text"
+                 ng-model="vm.formUtil.data.address"
+                 placeholder="{{'customer_edit_address_placeholder'|translate}}" >
+        </ion-input>
+        <ion-toggle toggle-class="toggle-u"
+                    ng-model="vm.formUtil.data.important">
+          {{'customer_edit_whether_important_client'|translate}}
+        </ion-toggle>
+
+        <!--<ion-input class="item item-input item-select">-->
+          <!--<ion-label>所属区域</ion-label>-->
+          <!--<select ng-options="opt.value as opt.name for opt in vm.statusOptions"-->
+                  <!--ng-model="vm.formUtil.data.area">-->
+          <!--</select>-->
+        <!--</ion-input>-->
+        <ion-input class="item item-input item-select">
+          <ion-label>{{'customer_edit_client_state'|translate}}</ion-label>
+          <select ng-options="opt.value as vm.$translate.instant(opt.name) for opt in vm.statusOptions"
+                  ng-model="vm.formUtil.data.status">
+          </select>
+        </ion-input>
+        <ion-input class="item item-input item-select">
+          <ion-label>{{'customer_edit_client_source'|translate}}</ion-label>
+          <select ng-options="opt.value as vm.$translate.instant(opt.name) for opt in vm.sourceOptions"
+                  ng-model="vm.formUtil.data.source">
+          </select>
+        </ion-input>
+        <ion-input class="item item-input">
+          <ion-label>{{'customer_edit_birthday'|translate}}</ion-label>
+          <input type="date" ng-model="vm.formUtil.data.birthday" />
+        </ion-input>
+
+        <ion-input class="item item-input">
+          <ion-label>{{'customer_edit_wechat'|translate}}</ion-label>
+          <input type="text" ng-model="vm.formUtil.data.we_chat" />
+        </ion-input>
+        <ion-input class="item item-input">
+          <ion-label>{{'customer_edit_comment'|translate}}</ion-label>
+          <input type="text"  ng-model="vm.formUtil.data.note" />
+        </ion-input>
+
+
+        <div class="error">
+          <span ng-if="form.telNum.$dirty && form.telNum.$invalid && form.telNum.$touched">
+            {{'customer_edit_incorrect_phone_number_format'|translate}}
+          </span>
+          <div ng-if="vm.formUtil.submitError">
+            <span>
+              {{ vm.formUtil.submitError }}
+            </span>
+          </div>
+        </div>
+      </div>
+
+      <div class="block-btn-div">
+        <button class="button button-block button-positive"
+                on-request="vm.goNext($event, form.$valid)"
+                ng-disabled="form.$invalid">
+          {{'common_button_ok'|translate}}
+        </button>
+      </div>
+    </form>
+
+  </ion-content>
+
+</ion-view>

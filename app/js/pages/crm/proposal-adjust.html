@@ -1,0 +1,50 @@
+<ion-view view-title="投资组合产品" hide-back-button="true" class="proposal-adjust-page white-theme">
+  <ion-nav-buttons>
+    <back-btn></back-btn>
+  </ion-nav-buttons>
+  <ion-content>
+    <div class="item-container" ng-class="{'collapsed': group.collapsed}" ng-repeat="group in vm.groupsList || []">
+      <div class="item item-white item-group" ng-click="vm.toggleGroup(group)">
+        {{ group.name | transAsset }} (配置：{{ vm.proposal.asset_groups[group.name].amount / vm.proposal.total_investment * 100 | formatPercent}}%，金额：{{
+        vm.proposal.asset_groups[group.name].amount | formatMoney}}万元)
+        <span ng-class="{'icon-collapsed': group.collapsed, 'icon-expanded': !group.collapsed}"></span>
+      </div>
+      <div class="item proposal-item item-set-5 item-white">
+        <div class="item-field item-field-checkbox"></div>
+        <div class="item-field item-field-2x">产品名称</div>
+        <div class="item-field item-field-return-rate">历史年化</div>
+        <div class="item-field ">风险等级</div>
+        <div class="item-field">配比</div>
+        <div class="item-field">金额</div>
+      </div>
+      <div class="item proposal-item item-set-5 item-white" ng-repeat="product in group.products">
+        <div class="item-field item-field-checkbox" ng-click="vm.onGroupSelectChange()">
+          <label class="item item-checkbox">
+            <div class="checkbox checkbox-input-hidden checkbox-circle">
+              <input type="checkbox" class="ng-untouched" ng-model="product.selected">
+              <i class="checkbox-icon"></i>
+            </div>
+          </label>
+        </div>
+        <div class="item-field item-field-2x" ng-class="{'is-company': !!product.company}">{{ product.product_name }}</div>
+        <div class="item-field item-field-return-rate" ng-if="product.return_rate">{{ product.return_rate | formatPercent }}%</div>
+        <div class="item-field item-field-return-rate" ng-if="!product.return_rate">浮动</div>
+        <div class="item-field">{{ product.risk_level | transRiskLevel }}</div>
+        <div class="item-field">{{ product.percentage * 100 | formatPercent}}%</div>
+        <div class="item-field">{{ product.amount | formatMoney }}万</div>
+      </div>
+      <a class="item proposal-item item-icon-left add-product" ng-href="{{vm.portfolioId ? '#/crm/proposal-form/' + vm.clientId + '/portfolio/' + vm.portfolioId + '/tab/' + group.name : '#/crm/proposal-form/' + vm.clientId + '/tab/' + group.name}}">
+        <span style="margin:auto">
+          <span style="font-size:32px;position:relative;top:2px;">+</span>添加其他产品
+        </span>
+      </a>
+
+    </div>
+  </ion-content>
+
+  <ion-footer-bar>
+    <button class="button button-full button-positive" ng-click="vm.confirmAdjust()" ng-disabled="vm.pickedCount == 0">
+      确定调整
+    </button>
+  </ion-footer-bar>
+</ion-view>

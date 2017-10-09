@@ -1,0 +1,22 @@
+<div class="money-slide">
+  <div class="slide-header" ng-class="$ctrl.labelClass" ng-if="$ctrl.label">
+    <div class="slide-row">
+      <div>
+        {{ $ctrl.label }}
+        <span ng-if="$ctrl.isRequired" style="color: red">*</span>
+      </div>
+      <div ng-if="!$ctrl.isAgeType">{{'common_eur_symbol'|translate}} <span class="amount">{{ $ctrl.value | formatMoney }}</span> {{'common_amount_unit'|translate}}</div>
+      <div ng-if="$ctrl.isAgeType"> <span class="amount">{{ $ctrl.value | number }}</span> {{'common_age_unit'|translate}}</div>
+    </div>
+    <div ng-if="$ctrl.assetNote" class="slide-row small asset-note {{$ctrl.language}}">
+      <div>{{ $ctrl.assetNote }}</div>
+    </div>
+  </div>
+
+  <div class="slider-wrapper">
+    <div ng-if="$ctrl.showMiddle" class="middle-value">{{ $ctrl.middle }}</div>
+    <slider-cmp
+      value="$ctrl.scaleToRange()"
+      on-update="$ctrl.rangeToScale(range)"></slider-cmp>
+  </div>
+</div>

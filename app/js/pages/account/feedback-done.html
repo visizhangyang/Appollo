@@ -1,0 +1,21 @@
+<ion-view view-title="{{'account_feedback_done_title'|translate}}" class="feedback-done">
+  <ion-nav-buttons>
+    <back-btn state="tab.account"></back-btn>
+  </ion-nav-buttons>
+
+  <ion-content>
+    <div class="page-confirmation">
+      <div class="icons">
+        <i class="icon unicon-verify-done"></i>
+      </div>
+      <p>{{'account_feedback_done_submit_successfully'|translate}}</p>
+    </div>
+  </ion-content>
+
+  <ion-footer-bar>
+    <button class="button button-full button-positive"
+            ng-click="vm.done()">
+      {{'account_feedback_done_complete'|translate}}
+    </button>
+  </ion-footer-bar>
+</ion-view>

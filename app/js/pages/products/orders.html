@@ -1,0 +1,38 @@
+<ion-view view-title="预约列表"
+          class="product-attachments-page"
+          hide-back-button="true">
+  <ion-nav-buttons >
+    <back-btn state="tab.crm"></back-btn>
+  </ion-nav-buttons>
+
+  <ion-content>
+    <div class="card">
+      <div class="item item-divider">
+        {{ vm.product.product_name }}
+        <div>预约人数: {{ vm.orders.length }}</div>
+      </div>
+      <div class="item" ng-if="!vm.orders.length">
+        该产品还没有预约
+      </div>
+      <div class="item item-fields-set-3" ng-if="vm.orders.length">
+        <div class="item-field">预购人</div>
+        <div class="item-field">认购金额</div>
+        <div class="item-field">预约日期</div>
+      </div>
+      <div class="item item-fields-set-3"
+           ng-repeat="order in vm.orders">
+        <div class="item-field">{{ order.investor_name }}</div>
+        <div class="item-field">{{ order.amount }}万</div>
+        <div class="item-field">{{ order.created | date: 'yyyy-MM-dd' }}</div>
+      </div>
+    </div>
+  </ion-content>
+
+  <ion-footer-bar>
+    <button class="button button-full button-positive"
+            nav-direction="forward"
+            ui-sref="productDetail({productId: vm.product.id})">
+      查看产品详情
+    </button>
+  </ion-footer-bar>
+</ion-view>

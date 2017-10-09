@@ -1,0 +1,19 @@
+<div class="article-content">
+  <h2 class="head-title">
+    {{ $ctrl.hotSaleTitle }}
+  </h2>
+
+
+  <div class="article-section">
+    <p class="preline" ng-bind="$ctrl.hotSaleContent">
+    </p>
+  </div>
+
+</div>
+
+<refresh-view refresher="$ctrl.refresher">
+  <product-item ng-repeat="product in $ctrl.productList"
+                user="$ctrl.user"
+                product="product">
+  </product-item>
+</refresh-view>

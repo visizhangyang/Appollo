@@ -1,0 +1,17 @@
+<ion-view view-title="" hide-nav-bar="true" class="tob-oauth-page" hide-back-button="true" cache-view="false">
+
+  <ion-content scroll="false">
+    <div class="main-box padding">
+      <img src="public/landing_logo.png" width="40%" />
+      <div class="text">欢迎来到智能投顾时代</div>
+      <div class="ion-grid">
+        <ion-spinner ng-if="vm.error == null"></ion-spinner>
+        <div ng-if="vm.error != null" class="error">{{vm.error}}</div>
+      </div>
+      <!--
+      <div ng-if="vm.error == null" class="text">正在登录中…</div>
+      <div ng-if="vm.error != null" class="error">{{vm.error}}</div>
+      -->
+    </div>
+  </ion-content>
+</ion-view>

@@ -1,0 +1,35 @@
+
+<div class="float-info touch-info"
+     ng-style="floatStyle">
+  <div>{{'common_eur_symbol'|translate}}{{ touchInfo.amount }}M</div>
+  <div ng-if="touchInfo.returnRatio">{{'projection_graph_expected_annual_return'|translate}}{{ touchInfo.returnRatio }}％</div>
+</div>
+<!--<div class="float-info lossPos"
+     ng-style="floatStyle">
+  {{ touchInfo.lossPos }}% 概率亏损
+</div>-->
+
+<div class="graphTouch"
+     ng-style="{display: touchInfo.show ? 'block' : 'none', left: touchInfo.x}">
+  <svg width="32px" height="100%" viewBox="-10 -1 64 479">
+    <defs>
+      <ellipse id="path-1" cx="22" cy="22" rx="22" ry="22"></ellipse>
+      <filter x="-50%" y="-50%" width="200%" height="200%" filterUnits="objectBoundingBox" id="filter-2">
+        <feOffset dx="0" dy="4" in="SourceAlpha" result="shadowOffsetOuter1"></feOffset>
+        <feGaussianBlur stdDeviation="5" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
+        <feColorMatrix values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.6 0" type="matrix" in="shadowBlurOuter1"></feColorMatrix>
+      </filter>
+    </defs>
+    <path d="M22,0.5 L22,479" stroke="#000000" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="1,5" fill="none"></path>
+    <circle stroke="#00A1FF" stroke-width="2" fill="#FFFFFF" fill-rule="evenodd"
+            ng-style="{cy: touchInfo.yPct}"
+            cx="22" cy="0" r="6"></circle>
+    <g id="button" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" transform="translate(0, 447)">
+      <g id="Oval-1">
+        <use fill="black" fill-opacity="1" filter="url(#filter-2)" xlink:href="#path-1"></use>
+        <use fill="#FFFFFF" fill-rule="evenodd" xlink:href="#path-1"></use>
+      </g>
+      <circle id="Oval" fill="#D8D8D8" cx="22.5" cy="22.5" r="6.5"></circle>
+    </g>
+  </svg>
+</div>

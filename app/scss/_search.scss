@@ -1,0 +1,79 @@
+.searchbar-input-container {
+  height: 45px;
+  padding: 0 15px;
+  background: $dark;
+  position: relative;
+
+  $search-height: 33px;
+  .searchbar-input {
+    display: block;
+    width: 100%;
+    border: 0;
+    @include appearance(none);
+    padding: 0 0 0 39px;
+    height: 33px;
+    border-radius: $search-height;
+    box-sizing: border-box;
+    transform: translateY(6px);
+    font-size: 14px;
+    line-height: inherit;
+    background: #4b4c54;
+    transition: all 400ms cubic-bezier(0.25, 0.45, 0.05, 1);
+  }
+
+  .searchbar-search-icon {
+    position: absolute;
+    top: 2px;
+    left: 18px;
+    width: 37px;
+    height: 100%;
+    .icon {
+      line-height: 45px;
+      margin-left: 12px;
+    }
+  }
+}
+
+
+.search-toolbar {
+  height: 56px;
+  padding: 12px 12px;
+  display: flex;
+
+  .search-input {
+    flex-grow: 1;
+    position: relative;;
+    padding: 0 8px;
+    input {
+      width: 100%;
+      box-shadow: 0 0 1px $icon-grey;
+
+      @include appearance(none);
+      padding: 0 0 0 34px;
+      box-sizing: border-box;
+      border-radius: 4px;
+      line-height: normal;
+      font-size: 13px;
+      background: transparent;
+    }
+    .ion-search {
+      position: absolute;
+      top: 0;
+      left: 18px;
+      line-height: 31px;
+      &:before {
+        font-size: 16px;
+        line-height: 31px;
+      }
+    }
+
+  }
+
+  .cancel-search {
+    font-size: 15px;
+    padding: 0 9px;
+    min-height: 32px;
+    line-height: 32px;
+    color: $base-color;
+  }
+}

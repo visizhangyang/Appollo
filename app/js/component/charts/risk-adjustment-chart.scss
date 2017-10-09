@@ -1,0 +1,142 @@
+.risk-adjustment-chart {
+    display: flex;
+    margin: 8px 15px;
+    .left-box {
+        width: 120px;
+        border-right: 1px solid #979797;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+        .product-name {
+            flex: 1;
+            margin-right: 5px;
+            display: flex;
+            align-items: center;
+            .text {
+                font-size: 12px;
+                text-align: right;
+                line-height: 20px;
+                max-height: 40px;
+                overflow: hidden;
+                text-overflow: ellipsis;
+                /** webkit only */
+                display: -webkit-box;
+                -webkit-line-clamp: 2;
+                -webkit-box-orient: vertical;
+            }
+        }
+    }
+    .right-box {
+        flex: 1;
+        display: flex;
+        .lines-box {
+            // height: 25px;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            margin: 3px 0;
+        }
+        .line-box {
+            display: flex;
+            height: 10px;
+            align-items: center;
+            justify-content: flex-start;
+            margin: 1px 0;
+            .line-right-box {
+                flex: 1;
+            }
+            .line1-left,
+            .line1-right {
+                height: 10px;
+                background: #00A1FF;
+                transition: width 0.2s;
+            }
+            .line2-left,
+            .line2-right {
+                height: 10px;
+                background: #4B4B4B;
+                transition: width 0.2s;
+            }
+            .line-value {
+                padding-left: 5px;
+                font-size: 12px;
+                width: 50px;
+            }
+        }
+        .negative-box {
+            flex: 1;
+            margin-left: 15px;
+            border-right: 1px solid #979797;
+            display: flex;
+            flex-direction: column;
+            //transition: flex 0.2s;
+            .line-box {
+                justify-content: flex-end;
+            }
+        }
+        .positive-box {
+            flex: 3;
+            display: flex;
+            flex-direction: column;
+        }
+    }
+}
+
+.risk-adjustment-chart-component {
+    .legend {
+        display: flex;
+        justify-content: center;
+        .line {
+            margin: 0 15px;
+            display: flex;
+            align-items: center;
+            .color {
+                width: 20px;
+                height: 8px;
+            }
+            .label {
+                margin-left: 8px;
+                font-size: 10px;
+                color: #9B9B9B;
+            }
+        }
+        .line1 .color {
+            background: #00A1FF;
+        }
+        .line2 .color {
+            background: #4B4B4B;
+        }
+    }
+    .risk-range-selector {
+        .labels {
+            display: flex;
+            justify-content: space-between;
+            margin: 0 25px;
+            text-align: center;
+            font-size: 10px;
+            line-height: initial;
+            margin-top: -8px;
+        }
+        .range input {
+            background: linear-gradient(to right, #5DB3FF 0%, #70F6FF 100%);
+            background-position: center;
+            background-size: 99% 2px;
+            background-repeat: no-repeat;
+            margin: 0 15px;
+        }
+    }
+    .optimize-sharp－ratio {
+        margin-top: 15px;
+        display: flex;
+        justify-content: center;
+        .button {
+            border-radius: 3px;
+            border-color: #00A1FF;
+            color: #00A1FF;
+        }
+        button[disabled] {
+            color: #D8D8D8;
+        }
+    }
+}

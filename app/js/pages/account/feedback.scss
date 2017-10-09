@@ -1,0 +1,133 @@
+.feedback {
+  p {
+    padding: 25px 15px 0;
+    margin: 0 0 8px;
+    font-size: 15px;
+    min-height: 30px;
+  }
+
+  .questions-and-comments {
+
+    .feedback-content-length {
+      float: right;
+    }
+  }
+
+
+  .list {
+    margin: 0;
+    .item {
+      padding: 1px;
+
+      textarea {
+        // background-color: #1a1c20;
+        height: 120px;
+        line-height: 1.8;
+        vertical-align: middle;
+        padding: 5px 15px;
+
+        &::-webkit-input-placeholder {
+          color: #666;
+        }
+      }
+    }
+
+    .item-img {
+      padding: 13px 15px;
+
+      .feedback_image {
+        display: inline-block;
+        position: relative;
+        // border: 1px solid #00A7FF;
+        margin-right: 15px;
+        background-color: #c7c7c7;
+        height: 60px;
+        width: 60px;
+
+        img {
+          position: absolute;
+          height: 58px;
+          width: 58px;
+          object-fit: cover;
+        }
+
+
+        input[type=file] {
+          display: none;
+        }
+
+        button {
+          top: 0;
+          left: 0;
+          position: absolute;
+          background-color: transparent;
+          height: 58px;
+          width: 58px;
+          border-radius: 0;
+          line-height: 19px;
+          .camera-icon {
+            height: 19px;
+            vertical-align: middle;
+          }
+        }
+
+        .remove-image {
+          position: absolute;
+          top: -8px;
+          right: -11px;
+          cursor: pointer;
+          height: 20px;
+          width: 20px;
+          border-radius: 10px;
+          background-color: #8c8ea4;
+          $cross-offset-y: 9px;
+          $cross-offset-x: 4px;
+          &:before {
+            content: "";
+            position: absolute;
+            width: 12px;
+            border-top: 1px solid #f0f0f0;
+            transform: rotate(45deg);
+            top: $cross-offset-y;
+            left: $cross-offset-x;
+          }
+          &:after {
+            content: "";
+            position: absolute;
+            width: 12px;
+            border-top: 1px solid #f0f0f0;
+            transform: rotate(-45deg);
+            top: $cross-offset-y;
+            left: $cross-offset-x;
+          }
+        }
+      }
+    }
+  }
+
+  .contact {
+    font-size: 15px;
+    line-height: 1.5;
+    margin: 50px 0px;
+    text-align: center;
+  }
+
+  .submit-feedback {
+    border-radius: 0;
+  }
+}
+
+#feedback-success-toast {
+  padding: 44px 50px 60px;
+  background-color: $loading-bg-color;
+
+  .img-toast-success {
+    margin: auto;
+    width: 45px;
+    height: 45px;
+    background: {
+      size: contain;
+      repeat: no-repeat;
+    }
+  }
+}

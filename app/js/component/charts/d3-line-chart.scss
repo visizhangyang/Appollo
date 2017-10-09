@@ -1,0 +1,62 @@
+.d3-line-chart {
+    //background: #eee;
+    .g-chart {
+        .line {
+            fill: none;
+        }
+    }
+    .g-axis {
+        .axis.x {
+            .domain {
+                stroke: #979797;
+            }
+            .tick {
+                text {
+                    fill: #4B4B4B;
+                    font-size: 10px;
+                }
+                line {
+                    stroke: #979797;
+                    stroke-width: 1px;
+                }
+            }
+        }
+        .axis.y {
+            .domain {
+                stroke: #F4F4F4;
+            }
+            .tick {
+                text {
+                    fill: #4B4B4B;
+                    font-size: 10px;
+                }
+            }
+        }
+    }
+}
+
+.d3-line-chart-period-component {
+    .legend {
+        display: flex;
+        padding: {
+            top: 0;
+            left: 15px;
+            right: 15px;
+            bottom: 10px;
+        }
+        .line {
+            margin: 0 8px;
+            display: flex;
+            align-items: center;
+            .color {
+                width: 15px;
+                height: 3px;
+            }
+            .label {
+                margin-left: 5px;
+                font-size: 10px;
+                color: #9B9B9B;
+            }
+        }
+    }
+}

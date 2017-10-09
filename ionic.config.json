@@ -1,0 +1,34 @@
+{
+  "name": "unicorn",
+  "app_id": "",
+  "documentRoot": "build/dist",
+  "createDocumentRoot": "build/dist",
+  "watchPatterns": [
+    "build/dist/*",
+    "!build/dist/**/*.map",
+    "!build/dist/**/*.json"
+  ],
+  "proxies": [
+    {
+      "path": "/api/",
+      "proxyUrl": "http://localhost:8000/api/"
+    },
+    {
+      "path": "/static/",
+      "proxyUrl": "http://localhost:8000/static/"
+    },
+    {
+      "path": "/support/",
+      "proxyUrl": "http://localhost:8000/support/"
+    },
+    {
+      "path": "/private_media/",
+      "proxyUrl": "http://localhost:8000/private_media/"
+    },
+    {
+      "path": "/media/",
+      "proxyUrl": "http://localhost:8000/media/"
+    }
+  ],
+  "type": "ionic1"
+}

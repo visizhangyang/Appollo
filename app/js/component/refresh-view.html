@@ -1,0 +1,13 @@
+<div>
+  <ion-spinner class="page-body-spinner"
+               ng-if="$ctrl.requesting"></ion-spinner>
+  <div ng-if="$ctrl.refresher.loaded" ng-transclude></div>
+  <div class="item  item-button-right"
+       ng-if="!$ctrl.refresher.requesting && !$ctrl.refresher.loaded">
+    网络不给力, 请稍后再试
+    <button class="button button-red item-button"
+            ng-click="$ctrl.retry($event)">
+      重试
+    </button>
+  </div>
+</div>

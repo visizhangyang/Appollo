@@ -1,0 +1,67 @@
+<ion-view view-title="保险保障" hide-back-button="true"
+          class="assetForm white-theme">
+  <ion-nav-buttons>
+    <back-btn state="tab.crm"></back-btn>
+  </ion-nav-buttons>
+  <ion-content>
+    <div class="list margin-top">
+
+      <div class="item item-divider normal-divider item-light">
+        保险保障
+      </div>
+
+      <div class="margin-top">
+        <money-slide
+          min="30"
+          max="70"
+          label="'理想退休年龄'"
+          slide-type="'age'"
+          is-linear="true"
+          value="vm.data.retirement_age || 0"
+          on-change="vm.onChangeRetirementAge(value)"
+        ></money-slide>
+        <money-slide
+          min="0"
+          max="500"
+          is-linear="true"
+          label="'预期子女教育总估算'"
+          value="vm.data.children_education_budget || 0"
+          on-change="vm.onChangeEdu(value)"></money-slide>
+        <money-slide
+          min="0"
+          max="500"
+          is-linear="true"
+          label="'退休生活的预期年费用'"
+          value="vm.data.annual_cost_after_retirement || 0"
+          on-change="vm.onChangeRetireCost(value)"></money-slide>
+        <money-slide
+          middle="1000"
+          label="'健康险 (保额)'"
+          value="vm.data.health_insurance_coverage || 0"
+          on-change="vm.onChangeHealth(value)"></money-slide>
+        <money-slide
+          middle="1000"
+          label="'终身寿险 (保额)'"
+          value="vm.data.life_insurance_coverage || 0"
+          on-change="vm.onChangeLift(value)"></money-slide>
+      </div>
+
+      <div class="error" style="padding: 15px">
+        <div ng-if="vm.submitError">
+          <span>
+          {{ vm.submitError }}
+          </span>
+        </div>
+      </div>
+    </div>
+
+  </ion-content>
+
+  <ion-footer-bar>
+    <button class="button button-full button-positive"
+            ng-click="vm.next()">
+      下一步 财富体检报告
+    </button>
+  </ion-footer-bar>
+
+</ion-view>

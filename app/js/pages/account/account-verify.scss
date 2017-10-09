@@ -1,0 +1,52 @@
+.account-verify-page {
+
+  .upload-img-container {
+    $img-margin: 13px;
+    $img-height: 164px;
+    margin: 20px;
+    height: $img-height + 2 * $img-margin;
+    position: relative;
+    background: #212228;
+    border: 1px solid #3f4a59;
+    text-align: center;
+
+    input[type=file] {
+      display: none;
+    }
+    .uploaded-img {
+      width: 100%;
+      height: $img-height;
+      opacity: 0.5;
+      position: absolute;
+      top: $img-margin;
+      left: 50%;
+      transform: translateX(-50%);
+      background: {
+        image: url('public/demo_card.png');
+        size: contain;
+        repeat: no-repeat;
+        position: 50% 50%;
+      };
+    }
+
+    .upload-action {
+      position: absolute;
+      top: 55%;
+      left: 50%;
+      transform: translateX(-50%) translateY(-50%);
+      color: $light;
+
+      background: none;
+      border: none;
+
+      .icon {
+        font-size: 50px;
+        max-height: 58px;
+        display: block;
+      }
+      span {
+        font-size: 15px;
+      }
+    }
+  }
+}

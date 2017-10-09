@@ -1,0 +1,69 @@
+.risk-level-adjustment-graph {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: {
+        top: 20px;
+        bottom: 15px;
+    }
+    slide-wheel {
+        position: relative;
+        display: block;
+        height: 310px;
+        width: 300px;
+    }
+    .operator-big {
+        display: inline-block;
+        width: 12.5px;
+        height: 15px;
+    }
+    .operator-small {
+        display: inline-block;
+        width: 8.5px;
+        height: 10px;
+    }
+    .profit-label.en, .loss-label.en {
+      font-size: 9px;
+      color: $secondary-base-color;
+      @include bold-font();
+    }
+
+    tspan.probability {
+      &.loss {
+        fill: $loss-color;
+      }
+
+      &.profit {
+        fill: $profit-color;
+      }
+
+      &.en {
+        font-size: 14px;
+        &.loss {
+          fill: $loss-color-en;
+        }
+
+        &.profit {
+          fill: $profit-color-en;
+        }
+      }
+    }
+
+    circle.profit {
+      fill: $profit-color;
+
+      &.en {
+        fill: $profit-color-en;
+      }
+    }
+
+    circle.loss {
+      fill: $loss-color;
+
+      &.en {
+        fill: $loss-color-en;
+      }
+    }
+}

@@ -1,0 +1,28 @@
+<ion-view view-title="认证"
+          class="account-verify-done-page"
+          hide-back-button="true">
+  <ion-nav-buttons>
+    <back-btn state="tab.account"></back-btn>
+  </ion-nav-buttons>
+
+  <ion-content>
+    <div class="page-confirmation">
+      <div class="icons">
+        <i class="icon unicon-verify-done"></i>
+      </div>
+      <p>感谢您的提交，我们的客服会给您进行电话认证。请留意您的来电信息。</p>
+      <div class="contact">
+        <div>客服电话</div>
+        <div><a href="tel: 01058222982">010-58222982</a></div>
+      </div>
+    </div>
+  </ion-content>
+
+
+  <ion-footer-bar>
+    <button class="button button-full button-positive"
+            ng-click="vm.done()">
+      完成
+    </button>
+  </ion-footer-bar>
+</ion-view>

@@ -1,0 +1,51 @@
+<div class="proposal-cmp">
+
+  <div class="item item-divider normal-divider item-light margin-top">
+    投资组合建议
+  </div>
+
+  <div class="distribution">
+    <u-donut donut-data="$ctrl.donutData"></u-donut>
+    <div class="symbols">
+      <div class="symbol" ng-class="item.code" ng-repeat="item in $ctrl.donutData">
+        <span>{{item.code | transAsset }}: {{ item.amount | formatMoney }} 万</span>
+      </div>
+    </div>
+  </div>
+  <div class="item item-divider normal-divider item-light">
+    产品定制组合
+  </div>
+
+  <div ng-repeat="group in $ctrl.groupsList || []">
+    <div class="item item-white margin-top">
+      {{ group.name | transAsset }}
+    </div>
+    <div class="item proposal-item item-set-5 item-white">
+      <div class="item-field item-field-2x">产品名称</div>
+      <div class="item-field">配比</div>
+      <div class="item-field">金额</div>
+      <div class="item-field">历史年化<span class="highlight">*</span></div>
+      <div class="item-field">风险等级</div>
+    </div>
+    <div class="item proposal-item item-set-5 item-white"
+         ng-repeat="product in group.products">
+      <div class="item-field item-field-2x" ng-class="{'is-company': !!product.company}">{{ product.product_name }}</div>
+      <div class="item-field">{{ product.percentage * 100 | formatPercent}}%</div>
+      <div class="item-field">{{ product.amount | formatMoney }}万</div>
+      <div class="item-field" ng-if="product.return_rate">{{ product.return_rate | formatPercent }}%</div>
+      <div class="item-field" ng-if="!product.return_rate">浮动</div>
+      <div class="item-field">{{ product.risk_level | transRiskLevel }}</div>
+    </div>
+    <div class="item proposal-item item-set-5 item-white">
+      <div class="item-field item-field-2x">客户已持有产品</div>
+      <div class="item-field">{{ group.inHand.percentage * 100 | formatPercent}}%</div>
+      <div class="item-field">{{ group.inHand.amount | formatMoney }}万</div>
+      <div class="item-field">-</div>
+      <div class="item-field">-</div>
+    </div>
+  </div>
+
+  <div ng-if="$ctrl.groupsList && $ctrl.groupsList.length">
+    <div class="block-text"><span class="highlight">*</span> 产品定制组合中没有历史年化收益率的非标产品，此列数据填写为其他已退出产品的参考年化收益率。</div>
+  </div>
+</div>

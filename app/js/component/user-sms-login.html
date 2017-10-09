@@ -1,0 +1,74 @@
+
+<ion-modal-view class="user-sms-login-modal">
+
+  <ion-header-bar>
+    <div class="buttons">
+      <button class="button back-button"
+              ng-click="vm.back()">
+        <i class="icon ion-back"></i>
+      </button>
+    </div>
+    <h1 class="title">短信登录</h1>
+  </ion-header-bar>
+
+  <form novalidate name="form" class="m-form">
+  <ion-content>
+      <div class="list margin-top">
+        <ion-input class="item item-input item-send-code">
+          <ion-label>手机号</ion-label>
+          <input type="tel"
+                 size="11"
+                 ng-pattern="/^1[3|4|5|7|8][0-9]\d{8}$|^0{6}\d{5}$/"
+                 ng-model="vm.user.phone"
+                 name="uPhone"
+                 placeholder="11位手机号码"
+                 ng-change="vm.clearError(form)"
+                 required>
+
+          <button class="button button-request-code button-small button-positive"
+                  ng-click="vm.requestCode($event)"
+                  type="button"
+                  ng-disabled="!vm.counter.data.couldRequest || form.uPhone.$invalid">
+            <span ng-if="vm.counter.data.couldRequest">获取验证码</span>
+            <span ng-if="!vm.counter.data.couldRequest" class="countTimer">{{ vm.counter.data.timer }}秒</span>
+          </button>
+        </ion-input>
+        <ion-input class="item item-input">
+          <ion-label>验证码</ion-label>
+          <input type="text"
+                 ng-model="vm.user.code"
+                 name="uCode"
+                 placeholder="验证码"
+                 ng-change="vm.clearError(form)"
+                 required>
+        </ion-input>
+
+        <div class="error">
+          <span ng-if="form.uPhone.$dirty
+                       && form.uPhone.$invalid
+                       && form.uPhone.$touched">
+            手机号码格式不正确<span ng-if="form.uCode.$invalid && form.uCode.$touched">；</span>
+          </span>
+          <span ng-if="form.uCode.$dirty
+                       && form.uCode.$invalid
+                       && form.uCode.$touched">
+            请填写验证码
+          </span>
+          <div ng-if="vm.submitError">
+            <span>
+              {{ vm.submitError }}
+            </span>
+          </div>
+        </div>
+
+      </div>
+
+      <button class="button button-full button-positive margin-top"
+              ng-disabled="form.$invalid || !vm.counter.data.requested"
+              on-request="vm.login($event, form.$valid)">
+        登录
+      </button>
+  </ion-content>
+</form>
+
+</ion-modal-view>

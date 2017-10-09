@@ -1,0 +1,57 @@
+@import "ionic/scss/variables";
+
+// $ionicons-font-family:            'App-font-icons';
+$ionicons-font-path:              "fonts";
+
+
+$green:                           #62bb28;
+$yellow:                          #f5b723;
+$blue:                            #49aeff;
+$light-blue:                      #99d9ff;
+$red:                             #f24a30;
+$strong-blue:                     #3675fa;
+$icon-grey:                       #bbbbbb;
+$positive:                        #00A7FF;
+$button-positive-bg:              #00A7FF;
+$aggressive:                      #d0021b;
+$orange:                          #ff9f00;
+$blue:                            #00A7FF;
+
+$base-background-color:           #F7F7F7;
+$base-color:                      #424242;
+$secondary-base-color:            #9B9B9B;
+
+$content-padding:                 15px;
+
+$font-size-base:                  12px;
+$font-family-base:                HelveticaNeue-Light, PingFangSC-Thin, monospace, sans-serif-light, sans-serif;
+
+$tabs-icon-size:                  24px;
+
+$button-light-text:               $base-color;
+$item-default-text:               $base-color;
+$button-font-size:                12px;
+$button-small-font-size:          10px;
+$item-font-size:                  14px;
+$scroll-refresh-icon-color:       $dark;
+$spinner-default-stroke:          $light;
+$spinner-default-fill:            $light;
+
+
+$loading-bg-color:                rgba(0, 0, 0, 0.7);
+$loading-backdrop-bg-color:       rgba(0, 0, 0, 0.4);
+
+
+$modal-bg-color:                  $stable;
+
+$popup-background-color:          white;
+
+$button-height:                   39px;
+$input-color-placeholder:         #9b9b97;
+
+$profit-color:                    #FF3B30;
+$loss-color:                      #5AE571;
+$profit-color-en:                 #5AE571;
+$loss-color-en:                   #FF3B30;
+
+$bar-default-text:                $base-color;

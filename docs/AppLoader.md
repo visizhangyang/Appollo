@@ -1,0 +1,1 @@
+https://github.com/markmarijnissen/cordova-app-loader

@@ -1,0 +1,27 @@
+<ion-view view-title="上传产品"
+          hide-back-button="true"
+          class="product-new-done-page">
+  <ion-nav-buttons>
+    <back-btn state="tab.account"></back-btn>
+  </ion-nav-buttons>
+
+  <ion-content>
+    <div class="page-confirmation">
+      <div class="icons">
+        <i class="icon unicon-verify-done"></i>
+      </div>
+      <p>您的产品已上传成功，可以在产品配置中查看</p>
+      <div class="contact">
+        <div>客服电话</div>
+        <div><a href="tel: 01058222982">010-58222982</a></div>
+      </div>
+    </div>
+  </ion-content>
+
+  <ion-footer-bar>
+    <button class="button button-full button-positive"
+            ng-click="vm.done()">
+      完成
+    </button>
+  </ion-footer-bar>
+</ion-view>

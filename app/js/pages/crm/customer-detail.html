@@ -1,0 +1,107 @@
+<ion-view view-title="{{'customer_detail_title'|translate}}" hide-back-button="true" class="customer-detail-page">
+    <ion-nav-buttons>
+        <back-btn state="tab.crm"></back-btn>
+    </ion-nav-buttons>
+
+    <ion-content class="has-support">
+
+        <div class="summary-container">
+            <div class="summary">
+                <div class="header">
+                    <i class="icon unicon-important-client-dark" ng-if="vm.client.client_level === 'IMPORTANT'"></i>
+                    <span class="name" ng-bind="vm.client.name"></span>
+                </div>
+                <div class="position">
+                    <span ng-bind="vm.client.job_position"></span>
+                    <span ng-if="vm.client.job_position && vm.client.company">|</span>
+                    <span ng-bind="vm.client.company"></span>
+                </div>
+                <div class="progress">
+                    {{'customer_detail_last_updated'|translate}}
+                    <span ng-bind="vm.client.followed | date: 'dd/MM/yyyy HH:mm'"></span>
+                </div>
+            </div>
+        </div>
+
+        <div class="detail-container">
+            <button role="button" class="button button-clear edit-btn" ui-sref="customerEdit({id: vm.client.id})" nav-direction="forward">
+                {{'customer_detail_edit'|translate}}
+            </button>
+            <div class="title-bar">
+                {{'customer_detail_client_info'|translate}}
+            </div>
+            <div class="info-item client-phone" ng-bind="vm.client.phone"></div>
+            <div class="info-item" ng-if="vm.client.we_chat">
+                {{'customer_detail_wechat'|translate}}: {{ vm.client.we_chat }}
+            </div>
+            <div class="info-item" ng-if="vm.client.company">
+                {{'customer_detail_company'|translate}}: {{ vm.client.company }}
+            </div>
+            <div class="info-item" ng-if="vm.client.job_position">
+                {{'customer_detail_client_position'|translate}}: {{ vm.client.job_position }}
+            </div>
+            <div class="info-item" ng-if="vm.client.birthday">
+                {{'customer_detail_birth_date'|translate}}: {{ vm.client.birthday | date: 'dd/MM/yyyy' }}
+            </div>
+
+            <div class="info-item" ng-if="vm.client.address">
+                {{'customer_detail_address'|translate}}: {{ vm.client.address }}
+            </div>
+            <div class="info-item" ng-if="vm.client.status">
+                {{'customer_detail_client_status'|translate}}: {{ vm.client.status }}
+            </div>
+            <div class="info-item" ng-if="vm.client.source">
+                {{'customer_detail_client_source'|translate}}: {{ vm.client.source }}
+            </div>
+            <div class="info-item" ng-if="vm.client.note">
+                {{'customer_detail_comment'|translate}}: {{ vm.client.note }}
+            </div>
+            <div class="info-item">
+                {{'customer_detail_creation_time'|translate}}:
+                <span ng-bind="vm.client.created | date: 'dd/MM/yyyy HH:mm'"></span>
+            </div>
+            <div class="info-item follow-date">
+                {{'customer_detail_last_modified'|translate}}:
+                <span ng-bind="vm.client.updated | date: 'dd/MM/yyyy HH:mm'"></span>
+            </div>
+        </div>
+
+        <div class="list">
+            <a class="item item-icon-right" ui-sref="kyc({clientId: vm.client.id})" nav-direction="forward">
+              {{'customer_detail_create_investment_portfolio'|translate}}
+              <i class="icon unicon-forward accessory"></i>
+            </a>
+            <a class="item item-icon-right" ui-sref="portfolioList({clientId: vm.client.id})" nav-direction="forward">
+              {{'customer_detail_portfolio_list'|translate}}
+              <i class="icon unicon-forward accessory"></i>
+            </a>
+            <!--<a class="item item-icon-right" ng-if="!vm.client.risk_level" ui-sref="risklevelChange({id: vm.client.id})" nav-direction="forward">
+              风险等级
+              <i class="icon unicon-forward accessory"></i>
+            </a>-->
+            <!--<a class="item item-icon-right" ng-if="vm.client.has_asset_allocation" ui-sref="asset-summary({clientId: vm.client.id})"
+                nav-direction="forward">
+              财富体检
+              <i class="icon unicon-forward accessory"></i>
+            </a>
+            <a class="item item-icon-right" ng-if="vm.client.has_portfolio_proposal" ui-sref="proposal({id: vm.client.id})" nav-direction="forward">
+              组合建议
+              <i class="icon unicon-forward accessory"></i>
+            </a>-->
+            <a class="item item-icon-right" ui-sref="portfolioAnalysis({clientId: vm.client.id})" nav-direction="forward" ng-if="vm.UserModel.features['ATTRIBUTE_ANALYSIS']">
+              {{'customer_detail_attribution_analysis'|translate}}
+              <i class="icon unicon-forward accessory"></i>
+            </a>
+            <a class="item item-icon-right" ui-sref="efProfile({clientId: vm.client.id})" nav-direction="forward" ng-if="vm.UserModel.features['EFFICIENT_FRONTIER']">
+              {{'customer_detail_efficient_frontier_optimization'|translate}}
+              <i class="icon unicon-forward accessory"></i>
+            </a>
+            <!--<a class="item item-icon-right" ng-disabled="!vm.client.has_proposal_book" ui-sref="bookList({clientId: vm.client.id})" nav-direction="forward">
+              {{'customer_detail_report_compliance'|translate}}
+              <i class="icon unicon-forward accessory"></i>
+            </a>-->
+        </div>
+
+    </ion-content>
+
+</ion-view>

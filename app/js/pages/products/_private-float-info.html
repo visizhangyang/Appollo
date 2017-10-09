@@ -1,0 +1,132 @@
+
+<div class="item-group">
+  <div class="item item-divider">
+    基本信息
+  </div>
+
+  <div class="item item-field-detail" ng-if="vm.product.product_name">
+    <div class="field field-label">产品名称</div>
+    <div class="field field-value">{{ vm.product.product_name }}</div>
+  </div>
+
+  <div class="item item-field-detail" ng-if="vm.product.fund_type">
+    <div class="field field-label">基金类型</div>
+    <div class="field field-value">{{ vm.product.fund_type | trans }}</div>
+  </div>
+
+  <div class="item item-field-detail" ng-if="vm.product.fund_company">
+    <div class="field field-label">基金公司</div>
+    <div class="field field-value">{{ vm.product.fund_company }}</div>
+  </div>
+
+  <div class="item item-field-detail" ng-if="vm.product.fund_manager">
+    <div class="field field-label">基金经理</div>
+    <div class="field field-value">{{ vm.product.fund_manager }}</div>
+  </div>
+
+  <div class="item item-field-detail" ng-if="vm.product.custodian_agency">
+    <div class="field field-label">托管机构</div>
+    <div class="field field-value">{{ vm.product.custodian_agency }}</div>
+  </div>
+
+  <div class="item item-field-detail" ng-if="vm.product.investment_direction">
+    <div class="field field-label">投资方向</div>
+    <div class="field field-value">{{ vm.product.investment_direction }}</div>
+  </div>
+
+  <div class="item item-field-detail" ng-if="vm.product.investment_period">
+    <div class="field field-label">投资期限</div>
+    <div class="field field-value">{{ vm.product.investment_period }}</div>
+  </div>
+
+  <div class="item item-field-detail" ng-if="vm.product.issue_size">
+    <div class="field field-label">发行规模</div>
+    <div class="field field-value">{{ vm.product.issue_size }}万</div>
+  </div>
+
+  <div class="item item-field-detail" ng-if="vm.product.cumulative_NAV">
+    <div class="field field-label">累积净值</div>
+    <div class="field field-value">{{ vm.product.cumulative_NAV }}</div>
+  </div>
+
+  <div class="item item-field-detail" ng-if="vm.product.issue_date">
+    <div class="field field-label">成立时间</div>
+    <div class="field field-value">{{ vm.product.issue_date }}</div>
+  </div>
+
+  <div class="item item-field-detail" ng-if="vm.product.closing_period">
+    <div class="field field-label">封闭期</div>
+    <div class="field field-value">{{ vm.product.closing_period }}</div>
+  </div>
+
+  <div class="item item-field-detail" ng-if="vm.product.open_day">
+    <div class="field field-label">开放日</div>
+    <div class="field field-value">{{ vm.product.open_day }}</div>
+  </div>
+
+  <div class="item item-field-detail" ng-if="vm.product.risk_management">
+    <div class="field field-label">风险控制</div>
+    <div class="field field-value">{{ vm.product.risk_management }}</div>
+  </div>
+
+  <div class="item item-field-detail" ng-if="vm.product.initial_deposit">
+    <div class="field field-label">投资门槛</div>
+    <div class="field field-value">{{ vm.product.initial_deposit }}万</div>
+  </div>
+
+  <div class="item item-field-detail" ng-if="vm.product.product_status">
+    <div class="field field-label">产品状态</div>
+    <div class="field field-value">{{ vm.product.product_status | productStatus }}</div>
+  </div>
+
+  <div class="item preline" ng-if="vm.product.instruction" ng-bind="vm.product.instruction">
+  </div>
+  <!--//5月18日成立，最迟5月17日打款，额度充裕-->
+
+  <div class="item item-field-detail" ng-if="vm.product.performance_pay">
+    <div class="field field-label">业绩报酬</div>
+    <div class="field field-value">{{ vm.product.performance_pay }}</div>
+  </div>
+
+  <div class="item item-field-detail" ng-if="vm.product.account_number">
+    <div class="field field-label">募集账号</div>
+    <div class="field field-value">{{ vm.product.account_number }}</div>
+  </div>
+
+  <div class="item item-field-detail" ng-if="vm.product.account_name">
+    <div class="field field-label">募集账户名</div>
+    <div class="field field-value">{{ vm.product.account_name }}</div>
+  </div>
+
+  <div class="item item-field-detail" ng-if="vm.product.bank_name">
+    <div class="field field-label">募集开户行</div>
+    <div class="field field-value">{{ vm.product.bank_name }}</div>
+  </div>
+
+  <div class="item item-field-detail" ng-if="vm.product.front_end_fee">
+    <div class="field field-label">认购费用</div>
+    <div class="field field-value">{{ vm.product.front_end_fee }}</div>
+  </div>
+
+  <div class="item item-field-detail" ng-if="vm.product.management_fees">
+    <div class="field field-label">管理费用</div>
+    <div class="field field-value">{{ vm.product.management_fees }}</div>
+  </div>
+
+  <div class="item item-field-detail" ng-if="vm.product.custodian_fee">
+    <div class="field field-label">托管费用</div>
+    <div class="field field-value">{{ vm.product.custodian_fee }}</div>
+  </div>
+
+  <div class="item item-field-detail" ng-if="vm.product.back_end_fee">
+    <div class="field field-label">赎回费用</div>
+    <div class="field field-value">{{ vm.product.back_end_fee }}</div>
+  </div>
+
+  <div class="item item-field-detail" ng-if="vm.product.investment_objective">
+    <div class="field field-label">投资理念</div>
+    <div class="field field-value">{{ vm.product.investment_objective }}</div>
+  </div>
+
+
+</div>

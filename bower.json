@@ -1,0 +1,13 @@
+{
+  "name": "unicorn",
+  "private": "true",
+  "devDependencies": {
+    "ionic": "driftyco/ionic-bower#1.3.1",
+    "Ionicons": "https://github.com/bjmicai/ionicons.git#f1049ce46a9014d9f284129ca2f2d42f09b33d22"
+  },
+  "dependencies": {
+    "ngstorage": "^0.3.10",
+    "restangular": "^1.5.2",
+    "raven-js": "^3.0.4"
+  }
+}

@@ -1,0 +1,66 @@
+<ion-view view-title="我的订单"
+          class="product-attachments-page"
+          hide-back-button="true">
+  <ion-nav-buttons >
+    <back-btn state="tab.account"></back-btn>
+  </ion-nav-buttons>
+
+  <ion-content>
+
+    <ion-refresher
+      pulling-text="往下拉来刷新..."
+      on-refresh="vm.pullRefresh()">
+    </ion-refresher>
+
+    <refresh-view refresher="vm.refresher">
+
+      <div class="blank-page"
+           ng-if="!vm.orderList.length">
+        <p>
+          您目前没有预约的产品
+        </p>
+
+        <button class="button button-white button-block"
+                nav-direction="back"
+                ui-sref="tab.products">
+          点击进入产品页
+        </button>
+      </div>
+
+      <div class="card"
+           nav-direction="forward"
+           ui-sref="orderDetail({orderId: order.id})"
+           ng-repeat="order in vm.orderList">
+        <div class="item item-divider"
+             ng-bind="order.product_name || '此处应有产品名称'">
+        </div>
+        <div class="item item-fields-set-4">
+          <div class="item-field" ng-bind="order.client_name ? '客户' : '投资人'"></div>
+          <div class="item-field">金额</div>
+          <div class="item-field">佣金</div>
+          <div class="item-field">状态</div>
+        </div>
+        <div class="item item-fields-set-4">
+          <div class="item-field"
+               ng-bind="order.investor_name || order.client_name"></div>
+          <div class="item-field"
+               ng-bind="order.amount + '万'"></div>
+          <div class="item-field"
+               ng-bind="order.commission + '元'"></div>
+          <div class="item-field"
+               ng-bind="order.status | orderStatus"></div>
+        </div>
+        <div class="item item-button-right" ng-style="{'font-size': '12px'}">
+          订单更新时间：{{ order.updated | date: 'yyyy-MM-dd HH:mm' }}
+          <button class="button button-red item-button button-small"
+                  ng-if="order.status | couldCancel"
+                  ng-click="vm.onClickCancel($event, order.id)">
+            取消预约
+          </button>
+        </div>
+
+      </div>
+    </refresh-view>
+
+  </ion-content>
+</ion-view>

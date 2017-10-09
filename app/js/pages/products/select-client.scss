@@ -1,0 +1,17 @@
+.select-client-page {
+  .customer-item-cmp {
+    margin-top: 0;
+    .header {
+      padding-left: 7px;
+      &.important {
+        padding-left: 7px;
+      }
+      line-height: 1;
+      position: static;
+      .icon {
+        top: 7px;
+        left: 15px;
+      }
+    }
+  }
+}

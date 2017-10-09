@@ -1,0 +1,72 @@
+<ion-view view-title="{{'proposal_suggestion_title'|translate}}" hide-back-button="true" class="proposal-page white-theme">
+  <ion-nav-buttons>
+    <back-btn state="tab.crm"></back-btn>
+  </ion-nav-buttons>
+  <ion-content>
+    <div class="item section-header">
+      {{'proposal_suggestion_investment_portfolio_suggestion'|translate}}
+    </div>
+
+    <div ng-if="vm.proposal" class="barchart-containr padding-horizontal" ui-sref="proposalPerf({id:vm.clientId,proposal:vm.proposal})">
+      <barchart-cmp type="ex" data="vm.barData"></barchart-cmp>
+      <div class="arrow-right">
+        <i class="icon unicon-forward"></i>
+      </div>
+    </div>
+
+    <div class="list">
+      <div ng-repeat="group in vm.groupsList || []">
+        <div class="group-header padding" ng-click="group.open = !group.open">
+          <div class="dot {{group.code}}"></div>
+          <div class="info">
+            <!--{{ group.code | transAsset }} (调整配比：{{ group.adjustPercent | formatPercent:true }}%&nbsp;&nbsp;+{{ (group.amount | formatMoney)
+            | formatMoney}}万元)-->
+            {{ group.code | transAsset }} (+&pound;{{ (group.amount | formatMoney)}}{{'common_amount_unit'|translate}})
+          </div>
+          <div class="total-amount">&pound;{{ (group.totalAmount | formatMoney)}}{{'common_amount_unit'|translate}}</div>
+          <div class="chevron"><i class="ion ion-chevron-down" ng-class="{'active' : group.open}"></i></div>
+        </div>
+        <div class="group-body padding-horizontal" ng-if="group.open">
+          <div class="row" ng-repeat="product in group.products">
+            <div class="col col-33">{{product.product_name}}</div>
+            <div class="col">{{product.risk_level | transRiskLevel}}</div>
+            <div class="col">{{product.percentage *100 | formatPercent}}%</div>
+            <div class="col col-20">&pound;{{product.amount | formatMoney}}M</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="summary">
+      <div class="row">
+        <div class="col">Portfolio Total(+&pound;{{vm.report.planning_investment | formatMoney}}M)</div>
+        <div class="col total-amount">&pound;{{vm.report.total_investment | formatMoney}}M</div>
+      </div>
+    </div>
+
+    <div class="item section-header product-section-header item-icon-right" ui-sref="proposalForm({id: vm.clientId})" nav-direction="forward">
+      {{'proposal_suggestion_customized_portfolio'|translate}}
+      <i class="icon unicon-forward accessory"></i>
+    </div>
+
+    <div class="item section-header profile-section-header item-icon-right" ui-sref="proposalEFProfile({clientId: vm.clientId})"
+      nav-direction="forward" ng-if="vm.UserModel.features['EFFICIENT_FRONTIER']">
+      有效边界优化
+      <i class="icon unicon-forward accessory"></i>
+    </div>
+
+  </ion-content>
+
+  <ion-footer-bar>
+    <ion-footer-bar>
+      <div class="button-bar">
+        <button class="button button-full button-positive {{vm.language}}" on-request="vm.onNext()">
+          {{'proposal_suggestion_footer_save_for_review'|translate}}
+        </button>
+        <button class="button button-full button-positive {{vm.language}}" on-request="vm.onSaveAsPdf()">
+          {{'proposal_suggestion_footer_save_as_pdf'|translate}}
+        </button>
+      </div>
+    </ion-footer-bar>
+  </ion-footer-bar>
+</ion-view>

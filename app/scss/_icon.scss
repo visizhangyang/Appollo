@@ -1,0 +1,239 @@
+$prefix: '.unicon';
+@mixin background-icon($url) {
+    background: {
+        image: url($url);
+        size: contain;
+        position: center center;
+        repeat: no-repeat;
+    }
+    ;
+}
+
+#{$prefix}-forward {
+    @include background-icon('/icon/forward.svg#datauri');
+}
+
+#{$prefix}-account {
+    @include background-icon('/icon/account.svg#datauri');
+    -webkit-filter: grayScale(100%);
+}
+
+#{$prefix}-home {
+    @include background-icon('/icon/home.svg#datauri');
+    -webkit-filter: grayScale(100%);
+}
+
+#{$prefix}-messages {
+    @include background-icon('/icon/messages.svg#datauri');
+    -webkit-filter: grayScale(100%);
+}
+
+#{$prefix}-crm {
+    @include background-icon('/icon/crm.svg#datauri');
+    -webkit-filter: grayScale(100%);
+}
+
+#{$prefix}-products {
+    @include background-icon('/icon/products.svg#datauri');
+    -webkit-filter: grayScale(100%);
+}
+
+#{$prefix}-filter {
+    @include background-icon('/icon/filter.svg#datauri');
+}
+
+#{$prefix}-search {
+    @include background-icon('/icon/search.svg#datauri');
+}
+
+#{$prefix}-account-invite {
+    @include background-icon('/icon/account-invite.svg#datauri');
+}
+
+#{$prefix}-account-order {
+    @include background-icon('/icon/account-order.svg#datauri');
+}
+
+#{$prefix}-account-product {
+    @include background-icon('/icon/account-product.svg#datauri');
+}
+
+#{$prefix}-account-support {
+    @include background-icon('/icon/account-support.svg#datauri');
+}
+
+#{$prefix}-account-upload-product {
+    @include background-icon('/icon/account-upload-product.svg#datauri');
+}
+
+#{$prefix}-verify-done {
+    @include background-icon('/icon/verify-done.svg#datauri');
+    width: 36px;
+    height: 36px;
+    display: block;
+    margin: auto;
+}
+
+#{$prefix}-account-avatar {
+    @include background-icon('/icon/account-avatar.svg#datauri');
+}
+
+#{$prefix}-account-info {
+    @include background-icon('/icon/account-info.svg#datauri');
+}
+
+#{$prefix}-account-approved {
+    @include background-icon('/icon/account-approved.svg#datauri');
+}
+
+#{$prefix}-feature-trust {
+    @include background-icon('/icon/feature-trust.svg#datauri');
+}
+
+#{$prefix}-feature-asset {
+    @include background-icon('/icon/feature-asset.svg#datauri');
+}
+
+#{$prefix}-feature-private {
+    @include background-icon('/icon/feature-private.svg#datauri');
+}
+
+#{$prefix}-feature-other {
+    @include background-icon('/icon/feature-other.svg#datauri');
+}
+
+#{$prefix}-account-collection {
+    @include background-icon('/icon/account-collection.svg#datauri');
+}
+
+@mixin icon-collect-able {
+    @include background-icon('/icon/collect-able.svg#datauri');
+}
+
+@mixin icon-collected {
+    @include background-icon('/icon/collected.svg#datauri');
+}
+
+// 招商银行
+#{$prefix}-bank-cmb {
+    @include background-icon('/icon/bank-cmb.svg#datauri');
+}
+
+// bob 北京银行
+#{$prefix}-bank-bob {
+    @include background-icon('/icon/bank-bob.svg#datauri');
+}
+
+// boc 中国银行
+#{$prefix}-bank-boc {
+    @include background-icon('/icon/bank-boc.svg#datauri');
+}
+
+// icbc 中国工商银行
+#{$prefix}-bank-icbc {
+    @include background-icon('/icon/bank-icbc.svg#datauri');
+}
+
+// cgb 广发银行
+#{$prefix}-bank-cgb {
+    @include background-icon('/icon/bank-cgb.svg#datauri');
+}
+
+// abc 农业银行
+#{$prefix}-bank-abc {
+    @include background-icon('/icon/bank-abc.svg#datauri');
+}
+
+// ccb 建设银行
+#{$prefix}-bank-ccb {
+    @include background-icon('/icon/bank-ccb.svg#datauri');
+}
+
+// comm 交通银行
+#{$prefix}-bank-comm {
+    @include background-icon('/icon/bank-comm.svg#datauri');
+}
+
+// psbc 邮政储蓄
+#{$prefix}-bank-psbc {
+    @include background-icon('/icon/bank-psbc.svg#datauri');
+}
+
+// pingan 平安银行
+#{$prefix}-bank-pingan {
+    @include background-icon('/icon/bank-pingan.svg#datauri');
+}
+
+// cib 兴业银行
+#{$prefix}-bank-cib {
+    @include background-icon('/icon/bank-cib.svg#datauri');
+}
+
+//default
+#{$prefix}-bank-default {
+    @include background-icon('/icon/bank-default.svg#datauri');
+}
+
+#{$prefix}-send-message {
+    @include background-icon('/icon/send-message.svg#datauri');
+}
+
+#{$prefix}-call-tel {
+    @include background-icon('/icon/call-tel.svg#datauri');
+}
+
+#{$prefix}-cake {
+    @include background-icon('/icon/cake.svg#datauri');
+}
+
+#{$prefix}-important-client {
+    @include background-icon('/icon/important-client.svg#datauri');
+}
+
+#{$prefix}-important-client-dark {
+    @include background-icon('/icon/important-client-dark.svg#datauri');
+}
+
+#{$prefix}-new-client {
+    @include background-icon('/icon/new-client.svg#datauri');
+}
+
+#{$prefix}-support-call {
+    @include background-icon('/icon/support-call.svg#datauri');
+}
+
+#{$prefix}-plus {
+    @include background-icon('/icon/plus.svg#datauri');
+}
+
+@mixin cny-currency-content {
+    content: url('/icon/cny-currency.svg#datauri')
+}
+
+#{$prefix}-pdf {
+    content: url('/icon/pdf.svg#datauri');
+}
+
+#{$prefix}-dollar-circle {
+    @include background-icon('/icon/dollar-circle.svg#datauri');
+}
+
+#{$prefix}-edit {
+    @include background-icon('/icon/edit.svg#datauri');
+}
+
+#{$prefix}-trash {
+    @include background-icon('/icon/trash.svg#datauri');
+}
+
+#{$prefix}-greater-equal {
+    @include background-icon('/icon/greater-equal.svg#datauri');
+}
+
+#{$prefix}-less-equal {
+    @include background-icon('/icon/less-equal.svg#datauri');
+}
+
+#{$prefix}-pdf-share {
+    @include background-icon('/icon/pdf-share.svg#datauri');
+}

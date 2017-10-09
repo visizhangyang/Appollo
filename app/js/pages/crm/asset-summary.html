@@ -1,0 +1,25 @@
+<ion-view view-title="财富体检" hide-back-button="true" class="asset-summary-page white-theme">
+    <ion-nav-buttons>
+        <back-btn state="tab.crm"></back-btn>
+    </ion-nav-buttons>
+
+    <ion-content ng-class="{'has-footer': vm.hasNext}">
+
+        <div class="button-bar-box padding">
+            <div class="button-bar">
+                <a class="button button-small" ng-class="{active : vm.current_tab == 1}" ng-click="vm.changeTab(1)">客户资产现状</a>
+                <a class="button button-small" ng-class="{active : vm.current_tab == 2}" ng-click="vm.changeTab(2)">建议资产配置</a>
+                <a class="button button-small" ng-class="{active : vm.current_tab == 3}" ng-click="vm.changeTab(3)">保险保障</a>
+            </div>
+        </div>
+        <div ng-if="vm.current_tab == 1" class="financial-box">
+            <current-asset-cmp ng-if="vm.report" report="vm.report"></current-asset-cmp>
+        </div>
+        <div ng-if="vm.current_tab == 2" class="financial-box">
+            <suggest-asset-cmp ng-if="vm.analysis" analysis="vm.analysis"></suggest-asset-cmp>
+        </div>
+        <div ng-if="vm.current_tab == 3" class="financial-box">
+            <insurance-cmp ng-if="vm.report" report="vm.report"></insurance-cmp>
+        </div>
+    </ion-content>
+</ion-view>

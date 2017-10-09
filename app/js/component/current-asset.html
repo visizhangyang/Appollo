@@ -1,0 +1,35 @@
+<div class="current-asset-cmp">
+  <div class="distribution">
+    <barchart-cmp data="$ctrl.data"></barchart-cmp>
+    <!--<u-donut donut-data="$ctrl.donutData"></u-donut>-->
+    <!--<div class="symbols">
+      <div class="symbol" ng-class="item.code" ng-repeat="item in $ctrl.donutData">
+        <span>{{item.code | transAsset }}: {{ item.amount | formatNum }} 万</span>
+      </div>
+    </div>-->
+  </div>
+
+  <div class="item item-fields-set-4 item-white">
+    <div class="item-field">总资产</div>
+    <div class="item-field">负债</div>
+    <div class="item-field">计划投资金额</div>
+  </div>
+  <div class="item item-fields-set-4 item-white">
+    <div class="item-field">{{ $ctrl.healthy_status.total_asset }}万元</div>
+    <div class="item-field">{{ $ctrl.healthy_status.liability }}万元</div>
+    <div class="item-field">{{ $ctrl.healthy_status.planning_invest}}万元</div>
+  </div>
+
+
+  <div class="item item-fields-set-4 item-white">
+    <div class="item-field">资产负债率</div>
+    <div class="item-field">债务偿还率</div>
+    <div class="item-field">已投资产比率</div>
+  </div>
+  <div class="item item-fields-set-4 item-white">
+    <div class="item-field">{{ $ctrl.healthy_status.asset_liability_ratio * 100 | formatPercent }}%</div>
+    <div class="item-field">{{ $ctrl.healthy_status.liability_repayment_ratio * 100 | formatPercent }}%</div>
+    <div class="item-field">{{ $ctrl.healthy_status.already_invest_ratio* 100 | formatPercent }}%</div>
+  </div>
+
+</div>

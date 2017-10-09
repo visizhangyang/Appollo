@@ -1,0 +1,88 @@
+<ion-view view-title="{{'kyc_title'|translate}}" class="kyc-page">
+    <ion-nav-buttons>
+        <back-btn ng-click="vm.handleClick(false)" state="tab.crm"></back-btn>
+    </ion-nav-buttons>
+    <ion-nav-buttons side="right">
+        <button class="button button-small button-clear button-positive examination-button {{vm.language}}" ng-click="vm.examination()">{{'kyc_wealth_examination'|translate}}</button>
+    </ion-nav-buttons>
+    <ion-content>
+        <div class="header-box">
+            <div class="row input-row">
+                <div class="col">
+                    <div>{{'kyc_projected_amount'|translate}}</div>
+                </div>
+                <div class="col">
+                    <button class="icon ion-minus" ng-click="vm.changeInvestment(false)" ng-disabled="vm.displayPlanningInvest <= 0.1 || vm.displayPlanningInvest == null"></button>
+                    <span class="symbol">{{'common_eur_symbol'|translate}}</span>
+                    <input class="input" ng-class="{value: vm.displayPlanningInvest != null}" type="number" placeholder="{{'kyc_projected_amount_placeholder'|translate}}" ng-model="vm.displayPlanningInvest" ng-change="vm.planningInvestChange()">
+                    <span class="ext" ng-if="vm.displayPlanningInvest != null">{{'common_amount_unit'|translate}}</span>
+                    <button class="icon ion-plus" ng-click="vm.changeInvestment(true)"></button>
+                </div>
+            </div>
+            <div class="row select-row">
+                <div class="col col1" ng-click="vm.changeOptionState(1)">
+                    <div class="title">{{'kyc_investment_period'|translate}}</div>
+                    <div class="value {{vm.language}}">{{vm.period_current.name}}</div>
+                    <div><i class="ion ion-chevron-down" ng-class="{'active' : vm.option_state == 1}"></i></div>
+                </div>
+                <div class="col col2" ng-click="vm.changeOptionState(2)">
+                    <div class="title">{{'kyc_risk_level'|translate}}</div>
+                    <div class="value risk-level-label">{{vm.data.risk_level | riskLevelLabel }}</div>
+                    <!--<div><i class="ion ion-chevron-down"></i></div>-->
+                </div>
+            </div>
+        </div>
+        <div class="period-box" ng-if="vm.option_state == 1">
+            <div ng-repeat="item in vm.period_list">
+                <button ng-click="vm.selectPeriod(item)" class="col button button-small button-clear button-dark">{{item.name}}</button>
+            </div>
+        </div>
+        <div ng-if="vm.client" class="user">
+            {{vm.client.name}}&nbsp;&nbsp;{{vm.data.risk_level | riskLevelLabel }}
+        </div>
+        <div class="risk-box">
+            <risk-level-adjustment-graph risk-level="vm.data.risk_level" year="vm.data.risk_investment_age" amount="vm.displayPlanningInvest * vm.moneyUnit"></risk-level-adjustment-graph>
+        </div>
+        <div class="other-data-tips padding-horizontal {{vm.language}}">
+          {{'kyc_other_data_tips'|translate}}
+        </div>
+        <div class="button-bar-box padding">
+            <div class="button-bar">
+                <a class="button button-small {{vm.language}}" ng-class="{active : vm.current_tab == 1}" ng-click="vm.changeTab(1)">{{'kyc_income_liabilities'|translate}}</a>
+                <a class="button button-small {{vm.language}}" ng-class="{active : vm.current_tab == 2}" ng-click="vm.changeTab(2)">{{'kyc_current_asset_allocation'|translate}}</a>
+                <a class="button button-small {{vm.language}}" ng-class="{active : vm.current_tab == 3}" ng-click="vm.changeTab(3)">{{'kyc_insurance'|translate}}</a>
+            </div>
+        </div>
+        <div ng-if="vm.current_tab == 1" class="tab-box financial-box">
+            <money-slide value="vm.data.annual_income || 0" on-change="vm.onChangeIncome(value)" label="vm.annualIncomeLabel"></money-slide>
+            <money-slide value="vm.data.annual_mortgage_payment || 0" on-change="vm.onChangeMortgagePayment(value)" label="vm.annualMortgagePaymentLabel"></money-slide>
+            <money-slide value="vm.data.school_fees || 0" on-change="vm.onChangeSchoolFees(value)" label="vm.schoolFeesLabel"></money-slide>
+            <money-slide value="vm.data.annual_expenditure || 0" on-change="vm.onChangeExpenditure(value)" label="vm.annualExpenditureLabel"></money-slide>
+            <money-slide value="vm.data.special_purchases || 0" on-change="vm.onChangeSpecialPurchases(value)" label="vm.specialPurchasesLabel"></money-slide>
+        </div>
+        <div ng-if="vm.current_tab == 2" class="tab-box asset-box">
+            <barchart-cmp data="vm.allocation"></barchart-cmp>
+            <div class="options">
+                <money-slide label="vm.fixedIncomeAssetLabel" value="vm.data.fixed_income || 0" on-change="vm.onChangeFixed(value)" label-class="dot fixed"
+                    asset-note="vm.fixedIncomeAssetNote"></money-slide>
+                <money-slide label="vm.equityAssetLabel" value="vm.data.stock_asset || 0" on-change="vm.onChangeStock(value)" label-class="dot stock"
+                    asset-note="vm.equityAssetNote"></money-slide>
+                <money-slide label="vm.alternativesAssetLabel" value="vm.data.alternative_asset || 0" on-change="vm.onChangeOthers(value)" label-class="dot alternative"
+                    asset-note="vm.alternativesAssetNote"></money-slide>
+                <money-slide label="vm.cashAssetLabel" value="vm.data.cash_asset || 0" on-change="vm.onChangeCash(value)" label-class="dot cash"
+                    asset-note="vm.cashAssetNote"></money-slide>
+            </div>
+        </div>
+        <div ng-if="vm.current_tab == 3" class="tab-box insurance-box">
+            <money-slide min="30" max="70" label="vm.retirementAgeLabel" slide-type="'age'" is-linear="true" value="vm.data.retirement_age || 0" on-change="vm.onChangeRetirementAge(value)"></money-slide>
+            <money-slide min="0" max="5000000" step="10000" is-linear="true" label="vm.retirementAnnualCostLabel" value="vm.data.annual_cost_after_retirement || 0" on-change="vm.onChangeRetireCost(value)"></money-slide>
+            <money-slide label="vm.healthInsuranceLabel" value="vm.data.health_insurance_coverage || 0" on-change="vm.onChangeHealth(value)"></money-slide>
+            <money-slide label="vm.wholeLifeInsuranceLabel" value="vm.data.life_insurance_coverage || 0" on-change="vm.onChangeLift(value)"></money-slide>
+        </div>
+
+    </ion-content>
+
+    <ion-footer-bar>
+        <button class="button button-full button-positive {{vm.language}}" ng-click="vm.handleClick(true)">{{'kyc_footer_button'|translate}}</button>
+    </ion-footer-bar>
+</ion-view>

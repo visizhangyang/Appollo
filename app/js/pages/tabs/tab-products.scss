@@ -1,0 +1,35 @@
+.tab-product-page {
+    ion-content {
+        display: flex;
+        flex-direction: column;
+    }
+    .button-bar-container {
+        transform: initial;
+        .button-bar {
+            background-color: #fff;
+        }
+        .button {
+            @include button-style(#fff, transparent, $blue, transparent, $dark);
+            @include button-clear(#fff, '12px');
+            border-radius: $button-border-radius;
+            overflow: visible;
+            text-overflow: initial;
+            padding: 0;
+            text-align: center;
+            &.current {
+                @include button-style($blue, transparent, $blue, transparent, #fff);
+            }
+
+            &.en {
+              font-size: 9px;
+            }
+        }
+    }
+    .product-list {
+        flex: 1;
+        .empty {
+            margin-top: 50px;
+            text-align: center;
+        }
+    }
+}

@@ -1,0 +1,112 @@
+﻿<div class="insurance-cmp">
+  <div class="item item-fields-set-4 item-white margin-top">
+    <div class="item-field">保险保障</div>
+    <div class="item-field">当前配置</div>
+    <div class="item-field">推荐配置</div>
+    <div class="item-field">配置缺口</div>
+  </div>
+  <div class="item item-fields-set-4 item-white">
+    <div class="item-field">
+      健康险
+      <br> (保额)
+    </div>
+    <div class="item-field">{{ $ctrl.insurance.current_status.health }}万</div>
+    <div class="item-field">{{ $ctrl.insurance.target_status.health | formatNum }}万</div>
+    <div class="item-field">{{ $ctrl.insurance.suggest_adjustment.health | formatNum }}万</div>
+  </div>
+  <div class="item item-fields-set-4 item-white">
+    <div class="item-field">
+      终身寿险
+      <br> (保额)
+    </div>
+    <div class="item-field">{{ $ctrl.insurance.current_status.life }}万</div>
+    <div class="item-field">{{ $ctrl.insurance.target_status.life | formatNum }}万</div>
+    <div class="item-field">{{ $ctrl.insurance.suggest_adjustment.life | formatNum }}万</div>
+  </div>
+  <div class="item item-fields-set-4 item-white">
+    <div class="item-field">保险保障</div>
+    <div class="item-field">预期费用</div>
+    <div class="item-field">年金保险方案</div>
+    <div class="item-field">年金领取金额</div>
+  </div>
+  <div class="item item-fields-set-4 item-white">
+    <div class="item-field">子女教育</div>
+    <div class="item-field">{{ $ctrl.cover.budget.children_education }}万元
+      <br> (总费用)
+    </div>
+    <div class="item-field">
+      {{ $ctrl.cover.solution.children_education }}
+    </div>
+    <div class="item-field">
+      {{ $ctrl.cover.amount.children_education }}
+    </div>
+  </div>
+  <div class="item item-fields-set-4 item-white">
+    <div class="item-field">退休养老</div>
+    <div class="item-field">{{ $ctrl.cover.budget.retirement | formatNum }}万元
+      <br> (年费用)
+    </div>
+    <div class="item-field">
+      {{ $ctrl.cover.solution.retirement }}
+    </div>
+    <div class="item-field">
+      {{ $ctrl.cover.amount.retirement | formatNum }}万
+      <br> (每年)
+    </div>
+  </div>
+
+  <table>
+    <tr>
+      <td class="header">健康险：</td>
+      <td>
+        指通过疾病保险、医疗保险、失能收入损失保险和护理保险等方式对因健康原因导致的损失给付保险金的保险。它的疾病保险包括了普通疾病保险与重大疾病保险。
+        <br> 重大疾病保额的测算依据为：基本医疗费用保障+康复费用保障+收入损失保障，其推荐基本保额的计算公式为30*（1+10%）
+        <sup>9</sup>+300*90+年收入*5*50%（30万元为当前中国重大疾病的基本医疗费用标准，10%为每年费用增长率，默认投保年限为10年，护工费按照300元每天计算，康复期按照90天计算，收入损失保障按五年年收入的50%进行计算）
+      </td>
+    </tr>
+    <tr class="split">
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td class="header">终身寿险：</td>
+      <td>
+        当您身故后将您的资产按照一次性支付的方式传承给继承人。
+        <br> 终身寿险基本保额现值的计算公式为：(被保险人年收入-年支出)×折现因子。折现因子=（1-（1+i）
+        <sup>-n</sup> ）/i，其中i为预定利率（4%），n=预期退休年龄（60岁）-被保险人的年龄。
+      </td>
+    </tr>
+    <tr class="split">
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td class="header">年金保险：</td>
+      <td>
+        指在被保险人生存期间，保险人按照合同约定的金额、方式，在约定的期限内，有规则的、定期的向被保险人给付保险金的保险。年金保险，同样是由被保险人的生存为给付条件的人寿保险，生存保险金通常按年度周期给付。个人养老保险是一种主要的个人年金保险产品。子女教育金保险则属于定期年金保险。
+      </td>
+    </tr>
+    <tr class="split">
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td class="header">子女教育险：</td>
+      <td>
+        当您的子女将来接受教育时所提供的储备金。
+      </td>
+    </tr>
+    <tr class="split">
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td class="header">退休养老险：</td>
+      <td>
+        当您退休后为维持您的正常生活的储备金。
+        <br>年金领取金额＝退休前每年开支的80%和预期退休生活年费用中的较大者。
+      </td>
+    </tr>
+  </table>
+
+</div>

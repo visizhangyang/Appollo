@@ -1,0 +1,25 @@
+<div class="container">
+    <u-bar-chart-v2 ng-if="$ctrl.type === 'default'" bar-chart-data="$ctrl.data" mode="$ctrl.mode"></u-bar-chart-v2>
+    <u-bar-chart-v2-ex ng-if="$ctrl.type === 'ex'" bar-chart-data="$ctrl.data" mode="$ctrl.mode"></u-bar-chart-v2-ex>
+    <div class="legend" ng-if="$ctrl.type === 'ex'">
+        <svg width="40px" height="4px" viewBox="298 544 40 4" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+            <!-- Generator: Sketch 41.2 (35397) - http://www.bohemiancoding.com/sketch -->
+            <desc>Created with Sketch.</desc>
+            <defs>
+                <rect id="path-1" x="298" y="544" width="40" height="4" rx="2"></rect>
+                <mask id="mask-2" maskContentUnits="userSpaceOnUse" maskUnits="objectBoundingBox" x="0" y="0" width="40" height="4" fill="white">
+                    <use xlink:href="#path-1"></use>
+                </mask>
+            </defs>
+            <use id="Rectangle-25" stroke="#FCA7A7" mask="url(#mask-2)" stroke-width="2" stroke-dasharray="2" fill="none" transform="translate(318.000000, 546.000000) scale(1, -1) translate(-318.000000, -546.000000) "
+                xlink:href="#path-1"></use>
+        </svg>
+        <span>{{'barchart_cmp_added_asset_allocation'|translate}}</span>
+    </div>
+    <div class="button-bar-container padding-horizontal">
+        <div class="button-bar bar-light {{$ctrl.language}}">
+            <a class="button button-small" ng-class="{selected:$ctrl.mode == 'money'}" ng-click="$ctrl.changeMode('money',$event)">{{'common_amount'|translate}}</a>
+            <a class="button button-small" ng-class="{selected:$ctrl.mode == 'percentage'}" ng-click="$ctrl.changeMode('percentage',$event)">{{'common_proportion'|translate}}</a>
+        </div>
+    </div>
+</div>

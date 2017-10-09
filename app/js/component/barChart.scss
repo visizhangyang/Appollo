@@ -1,0 +1,153 @@
+// stock colors
+$alternative : #f6d463;
+$cash : #9894ff;
+$fixed_income : #5bcffa;
+$stock : #7af394;
+$planning_invest : #fca7a7;
+$global_stock : rgba(122, 243, 148, 1);
+$emerging_market_equity : rgba(122, 243, 148, 0.8);
+$china_stock : rgba(122, 243, 148, 0.5);
+$global_bond : rgba(91, 207, 250, 1);
+$emerging_market_bond : rgba(91, 207, 250, 0.8);
+$p2p : rgba(246, 212, 99, 0.8);
+// stock graph
+// ---------------------------------
+@mixin stockFill {
+    &.ALTERNATIVE {
+        fill: $alternative;
+    }
+    &.CASH {
+        fill: $cash;
+    }
+    &.FIXED_INCOME {
+        fill: $fixed_income;
+    }
+    &.STOCK {
+        fill: $stock;
+    }
+    &.PLANNING_INVEST {
+        fill: $planning_invest;
+    }
+    &.GLOBAL_STOCK {
+        fill: $global_stock;
+    }
+    &.EMERGING_MARKET_EQUITY {
+        fill: $emerging_market_equity;
+    }
+    &.CHINA_STOCK {
+        fill: $china_stock;
+    }
+    &.GLOBAL_BOND {
+        fill: $global_bond;
+    }
+    &.EMERGING_MARKET_BOND {
+        fill: $emerging_market_bond;
+    }
+    &.P2P {
+        fill: $p2p;
+    }
+    &.cash_asset,
+    &.alternative_asset,
+    &.fixed_income,
+    &.stock_asset {
+        //fill: url(#linearGradient-1);
+        fill: #d6d6d6;
+    }
+}
+
+@mixin BarChart {
+    .bar-chart {
+        text {
+            color: #9b9b9b;
+        }
+        path,
+        line {
+            stroke: #9b9b9b;
+        }
+        .plots {
+            rect {
+                @include stockFill;
+            }
+            text {
+                text-anchor: middle;
+                font-size: 10px;
+            }
+        }
+        rect.label-mask {
+            fill: #121317;
+            opacity: 0.6;
+        }
+        .axis {
+            &.label {
+                font-size: 10px;
+                .domain {
+                    stroke: none;
+                    fill: none;
+                }
+            }
+        }
+    }
+}
+
+@mixin codeSymbol {
+    .symbol {
+        position: relative;
+        span {
+            font-size: 12px;
+            line-height: 1;
+        }
+        &.ALTERNATIVE:before {
+            background: $alternative;
+        }
+        &.CASH:before {
+            background: $cash;
+        }
+        &.FIXED_INCOME:before {
+            background: $fixed_income;
+        }
+        &.STOCK:before {
+            background: $stock;
+        }
+        &.PLANNING_INVEST:before {
+            background: $planning_invest;
+        }
+        &.GLOBAL_STOCK:before {
+            background: $global_stock;
+        }
+        &.EMERGING_MARKET_EQUITY:before {
+            background: $emerging_market_equity;
+        }
+        &.CHINA_STOCK:before {
+            background: $china_stock;
+        }
+        &.GLOBAL_BOND:before {
+            background: $global_bond;
+        }
+        &.EMERGING_MARKET_BOND:before {
+            background: $emerging_market_bond;
+        }
+        &.P2P:before {
+            background: $p2p;
+        }
+        &:before {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            content: ' ';
+            margin-right: 8px;
+            display: inline-block;
+        }
+    }
+}
+
+u-bar-chart {
+    width: 100%;
+    display: block;
+    @include BarChart();
+}
+
+u-bar-compare-chart {
+    width: 100%;
+    display: block;
+    @include BarChart();
+}

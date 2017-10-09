@@ -1,0 +1,85 @@
+<ion-view view-title="{{'customer_filter_title'|translate}}"
+          hide-back-button="true"
+          class="customer-filter-page">
+  <ion-nav-buttons>
+    <back-btn state="tab.crm"></back-btn>
+  </ion-nav-buttons>
+
+  <ion-content>
+
+    <div class="radio-title">{{'customer_filter_client_level'|translate}}</div>
+    <div class="radio-set">
+      <ion-checkbox ng-class="{checked: vm.filter.client_level.IMPORTANT}"
+                    ng-model="vm.filter.client_level.IMPORTANT">
+        {{'customer_filter_vip_client'|translate}}
+      </ion-checkbox>
+      <ion-checkbox ng-class="{checked: vm.filter.client_level.COMMON}"
+                    ng-model="vm.filter.client_level.COMMON">
+        {{'customer_filter_normal_client'|translate}}
+      </ion-checkbox>
+    </div>
+
+    <div class="radio-title">{{'customer_filter_client_state'|translate}}</div>
+    <div class="radio-set">
+      <ion-checkbox ng-model="vm.filter.status.PRELIMINARY_COMMUNICATION"
+                    ng-class="{checked: vm.filter.status.PRELIMINARY_COMMUNICATION}">
+        {{'common_client_status_preliminary_communication'|translate}}
+      </ion-checkbox>
+      <ion-checkbox ng-model="vm.filter.status['VISIT']"
+                    ng-class="{checked: vm.filter.status['VISIT']}">
+        {{'common_client_status_visit'|translate}}
+      </ion-checkbox>
+      <ion-checkbox ng-model="vm.filter.status['DEFINITE INTENTION']"
+                    ng-class="{checked: vm.filter.status['DEFINITE INTENTION']}">
+        {{'common_client_status_definite_intention'|translate}}
+      </ion-checkbox>
+      <ion-checkbox ng-model="vm.filter.status['SIGN_UP']"
+                    ng-class="{checked: vm.filter.status['SIGN_UP']}">
+        {{'common_client_status_sign_up'|translate}}
+      </ion-checkbox>
+    </div>
+
+    <div class="radio-title">{{'customer_filter_client_source'|translate}}</div>
+    <div class="radio-set">
+      <ion-checkbox ng-model="vm.filter.source['FROM_OTHERS']"
+                    ng-class="{checked: vm.filter.source['FROM_OTHERS']}">
+        {{'common_client_source_from_others'|translate}}
+      </ion-checkbox>
+      <ion-checkbox ng-model="vm.filter.source['STRANGER_VISITOR']"
+                    ng-class="{checked: vm.filter.source['STRANGER_VISITOR']}">
+        {{'common_client_source_stranger_visitor'|translate}}
+      </ion-checkbox>
+      <ion-checkbox ng-model="vm.filter.source['COMPANY']"
+                    ng-class="{checked: vm.filter.source['COMPANY']}">
+        {{'common_client_source_company'|translate}}
+      </ion-checkbox>
+      <ion-checkbox ng-model="vm.filter.source['PERSONAL']"
+                    ng-class="{checked: vm.filter.source['PERSONAL']}">
+        {{'common_client_source_personal'|translate}}
+      </ion-checkbox>
+      <ion-checkbox ng-model="vm.filter.source['PHONE']"
+                    ng-class="{checked: vm.filter.source['PHONE']}">
+        {{'common_client_source_phone'|translate}}
+      </ion-checkbox>
+      <ion-checkbox ng-model="vm.filter.source['EMAIL']"
+                    ng-class="{checked: vm.filter.source['EMAIL']}">
+        {{'common_client_source_email'|translate}}
+      </ion-checkbox>
+    </div>
+
+    <div class="clear-btn">
+      <div class="u-tap" ng-click="vm.resetOptions()">{{'customer_filter_reset_condition'|translate}}</div>
+    </div>
+
+  </ion-content>
+
+  <ion-footer-bar>
+    <div class="button-bar">
+      <button class="button button-positive"
+              ng-click="vm.query()"
+              ng-disabled="!vm.isValid()">
+        {{'common_button_ok'|translate}}
+      </button>
+    </div>
+  </ion-footer-bar>
+</ion-view>

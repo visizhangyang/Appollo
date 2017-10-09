@@ -1,0 +1,8 @@
+<div class="feedback_image">
+  <img ng-src="{{ vm.src }}" ng-if="!!vm.src" ng-click="vm.select()" />
+  <input type="file" accept="image/*" />
+  <button class="button button-dark" ng-click="vm.select()" ng-hide="!!vm.src">
+    <i class="icon ion-photo camera-icon"></i>
+  </button>
+  <div class="remove-image" ng-click="vm.remove()" ng-show="!!vm.src"></div>
+</div>

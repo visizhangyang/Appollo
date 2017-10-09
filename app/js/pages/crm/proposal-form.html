@@ -1,0 +1,77 @@
+<ion-view view-title="{{'proposal_form_title'|translate}}" hide-back-button="true" class="proposal-form-page white-theme">
+  <ion-nav-buttons>
+    <back-btn state="tab.crm"></back-btn>
+  </ion-nav-buttons>
+
+  <form class="m-form" name="form" novalidate>
+    <ion-content>
+
+      <div class="row padding-horizontal header-section">
+        <div class="col col-20">{{'proposal_form_risk_level'|translate}}</div>
+        <div class="col col-25 text-center"> {{vm.risk_level | riskLevelLabel}}</div>
+        <div class="col center-col">{{'proposal_form_projected_amount'|translate}}</div>
+        <div class="col col-20 text-right">{{'common_eur_symbol'|translate}}{{vm.dispalyPlanningTotalInvestment}}{{'common_amount_unit'|translate}}</div>
+      </div>
+
+      <ion-scroll scrollbar-x="false" zooming="false" direction="x" class="scroll-container">
+        <div class="segment-bar">
+          <div class="segment-btn {{vm.language}}" ng-repeat="tab in vm.tabs" ng-click="vm.switchTab(tab)" ng-class="{active: tab.key === vm.selectedTab}">
+            {{ tab.text }}{{ vm.getAmountPercent(tab.amount) | formatPercent }}%
+          </div>
+        </div>
+      </ion-scroll>
+
+      <div ng-if="vm.productsMap">
+        <div ng-repeat="tab in vm.tabs" ng-show="tab.key === vm.selectedTab">
+          <div class="proposal-item header item-set-5 item-white" ng-if="vm.productsMap[vm.selectedTab]">
+            <div class="item-field item-field-checkbox"></div>
+            <div class="`item-field item-field-product-name">{{'proposal_form_product_name'|translate}}</div>
+            <div class="item-field item-field-risk">{{'proposal_form_risk_level'|translate}}</div>
+            <div class="item-field item-field-percent">{{'proposal_form_ratio'|translate}}</div>
+            <div class="item-field item-field-amount">{{'proposal_form_amount'|translate}}</div>
+          </div>
+
+          <div ng-repeat="product in vm.productsMap[vm.selectedTab]">
+            <div class="proposal-item item-set-5 item-white">
+              <div class="item-field item-field-checkbox" ng-click="vm.computeTab(null, vm.selectedTab)">
+                <label class="item item-checkbox" ng-hide="product.selected === undefined ">
+                  <div class="checkbox checkbox-input-hidden checkbox-circle">
+                    <input type="checkbox" class="ng-untouched" ng-model="product.selected"  ng-change="vm.calculate()"/>
+                    <i class="checkbox-icon"></i>
+                  </div>
+                </label>
+              </div>
+              <div class="item-field item-field-product-name">{{ product.product_name }}</div>
+              <div class="item-field item-field-risk">{{ product.risk_level | transRiskLevel }}</div>
+              <div class="item-field item-field-percent">{{ vm.getProductPercent(product) | formatPercent }}%</div>
+              <div class="item-field item-field-amount euro-symbol">
+                <button class="icon-button" ng-click="vm.adjustAmount(product, false)" ng-disabled="product.amount * vm.moneyUnit <= product.min_investment || product.amount == null"><i class="icon ion-minus"></i></button>
+                <input class="txt" type="number" ng-model="product.amount" ng-change="vm.changeAmount(product)"><span>{{'common_amount_unit'|translate}}</span>
+                <button class="icon-button" ng-click="vm.adjustAmount(product, true)"><i class="icon ion-plus"></i></button>
+              </div>
+            </div>
+
+          </div>
+          <div class="item item-white" ng-if="!vm.productsMap[vm.selectedTab]">
+            暂无产品可选
+          </div>
+        </div>
+
+      </div>
+
+      <div class="error">
+        <div ng-if="vm.formUtil.submitError">
+          <span>
+              {{ vm.formUtil.submitError }}
+            </span>
+        </div>
+      </div>
+    </ion-content>
+
+    <ion-footer-bar>
+      <button class="button button-full button-positive" on-request="vm.onSubmit($event, form.$valid)" ng-disabled="form.$invalid || vm.pickedCount === 0">
+        {{'proposal_form_selected_text'|translate}}{{ vm.pickedCount }}{{'proposal_form_selected_unit'|translate}}
+      </button>
+    </ion-footer-bar>
+  </form>
+</ion-view>

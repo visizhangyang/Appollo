@@ -1,0 +1,8 @@
+<div class="d3-line-chart-period-component">
+    <d3-line-chart data="$ctrl.data"></d3-line-chart>
+    <div class="legend" ng-if="$ctrl.data && $ctrl.data.products">
+        <div class="line" ng-repeat="item in $ctrl.data.products">
+            <span class="color" ng-style="{background:item.color}"></span><span class="label">{{item.name}}</span>
+        </div>
+    </div>
+</div>

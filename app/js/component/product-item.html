@@ -1,0 +1,40 @@
+<div class="product-item card padding-horizontal" ui-sref="productDetail({productId: $ctrl.product.id})" nav-direction="forward">
+  <div class="heading padding-horizontal">
+    {{ $ctrl.product.product_name }}
+    <div class="label-slot-container" ng-if="$ctrl.slot">
+      <div class="label-slot" ng-class="$ctrl.slot.className">
+        <div class="label-slot-text" ng-bind="$ctrl.slot.text"></div>
+      </div>
+    </div>
+  </div>
+  <div class="padding-horizontal">
+    <div class="divider"></div>
+  </div>
+  <div class="product-body padding">
+    <div class="row value-row">
+      <div class="col">
+        <div class="return-rate percentage" ng-if="$ctrl.maximum_expect_rate">{{ $ctrl.maximum_expect_rate }}</div>
+        <div class="return-rate" ng-if="!$ctrl.maximum_expect_rate">{{'product_item_fluctuation'|translate}}</div>
+      </div>
+      <div class="col">
+        <div class="investment_period percentage" ng-if="$ctrl.product.investment_period">{{ $ctrl.product.investment_period }}</div>
+        <div class="investment_period" ng-if="!$ctrl.product.investment_period">_ _</div>
+      </div>
+      <div class="col">
+        <div class="min_investment" ng-if="$ctrl.product.min_investment">{{'common_eur_symbol'|translate}} {{ $ctrl.product.min_investment|formatMoney }} {{'common_amount_unit'|translate}}</div>
+        <div class="min_investment" ng-if="!$ctrl.product.min_investment">_ _</div>
+      </div>
+    </div>
+    <div class="row label-row">
+      <div class="col return-rate">
+        {{'product_item_historical_return_rate'|translate}}
+      </div>
+      <div class="col investment_period">
+        {{'product_item_investment_period'|translate}}
+      </div>
+      <div class="col min_investment">
+        {{'product_item_min_investment_amount'|translate}}
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,111 @@
+.item-floating-label {
+  background-color: $dark;
+}
+
+.input-label {
+  font-size: 15px;
+}
+
+.item-input {
+  input, textarea {
+    line-height: normal;
+  }
+}
+
+.item-select select {
+  color: $light;
+  background: none;
+}
+
+
+.m-form {
+  .error {
+    margin: 7px 15px;
+    color: $red;
+    @include bold-font();
+  }
+
+  .required {
+    color: $red;
+  }
+}
+.item-send-code {
+  input {
+    padding-right: 24px;
+  }
+
+  .button-request-code {
+    position: absolute;
+    top: 50%;
+    right: 15px;
+    transform: translateY(-50%);
+    min-width: 60px;
+
+    border-radius: 4px;
+    min-height: 25px;
+    line-height: 10px;
+    font-size: 10px;
+    .countTimer {
+      font-size: 14px;
+    }
+    &[disabled] {
+      border-color: #383844;
+      background-color: #4a4a5b;
+    }
+  }
+}
+
+.item-radio input {
+  &:checked + .radio-content .item-content {
+    background: unset;
+    opacity: 0.3;
+  }
+}
+
+textarea {
+  background: none;
+}
+
+input[disabled] {
+  background: none;
+}
+
+.item {
+  input[type="date"] {
+    padding-top: 2px;
+    text-align: right;
+  }
+}
+
+.toggle {
+  &.toggle-u {
+    $active-color: $positive;
+    $bg-color: $light;
+    @include toggle-style(
+        $active-color,
+        $active-color
+    );
+    .track {
+      border-color: #9B9B9B;
+      background: $bg-color;
+    }
+    input + .track .handle {
+      background-color: $bg-color;
+    }
+  }
+  &.toggle-white-u {
+    $active-color: $positive;
+    $dark-color: #f0f0f0;
+    @include toggle-style(
+        $active-color,
+        $active-color
+    );
+    .track {
+      border-color: #6c6c7f;
+      background: $dark-color;
+    }
+    input + .track .handle {
+      background-color: $dark-color;
+    }
+  }
+}

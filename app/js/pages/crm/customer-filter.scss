@@ -1,0 +1,67 @@
+.customer-filter-page {
+    ion-content {
+        margin: 0 15px;
+        .radio-title {
+            // color: white;
+            font-size: 15px;
+            margin-top: 20px;
+            margin-bottom: 15px;
+        }
+        .radio-set {
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            padding-left: 1px;
+            .item-checkbox {
+                .checkbox {
+                    display: none;
+                }
+                &.checked .item-content {
+                    border-color: $positive;
+                    background: $positive;
+                    opacity: 1;
+                    color: white;
+                }
+            }
+            .item {
+                padding: 0;
+                width: 30%;
+                margin-right: 5%;
+                margin-bottom: 12px;
+                border-radius: 4px;
+                &:nth-child(3n) {
+                    margin-right: 0;
+                }
+                background: $stable;
+                .item-content {
+                    // border: 1px solid #bbbbbb;
+                    background: $stable;
+                    color: #121317;
+                    font-size: 10px;
+                    line-height: 40px;
+                    text-align: center;
+                    padding: 0;
+                    .radio-icon {
+                        display: none;
+                    }
+                }
+                & input:checked+.radio-content .item-content {
+                    border-color: $positive;
+                    background: $positive;
+                    opacity: 1;
+                    color: white;
+                }
+            }
+        }
+        .clear-btn {
+            margin-top: 20px;
+            font-size: 13px;
+            text-align: center;
+            color: #121317;
+            border-top: 1px solid #ddd;
+            .u-tap {
+                padding: 11px 0;
+            }
+        }
+    }
+}

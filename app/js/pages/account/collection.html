@@ -1,0 +1,35 @@
+<ion-view view-title="{{'account_collection_title'|translate}}"
+          class="account-collection-page"
+          hide-back-button="true">
+  <ion-nav-buttons >
+    <back-btn state="tab.account"></back-btn>
+  </ion-nav-buttons>
+
+  <ion-content>
+
+    <refresh-view refresher="vm.refresher">
+
+      <div class="blank-page"
+           ng-if="!vm.collectionList.length">
+        <p>
+          {{'account_collection_no_following'|translate}}
+        </p>
+
+        <button class="button button-positive button-block"
+                nav-direction="back"
+                ui-sref="tab.products">
+          {{'account_collection_to_products'|translate}}
+        </button>
+      </div>
+
+      <div>
+        <product-item ng-repeat="collection in vm.collectionList"
+                      user="vm.user"
+                      hide-collection="true"
+                      product="collection.product">
+        </product-item>
+      </div>
+    </refresh-view>
+
+  </ion-content>
+</ion-view>

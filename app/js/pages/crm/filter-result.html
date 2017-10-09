@@ -1,0 +1,22 @@
+<ion-view view-title="{{'filter_result_title'|translate}}"
+          hide-back-button="true"
+          class="customer-filter-result-page">
+  <ion-nav-buttons>
+    <back-btn state="tab.crm"></back-btn>
+  </ion-nav-buttons>
+
+  <ion-content>
+    <div class="list">
+      <customer-item-cmp ng-repeat="item in vm.customers track by item.id"
+                         client="item"
+                         ng-click="vm.forwardDetail(item.id)">
+      </customer-item-cmp>
+      <div class="mismatch-hint" ng-if="vm.customers.length === 0">
+        {{'filter_result_mismatch_hint1'|translate}}
+        <br>
+        {{'filter_result_mismatch_hint2'|translate}}
+      </div>
+
+    </div>
+  </ion-content>
+</ion-view>

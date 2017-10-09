@@ -1,0 +1,98 @@
+
+<div class="item-group">
+  <div class="item item-divider">
+    {{'product_detail_basic_info'|translate}}
+  </div>
+
+  <div class="item item-field-detail">
+    <div class="field field-label">{{'product_detail_product_name'|translate}}</div>
+    <div class="field field-value">{{ vm.product.product_name }}</div>
+  </div>
+
+  <div class="item item-field-detail" ng-if="vm.product.issuing_agency">
+    <div class="field field-label">发行机构</div>
+    <div class="field field-value">{{ vm.product.issuing_agency }}</div>
+  </div>
+
+  <div class="item item-field-detail" ng-if="vm.product.province">
+    <div class="field field-label">投资区域</div>
+    <div class="field field-value">{{ vm.product.province }}{{ vm.product.city }}</div>
+  </div>
+
+  <div class="item item-field-detail" ng-if="vm.product.investment_range">
+    <div class="field field-label">投资领域</div>
+    <div class="field field-value">{{ vm.product.investment_range | trans }}</div>
+  </div>
+
+  <div class="item item-field-detail" ng-if="vm.product.issue_size">
+    <div class="field field-label">发行规模</div>
+    <div class="field field-value">{{ vm.product.issue_size }}万</div>
+  </div>
+
+  <div class="item item-field-detail" ng-if="vm.product.investment_period">
+    <div class="field field-label">投资期限</div>
+    <div class="field field-value">{{ vm.product.investment_period }}</div>
+  </div>
+
+  <div class="item item-field-detail" ng-if="vm.product.initial_deposit">
+    <div class="field field-label">{{'product_detail_minimum_investment_amount'|translate}}</div>
+    <div class="field field-value">{{ 'common_eur_symbol' | translate }}{{ vm.product.initial_deposit | formatMoney }}{{ 'common_amount_unit' | translate }}</div>
+  </div>
+
+  <div class="item item-field-detail" ng-if="vm.product.interest_payment">
+    <div class="field field-label">付息方式</div>
+    <div class="field field-value">{{ vm.product.interest_payment | trans }}</div>
+  </div>
+
+  <div class="item item-field-detail" ng-if="vm.product.allocation">
+    <div class="field field-label">大小配比</div>
+    <div class="field field-value">{{ vm.product.allocation | trans }}</div>
+  </div>
+
+  <div class="item item-field-detail" ng-if="vm.product.product_status">
+    <div class="field field-label">{{'product_detail_product_state'|translate}}</div>
+    <div class="field field-value">{{ vm.product.product_status | productStatus }}</div>
+  </div>
+
+  <div class="item item-field-detail" ng-if="vm.product.account_number">
+    <div class="field field-label">募集账号</div>
+    <div class="field field-value">{{ vm.product.account_number }}</div>
+  </div>
+
+  <div class="item item-field-detail" ng-if="vm.product.account_name">
+    <div class="field field-label">募集账户名</div>
+    <div class="field field-value">{{ vm.product.account_name }}</div>
+  </div>
+
+  <div class="item item-field-detail" ng-if="vm.product.bank_name">
+    <div class="field field-label">募集开户行</div>
+    <div class="field field-value">{{ vm.product.bank_name }}</div>
+  </div>
+
+  <div class="item item-field-detail" ng-if="vm.product.financier">
+    <div class="field field-label">融资方介绍</div>
+    <div class="field field-value">{{ vm.product.financier }}</div>
+  </div>
+
+  <div class="item item-field-detail" ng-if="vm.product.repayment_source">
+    <div class="field field-label">还款来源</div>
+    <div class="field field-value">{{ vm.product.repayment_source }}</div>
+  </div>
+
+  <div class="item item-field-detail" ng-if="vm.product.risk_management">
+    <div class="field field-label">风险控制</div>
+    <div class="field field-value">{{ vm.product.risk_management }}</div>
+  </div>
+
+  <div class="item item-field-detail" ng-if="vm.product.project_highlight">
+    <div class="field field-label">项目亮点</div>
+    <div class="field field-value">{{ vm.product.project_highlight }}</div>
+  </div>
+
+  <div class="item item-field-detail" ng-if="vm.product.investment_direction">
+    <div class="field field-label">资金投向</div>
+    <div class="field field-value">{{ vm.product.investment_direction }}</div>
+  </div>
+
+
+</div>

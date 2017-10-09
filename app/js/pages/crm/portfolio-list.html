@@ -1,0 +1,32 @@
+<ion-view view-title="{{'portfolio_list_title'|translate}}" hide-back-button="true" class="portfolio-list-page white-theme">
+  <ion-nav-buttons>
+    <back-btn state="tab.crm"></back-btn>
+  </ion-nav-buttons>
+
+  <ion-content>
+    <div class="portfolio-list list">
+      <div class="item portfolio-item item-icon-right" ng-repeat="item in vm.portfolioList" ui-sref="portfolioDetails({clientId:vm.clientId,portfolioId:item.id})">
+        <div class="text {{vm.language}}">
+          <!--
+          <span class="risk-level">{{item.risk_level_name}}</span>
+          <span class=" date">{{item.created | formatDate}}</span>
+          -->
+          <span>{{'portfolio_list_portfolio'|translate}} <small>{{item.display_name}}</small></span>
+          <span class="risk-level">{{item.risk_level_name}} </span>
+          <span>{{item.created | formatDate}}</span>
+
+        </div>
+        <i class="icon unicon-forward accessory"></i>
+      </div>
+    </div>
+    <div class="no-data {{vm.language}}" ng-if="!vm.portfolioList || vm.portfolioList.length == 0">
+      {{'portfolio_list_no_portfolio'|translate}}
+    </div>
+  </ion-content>
+
+  <ion-footer-bar>
+    <button class="button button-full button-positive {{vm.language}}" ui-sref="tab.crm">
+      {{'portfolio_list_footer_button'|translate}}
+    </button>
+  </ion-footer-bar>
+</ion-view>

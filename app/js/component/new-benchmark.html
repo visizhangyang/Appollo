@@ -1,0 +1,68 @@
+<ion-modal-view class="new-benchmark-modal">
+  <ion-header-bar>
+    <h1 class="title">增加基准收益</h1>
+    <div class="buttons">
+      <button class="button cancel-button"
+              ng-click="vm.cancel()">
+        <i class="icon ion-cancel"></i>
+      </button>
+    </div>
+  </ion-header-bar>
+
+  <ion-content>
+    <form name="form"
+          novalidate
+          class="m-form">
+      <div class="list margin-top">
+        <ion-input class="item item-input">
+          <ion-label>最低认购金额(万)</ion-label>
+          <input type="number"
+                 name="investment_amount"
+                 ng-model="vm.data.investment_amount"
+                 placeholder="请输入认购金额"
+                 pattern="[0-9]*"
+                 required>
+        </ion-input>
+        <ion-input class="item item-input">
+          <ion-label>最高认购金额(万)</ion-label>
+          <input type="number"
+                 name="investment_amount_max"
+                 ng-model="vm.data.investment_amount_max"
+                 pattern="[0-9]*"
+                 placeholder="可不填, 表示无认购金额上限">
+        </ion-input>
+        <ion-input ng-if="vm.hasRate"
+                   class="item item-input">
+          <ion-label>年化基准收益率(%)</ion-label>
+          <input type="number"
+                 ng-model="vm.data.expected_annual_return"
+                 name="expected_annual_return"
+                 placeholder="预期年化收益率(选填)">
+        </ion-input>
+        <ion-input class="item item-input">
+          <ion-label>佣金费率(税后)(%)</ion-label>
+          <input type="number"
+                 name="commission_rate"
+                 ng-model="vm.data.commision_rate"
+                 placeholder="输入税后佣金"
+                 required>
+        </ion-input>
+      </div>
+
+      <div class="error">
+          <span ng-if="form.investment_amount.$dirty
+                      && form.investment_amount_max.$dirty
+                      && !vm.isValid()">
+            最低认购金额不应大于最高认购金额
+          </span>
+      </div>
+
+      <button class="button button-full button-positive margin-top"
+              ng-disabled="form.$invalid || !vm.isValid()"
+              ng-click="vm.add()">
+        增加
+      </button>
+
+    </form>
+  </ion-content>
+</ion-modal-view>

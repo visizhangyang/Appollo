@@ -1,0 +1,26 @@
+<ion-view view-title=""
+          hide-nav-bar="true"
+          class="landing-page"
+          hide-back-button="true">
+
+  <ion-content scroll="false">
+    <div class="container" ng-if="vm.ready">
+      <img class="landing-bg"
+           ng-src="public/landing.jpg">
+      <div class="bottom-block">
+        <div class="text-rect">
+          <div class="title">{{'landing_micai'|translate}} {{'landing_apollo'|translate}}</div>
+          <div>{{'landing_desc'|translate}}</div>
+        </div>
+        <div class="button-bar">
+          <button class="button" ng-click="vm.onLogin()">
+            {{'landing_login'|translate}}
+          </button>
+        </div>
+      </div>
+
+    </div>
+
+  </ion-content>
+</ion-view>
+

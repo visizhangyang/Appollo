@@ -1,0 +1,179 @@
+.examination-button {
+  display: none;
+
+  &.en {
+    font-size: 10px !important;
+  }
+}
+
+.kyc-page {
+    background: #FFF;
+    $border: #F0F0F0 solid 1px;
+    .header-box {
+        color: $base-color;
+        font-size: 14px;
+        .row {
+            border-bottom: $border;
+            padding: {
+                left: 10px;
+                right: 10px;
+                bottom: 0;
+            }
+            margin-bottom: 6px;
+            height: 45px;
+            .col {
+                display: flex;
+                align-items: center;
+                &:last-child {
+                    justify-content: flex-end;
+                }
+                &.col1 {
+                  flex: 1;
+                }
+                &.col2 {
+                  flex: 1
+                }
+            }
+        }
+        .input-row {
+            .input {
+                display: inline-block;
+                width: 90px;
+                text-align: center;
+                font-size: 12px;
+                margin-right: 1px;
+                background: transparent;
+                padding: 0;
+                margin: 0;
+                border-radius: 0;
+                height: 30px;
+                &::-webkit-input-placeholder {
+                    font-size: 12px;
+                    text-align: center;
+                    line-height: 20px;
+                    vertical-align: bottom;
+                }
+                &.value {
+                    width: 60px;
+                    font-size: 16px;
+                    text-align: right;
+                }
+            }
+            .icon {
+                background: $positive;
+                color: #FFF;
+                border-radius: 0;
+                border: 0;
+                padding: 0;
+                font-size: 20px;
+                width: 25px;
+                height: 25px;
+                line-height: 25px;
+                border-radius: 5px;
+                &:disabled {
+                    background: rgba($positive, 0.3);
+                }
+            }
+            .ext {
+                display: inline-block;
+                margin-left: 2px;
+                width: 23px;
+                font-size: 14px;
+            }
+            .symbol {
+                padding-left:8px;
+            }
+        }
+        .select-row {
+            .col:first-child {
+                border-right: 1px solid #F0F0F0;
+            }
+            .value {
+                width: 40px;
+                text-align: center;
+                &.en {
+                  width: 30px;
+                }
+                &.risk-level-label {
+                    width: 95px;
+                }
+            }
+            .ion-chevron-down {
+                transition: transform .25s;
+                color: #9B9B9B;
+                &.active {
+                    transform: rotate(180deg);
+                }
+            }
+        }
+    }
+    .period-box {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-around;
+        border-bottom: $border;
+        button {
+            width: 50px;
+        }
+    }
+    #wheel{
+        overflow: hidden;
+    }
+    .user {
+        text-align: center;
+        margin-top: 19px;
+        font-size: 21px;
+        color: #5B5B5B;
+        @include bold-font();
+        // hide client name and risk level, can be deleted if not used in future
+        display: none;
+    }
+    .risk-box {
+        risk-level-adjustment-graph {
+            display: block;
+            margin: 19px auto;
+        }
+    }
+    .other-data-tips {
+        color: #9B9B9B;
+        &.en {
+          font-size: 10px;
+        }
+    }
+    .button-bar-box {
+        .button-bar {
+            .button {
+                background: transparent;
+                border-color: #F0F0F0;
+                color: #9B9B9B;
+                &.active {
+                    background-color: #F0F0F0;
+                    color: #424242;
+                }
+                &.en {
+                  padding-left: 5px;
+                  padding-right: 5px;
+                  font-size: 10px;
+                  font-family: HelveticaNeue-Light;
+                }
+            }
+            border-radius: 5px;
+        }
+    }
+    .tab-box {
+        min-height: 485px;
+    }
+    .asset-box {
+        u-bar-chart-v2 {
+            display: block;
+            height: 120px;
+        }
+        .options {
+            margin: 15px 0 20px;
+        }
+
+        /* add border-bottom to keep the bottom gap in safari */
+        border-bottom: 1px solid #fff;
+    }
+}

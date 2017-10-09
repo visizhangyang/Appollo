@@ -1,0 +1,29 @@
+.slider {
+  height: 180px;
+  background: linear-gradient(180deg, #252525, #4c4c4c);
+  .box {
+    @include cover-background(50%, 0);
+    position: relative;
+    text-align: center;
+    height: 100%;
+  }
+
+}
+.slider-pager {
+  bottom: 12px;
+  height: 9px;
+  line-height: 9px;
+
+  .slider-pager-page {
+    margin: 0 4px;
+    width: 9px;
+    height: 9px;
+    border-radius: 50%;
+    background: $light;
+
+    opacity: 0.2;
+    &.active {
+      opacity: 0.6;
+    }
+  }
+}

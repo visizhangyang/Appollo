@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="45px" height="52px" viewBox="0 0 45 52" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 3.7.2 (28276) - http://www.bohemiancoding.com/sketch -->
+    <title>ic_message center</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="messages" transform="translate(-52.000000, -173.000000)" stroke="#FFFFFF" stroke-width="4">
+            <g id="ic_message-center" transform="translate(54.000000, 175.000000)">
+                <path d="M4.82352941,26.4 L4.82352941,20.3935418 C4.82352941,11.7814665 11.8012316,4.8 20.4311095,4.8 L20.5688905,4.8 C29.188719,4.8 36.1890797,11.7771523 36.193345,20.3977796 C36.193345,20.3977796 36.2155085,20.4901101 36.1764706,27.6 C36.2155092,33.8783203 37.3394027,36.6099609 41,40.8 C36.9254366,39.7177734 4.82352941,39.9014648 0,40.8 C3.46696214,36.6591797 4.82352941,34.7833008 4.82352941,26.4 Z" id="Rectangle-1130" stroke-linecap="round" stroke-linejoin="round"></path>
+                <path d="M24.1176471,3.6 C24.1176471,1.6117749 22.4979713,0 20.5,0 C18.5020287,0 16.8823529,1.6117749 16.8823529,3.6" id="Oval-784"></path>
+                <path d="M14.4705882,42 C14.4705882,45.3137085 17.1700478,48 20.5,48 C23.8299522,48 26.5294118,45.3137085 26.5294118,42" id="Oval-785"></path>
+            </g>
+        </g>
+    </g>
+</svg>

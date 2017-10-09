@@ -1,0 +1,16 @@
+.asset-summary-page {
+    .button-bar-box {
+        .button-bar {
+            .button {
+                background: transparent;
+                border-color: #F0F0F0;
+                color: #9B9B9B;
+                &.active {
+                    background-color: #F0F0F0;
+                    color: #424242;
+                }
+            }
+            border-radius: 5px;
+        }
+    }
+}

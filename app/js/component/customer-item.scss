@@ -1,0 +1,39 @@
+.customer-item-cmp {
+
+  padding: 15px 15px 15px 30px;
+  margin-top: 20px;
+  background: $light;
+
+  .header {
+    line-height: 2;
+    .client-name {
+      font-size: 13px;
+      color: $base-color;
+      @include bold-font();
+    }
+    .position {
+      font-size: 11px;
+    }
+    position: relative;
+    &.important {
+      padding-left: 20px;
+    }
+    .icon {
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 18px;
+      height: 27px;
+    }
+  }
+  .info-item {
+    vertical-align: text-bottom;
+    font-size: $font-size-base;
+    .info-label {
+      margin-right: 8px;
+    }
+    .contact-progress {
+      font-size: $font-size-base;
+    }
+  }
+}

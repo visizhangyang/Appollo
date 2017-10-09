@@ -1,0 +1,66 @@
+.proposal-adjust-page {
+
+  @include proposalItem();
+
+  .item-container {
+    margin-top: 5px;
+
+    &.collapsed {
+      .proposal-item {
+        display:none;
+      }
+    }
+
+    .item-group {
+      position: relative;
+    }
+
+    .icon-expanded, .icon-collapsed {
+      position: absolute;
+      display: inline-block;
+      right: 20px;
+      top: 20px;
+      width: 0px;
+      height: 0px;
+    }
+
+    .icon-collapsed {
+      border-left: 10px solid transparent;
+      border-right: 10px solid transparent;
+      border-top: 10px solid #c1c1c1;
+    }
+
+    .icon-expanded {
+      border-left: 10px solid transparent;
+      border-right: 10px solid transparent;
+      border-bottom: 10px solid #c1c1c1;
+    }
+  }
+
+  .proposal-item {
+    padding-left: 5px;
+    padding-right: 5px;
+
+    @include proposalCheckbox();
+
+    .item-field-checkbox {
+      width: 32px;
+      flex: none;
+    }
+
+    .item-field-return-rate {
+      flex: 1.2;
+    }
+
+    &.add-product {
+      background-color: #FAFAFA;
+      border-color: #FFF;
+      color: #c1c1c1;
+      font-size: 18px;
+      padding-top: 15px;
+      padding-bottom: 15px;
+    }
+
+  }
+
+}

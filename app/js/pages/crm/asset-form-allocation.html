@@ -1,0 +1,44 @@
+<ion-view view-title="资产配置情况" hide-back-button="true" class="asset-form-allocation-page white-theme">
+  <ion-nav-buttons>
+    <back-btn state="tab.crm"></back-btn>
+  </ion-nav-buttons>
+  <ion-content>
+    <div class="list margin-top">
+
+      <div class="item item-divider normal-divider item-light">
+        资产配置情况
+      </div>
+
+      <u-bar-compare-chart ng-if="vm.allocation" bar-chart-data="vm.allocation"></u-bar-compare-chart>
+      <div class="bar-chart-legend">
+        <hr/>
+        <span class="text">客户资产配置建议</span>
+        <span class="flag" style="background-color: #5BCFFA"></span>
+        <span class="flag" style="background-color: #7AF494"></span>
+        <span class="flag" style="background-color: #F7D463"></span>
+        <span class="flag" style="background-color: #9895FF"></span>
+        <span class="text">客户当前资产配置</span>
+        <span class="flag" style="background-color: #DCDADA"></span>
+      </div>
+
+      <div class="margin-top">
+        <money-slide middle="1000" label="'固收类资产'" value="vm.data.fixed_income || 0" on-change="vm.onChangeFixed(value)" label-class="dot fixed"
+          asset-note="'投资性房地产、债券、债券型基金、P2P、信托、银行保本理财等'"></money-slide>
+        <money-slide middle="1000" label="'股票类资产'" value="vm.data.stock_asset || 0" on-change="vm.onChangeStock(value)" label-class="dot stock"
+          asset-note="'股票、股票型基金、股票挂钩结构性产品等'"></money-slide>
+        <money-slide middle="1000" label="'另类投资资产'" value="vm.data.alternative_asset || 0" on-change="vm.onChangeOthers(value)" label-class="dot alternative"
+          asset-note="'PE/VC、对冲基金、大宗商品/期货基金等'"></money-slide>
+        <money-slide middle="1000" label="'现金类资产'" value="vm.data.cash_asset || 0" on-change="vm.onChangeCash(value)" label-class="dot cash"
+          asset-note="'存款、货币型基金等'"></money-slide>
+      </div>
+    </div>
+
+  </ion-content>
+
+  <ion-footer-bar>
+    <button class="button button-full button-positive" ng-click="vm.next(true)">
+      下一步 保险保障
+    </button>
+  </ion-footer-bar>
+
+</ion-view>

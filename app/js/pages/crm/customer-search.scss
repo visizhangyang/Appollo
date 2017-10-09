@@ -1,0 +1,28 @@
+.customer-search-modal {
+  $search-bar-height: 56px;
+  $top-bar-height: 44px;
+  $top-offset: $search-bar-height + $top-bar-height;
+
+  .search-toolbar {
+    position: absolute;;
+    top: $top-bar-height;
+    left: 0;
+    width: 100%;
+
+    .platform-ios.platform-cordova:not(.fullscreen) & {
+      top: $top-bar-height + $ios-statusbar-height;
+    }
+  }
+  ion-content {
+    top: $top-offset;
+
+    .platform-ios.platform-cordova:not(.fullscreen) &.has-header {
+      top: $top-offset + $ios-statusbar-height;
+    }
+    .mismatch-hint {
+      text-align: center;
+      margin-top: 20%;
+    }
+  }
+
+}

@@ -1,0 +1,35 @@
+
+<div class="customer-item-cmp item">
+  <!--
+  <span ng-bind="$ctrl.getOrderStatus()"
+        ng-if="!$ctrl.preview"
+        class="order-status"></span>
+  -->
+
+  <div class="header"
+       ng-class="{important: $ctrl.client.client_level=== 'IMPORTANT'}">
+    <i class="icon unicon-important-client"
+       ng-if="$ctrl.client.client_level === 'IMPORTANT'"></i>
+    <span class="client-name"
+          ng-bind="$ctrl.client.name"></span>
+    <span class="position">
+              <span ng-bind="$ctrl.client.job_position"></span>
+              <span ng-if="$ctrl.client.job_position && $ctrl.client.company">|</span>
+              <span ng-bind="$ctrl.client.company"></span>
+            </span>
+  </div>
+
+  <div class="contact-info"
+       ng-if="!$ctrl.preview">
+    <div class="info-item">
+      <span class="info-label">{{'customer_item_client_status'|translate}}</span>
+      <span class="info-value contact-progress"
+            ng-bind="$ctrl.client.status"></span>
+    </div>
+    <div class="info-item">
+      <span class="info-label">{{'customer_item_last_updated'|translate}}</span>
+      <span class="info-value u-date"
+            ng-bind="$ctrl.client.followed | date: 'dd/MM/yyyy HH:mm'"></span>
+    </div>
+  </div>
+</div>

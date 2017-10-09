@@ -1,0 +1,17 @@
+.user-login-modal {
+  .cancel-button {
+    background-color: transparent;
+  }
+
+  .register-link {
+    display: flex;
+    justify-content: space-between;
+    margin: 10px auto 26px auto;
+    a {
+      font-size: 14px;
+      line-height: 14.5px;
+      padding: 9px 15px;
+    }
+  }
+}
+

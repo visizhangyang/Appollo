@@ -1,0 +1,21 @@
+@charset "UTF-8";
+
+@import 'settings';
+@import 'ionic/scss/ionic.scss';
+
+@import 'mixin',
+        'tabs',
+        'icon',
+        'bar',
+        'slider',
+        'search',
+        'button',
+        'item',
+        'forms',
+        'loading',
+        'animation',
+        'popup',
+        'utils';
+
+@import "../js/component/component";
+@import "../js/pages/pages";

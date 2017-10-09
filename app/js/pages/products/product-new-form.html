@@ -1,0 +1,120 @@
+<ion-view view-title=" "
+          hide-back-button="true"
+          class="product-new-form-page">
+  <ion-nav-title ng-bind="vm.productType.name">
+  </ion-nav-title>
+  <ion-nav-buttons>
+    <back-btn state="tab.account"></back-btn>
+  </ion-nav-buttons>
+
+  <form class="m-form"
+        name="form"
+        novalidate>
+
+    <ion-content>
+      <div class="list margin-top">
+        <ion-input class="item item-input">
+          <ion-label>全称</ion-label>
+          <input type="text"
+                 ng-model="vm.productForm.product_name"
+                 ng-change="vm.formUtil.onInputChange(form)"
+                 name="product_name"
+                 placeholder="产品全称"
+                 required>
+        </ion-input>
+
+        <ion-input class="item item-input">
+          <ion-label>投资门槛(万)</ion-label>
+          <input type="number"
+                 ng-model="vm.productForm.initial_deposit"
+                 name="initial_deposit"
+                 placeholder="输入投资门槛"
+                 pattern="[0-9]*"
+                 required>
+        </ion-input>
+
+        <ion-input class="item item-input item-select">
+          <ion-label>结款节点</ion-label>
+          <select ng-options=" pay.value as pay.name for pay in vm.payment_options"
+                  ng-model="vm.productForm.payment_date">
+          </select>
+        </ion-input>
+
+        <ion-input class="item item-input item-floating-label">
+          <ion-label>上架说明</ion-label>
+          <textarea name="instruction"
+                    rows="3"
+                    ng-model="vm.productForm.instruction"
+                    placeholder="上架说明(选填)"></textarea>
+        </ion-input>
+
+
+
+        <div class="margin-top">
+          <div class="item item-divider borderless-divider">
+            基准收益
+          </div>
+
+          <ion-list can-swipe="true"
+                    ng-if="vm.productForm.benchmark_yield_list.length">
+
+            <div class="item item-fields-set-3">
+              <div class="item-field">认购金额（万）</div><!--
+           --><div class="item-field" ng-if="vm.hasRate">预期年化收益率</div><!--
+           --><div class="item-field">返佣比例</div>
+            </div>
+            <ion-item class="item" ng-repeat="benchmark in vm.productForm.benchmark_yield_list">
+              <div class="item-fields-set-3">
+                <div class="item-field">{{ benchmark | benchmarkInvest }}</div><!--
+             --><div class="item-field" ng-if="vm.hasRate">{{ benchmark | benchmarkReturn }}</div><!--
+             --><div class="item-field">{{ benchmark.commision_rate }}%</div>
+              </div>
+              <ion-option-button ng-click="vm.editBenchmark($index)">
+                编辑
+              </ion-option-button>
+              <ion-option-button ng-click="vm.deleteBenchmark($index)">
+                删除
+              </ion-option-button>
+            </ion-item>
+          </ion-list>
+
+          <div class="item item-icon-right"
+               ng-click="vm.newBenchmarkForm()">
+            增加基准收益
+            <i class="icon unicon-forward accessory"></i>
+          </div>
+        </div>
+
+        <div class="margin-top upload-attachment">
+          <div class="item item-divider borderless-divider">
+            产品附件
+          </div>
+          <ion-list can-swipe="true" ng-if="vm.productForm.attachments">
+            <ion-item ng-repeat="attachment in vm.productForm.attachments">
+              {{ attachment.name }}
+              <ion-option-button ng-click="vm.deleteFile($index)">
+                删除
+              </ion-option-button>
+            </ion-item>
+          </ion-list>
+
+          <file-input output-fn="vm.addFile(file)"></file-input>
+          <p>（如手机端上传附件不方便，请发送附件及佣金至support@micaiapp.com邮箱，并附带您的联系方式）</p>
+        </div>
+      </div>
+
+      <div class="error" ng-if="vm.formUtil.submitError" ng-bind="vm.formUtil.submitError">
+      </div>
+
+    </ion-content>
+
+    <ion-footer-bar>
+      <button class="button button-full button-positive"
+              ng-disabled="form.$invalid || !vm.ready()"
+              on-request="vm.next()">
+        上传产品
+      </button>
+    </ion-footer-bar>
+
+  </form>
+</ion-view>

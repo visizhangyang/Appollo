@@ -1,0 +1,33 @@
+
+.tab-account-page {
+  .glass-header {
+    .header-info {
+      .login-btn {
+        @include bold-font();
+        color: white;
+        font-size: 20px;
+      }
+      .username {
+        font-size: 17px;
+        margin-bottom: 10px;
+        @include bold-font();
+      }
+
+      .company-name {
+        font-size: 17px;
+      }
+    }
+  }
+
+  .name-card-info {
+    font-size: 10px;
+  }
+
+  .account-info {
+    position: relative;
+    .unicon-account-approved:first-child {
+      right: -23px;
+      width: 16px;
+    }
+  }
+}

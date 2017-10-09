@@ -1,0 +1,50 @@
+<ion-view view-title="预约详情"
+          class="product-attachments-page"
+          hide-back-button="true">
+  <ion-nav-buttons >
+    <back-btn state="tab.account"></back-btn>
+  </ion-nav-buttons>
+
+  <ion-content>
+
+    <refresh-view refresher="vm.refresher">
+      <div class="list margin-top">
+        <div class="item item-divider" ng-style="{'white-space': 'inherit'}">
+          {{ vm.order.product_name }}
+        </div>
+        <div class="item item-field-detail">
+          <div class="field field-label" ng-bind="vm.order.client_name ? '客户' : '投资人'"></div>
+          <div class="field field-value"
+               ng-bind="vm.order.investor_name || vm.order.client_name"></div>
+        </div>
+        <div class="item item-field-detail" ng-if="vm.order.last4_ID">
+          <div class="field field-label">身份证后四位</div>
+          <div class="field field-value"
+               ng-bind="vm.order.last4_ID"></div>
+        </div>
+        <div class="item item-field-detail">
+          <div class="field field-label">认购金额(万)</div>
+          <div class="field field-value"
+               ng-bind="vm.order.amount"></div>
+        </div>
+        <div class="item item-field-detail"
+             ng-if="vm.order.note">
+          <div class="field field-label">备注信息</div>
+          <div class="field field-value"
+               ng-bind="vm.order.note"></div>
+        </div>
+      </div>
+    </refresh-view>
+
+  </ion-content>
+
+
+  <ion-footer-bar>
+    <button class="button button-full button-black"
+            ng-if="vm.order.status | couldCancel"
+            ng-click="vm.onClickCancel($event, vm.order.id)">
+      取消预约
+    </button>
+  </ion-footer-bar>
+
+</ion-view>

@@ -1,0 +1,68 @@
+<ion-view view-title=""
+          class="tab-home-page"
+          hide-nav-bar="true"
+          hide-back-button="true">
+  <ion-content has-bouncing="false">
+
+    <ion-slide-box class="slide-container">
+      <ion-slide ng-repeat="slider in vm.sliders">
+        <div class="box"
+             nav-direction="forward"
+             ui-sref="articles({articleSlug: slider.articleSlug})"
+             ng-style="{'background-image': slider.imgBg}">
+        </div>
+      </ion-slide>
+    </ion-slide-box>
+
+    <div class="highlight-btn-group">
+      <div class="btn u-tap"
+           ng-click="vm.clickFeatureProducts('TRUST')">
+        <div class="btn-icon unicon-feature-trust">
+        </div>
+        <div class="btn-label">信托产品</div>
+      </div><!--
+   --><div class="btn u-tap"
+           ng-click="vm.clickFeatureProducts('PRIVATE_FUND,PRIVATE_FUND_FLOAT')">
+        <div class="btn-icon unicon-feature-private"></div>
+        <div class="btn-label">私募基金</div>
+      </div><!--
+   --><div class="btn u-tap"
+           ng-click="vm.clickFeatureProducts('ASSET_MANAGEMENT')">
+        <div class="btn-icon unicon-feature-asset"></div>
+        <div class="btn-label">资管计划</div>
+      </div><!--
+   --><div class="btn u-tap"
+           ng-click="vm.clickFeatureProducts('OTHER,ADVICE')">
+        <div class="btn-icon unicon-feature-other"></div>
+        <div class="btn-label">其他</div>
+      </div>
+    </div>
+
+    <div class="marketing-area">
+      <div class="market-card u-tap"
+           nav-direction="forward"
+           ui-sref="articles({articleSlug: 'features'})">
+        <div class="market-bg"></div>
+        <div class="market-title">平台优势 ></div>
+      </div><!--
+   --><div class="market-card u-tap"
+           nav-direction="forward"
+           ui-sref="articles({articleSlug: 'weekly_products'})">
+      <div class="market-bg"></div>
+      <div class="market-title">热销产品 ></div>
+      </div>
+    </div>
+
+    <refresh-view refresher="vm.refresher">
+      <product-item ng-repeat="product in vm.productList"
+                    recommend="true"
+                    user="vm.user"
+                    product="product">
+      </product-item>
+    </refresh-view>
+
+    <img class="cooperation-partner"
+         ng-src="public/cooperation-partner.png">
+
+  </ion-content>
+</ion-view>

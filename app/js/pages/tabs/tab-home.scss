@@ -1,0 +1,95 @@
+.tab-home-page {
+  ion-content {
+    top: 44px;
+    bottom: 0;
+    overflow: visible;
+  }
+
+  .slide-container {
+    margin-top: -44px;
+    .heading-wrapper {
+      background: rgba(0,0,0,0.3);
+      height: 100%;
+    }
+    .heading {
+      @include vertical-div(64%);
+      width: 100%;
+      left: 0;
+      color: $light;
+      line-height: 3;
+      font-size: 15px;
+      @include bold-font();
+    }
+  }
+
+  .highlight-btn-group {
+    text-align: center;
+    background: $dark;
+
+    .btn {
+      width: 25%;
+      display: inline-block;
+      margin: {
+        top: 22px;
+        bottom: 11px;
+      }
+      .btn-icon {
+        height: 22px;
+        margin-bottom: 9px;
+        &.unicon-feature-private {
+          height: 17px;
+          margin-bottom: 11px;
+        }
+      }
+    }
+  }
+
+  .marketing-area {
+    padding: 10px 0;
+    width: 100%;
+    height: 102px;
+    .market-card {
+      display: inline-block;
+      position: relative;
+      width: 44%;
+      margin-left: 4%;
+      border-radius: 2px;
+      text-align: center;
+      height: 100%;
+      color: white;
+      .market-bg {
+        width: 100%;
+        height: 100%;
+        background: {
+          position: center center;
+          size: cover;
+          repeat: no-repeat;
+        };
+      }
+      &:nth-child(1) .market-bg {
+        opacity: 0.5;
+        background-image: url('public/home-pro-left.png');
+      }
+      &:nth-child(2) .market-bg {
+        opacity: 0.36;
+        background-image: url('public/home-pro-right.png');
+      }
+
+      .market-title {
+        @include bold-font();
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        left: 0;
+        top: 0;
+        font-size: 15px;
+        line-height: 82px;
+      }
+    }
+  }
+
+  .cooperation-partner {
+    width: 100%;
+  }
+
+}

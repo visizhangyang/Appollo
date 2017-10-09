@@ -1,0 +1,36 @@
+@import "tabs/tabs";
+@import "products/products";
+@import "account/account";
+@import "articles/articles";
+@import "crm/crm";
+@import "landing/landing";
+.page-title {
+    @include bold-font();
+    font-size: 15px;
+    color: $light;
+    text-align: center;
+    margin-top: 28px;
+}
+
+.page-body-spinner {
+    display: block;
+    text-align: center;
+}
+
+.page-confirmation {
+    font-size: 15px;
+    line-height: 1.5;
+    color: $dark;
+    text-align: center;
+    @include bold-font();
+    margin: 30% 45px;
+    .icons {
+        margin-bottom: 10px;
+        .icon {
+            font-size: 36px;
+        }
+    }
+    .contact {
+        margin-top: 41px;
+    }
+}

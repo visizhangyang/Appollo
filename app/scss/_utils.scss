@@ -1,0 +1,137 @@
+.white-theme {
+  background: white;
+  color: $base-color;
+}
+.float-right {
+  float: right;
+}
+
+.margin-top {
+  margin-top: 20px;
+}
+
+.u-tap {
+  @include activated();
+}
+
+.u-date {
+  font-size: $font-size-base;
+  color: $base-color;
+}
+
+.preline {
+  white-space: pre-wrap;
+  word-break: break-all;
+}
+
+.blank-page {
+  margin-top: 30%;
+  text-align: center;
+
+  .login-btn {
+    @include bold-font();
+    color: white;
+    font-size: 20px;
+  }
+
+  p {
+    margin-bottom: 44px;
+  }
+  .button-block {
+    @include bold-font();
+    width: 60%;
+    margin: 20px auto;
+    font-size: 17px;
+    min-height: 32px;
+    line-height: 30px;
+    border-radius: 4px;
+  }
+}
+
+.positive-money {
+  &:before {
+    content: '+';
+  }
+}
+
+.glass-header {
+  $glass-header-height: 117px;
+  height: $glass-header-height; // might need to add status bar height ...
+
+  .platform-ios.platform-cordova:not(.fullscreen) & {
+    height: $glass-header-height + $ios-statusbar-height;
+  }
+  position: relative;
+  text-align: center;
+  overflow: hidden;
+  margin-bottom: 20px;
+
+  .background-filter {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: {
+      size: cover;
+      position: 50% 0;
+      repeat: no-repeat;
+    };
+    background-image: url('public/avatar1.png');
+
+    // only if not ios...
+    body:not(.platform-ios) & {
+      @include glass-frost(15px);
+    }
+  }
+  .background-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background: rgba(37,37,37,0.6);
+
+    .platform-ios & {
+      -webkit-backdrop-filter: blur(5px);
+    }
+  }
+
+  .header-info {
+    width: 100%;
+    text-align: center;
+    position: relative;
+    @include vertical-div(50%);
+    transform: translate(0%, -50%);
+    color: white;
+  }
+}
+
+.commission-fee-area {
+  font-size: 17px;
+  line-height: 2;
+  .money-label {
+    @include bold-font();
+    &:after {
+      font-size: 13px;
+      margin-left: -6px;
+      content: '（元）';
+    }
+  }
+  .commission-number {
+    font-size: 30px;
+  }
+}
+
+.annotate {
+  margin: 14px 15px;
+  font-size: 10px;
+  @include bold-font();
+}
+
+
+.title-bar {
+  padding: 8px 15px;
+  font-size: 13px;
+  background: rgba(26, 28, 32, 0.5);
+}

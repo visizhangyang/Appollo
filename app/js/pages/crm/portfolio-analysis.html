@@ -1,0 +1,76 @@
+<ion-view view-title="{{'performance_title'|translate}}" hide-back-button="true" class="proposal-page white-theme">
+    <ion-nav-buttons>
+        <back-btn state="tab.crm"></back-btn>
+    </ion-nav-buttons>
+
+    <ion-content class="portfolio-analysis">
+        <div class="overlay-box">
+            <div class="content-over-overlay compare-section">
+                <div class="row compare-banner">
+                    <div class="col portfolio">
+                        <button ng-click="vm.choosePortfolio()" class="button button-small button-clear button-dark" ng-class="{'inactive' : vm.isPageCompareStateChooseCompareIndex()}">
+                            {{vm.portfolioCurrent.name}}
+                            <i class="ion ion-chevron-down" ng-class="{'active' : vm.isPageCompareStateChoosePortfolio()}"></i>
+                        </button>
+                    </div>
+                    <div class="vs">vs</div>
+                    <div class="col compare-index">
+                        <button ng-click="vm.chooseCompareIndex()" class="button button-small button-clear button-dark" ng-class="{'inactive' : vm.isPageCompareStateChoosePortfolio()}">
+                            {{vm.compareIndexCurrent.name}}
+                            <i class="ion ion-chevron-down" ng-class="{'active' : vm.isPageCompareStateChooseCompareIndex()}"></i>
+                        </button>
+                    </div>
+                </div>
+                <div class="row select-options-box" ng-if="vm.isPageCompareStateChoosePortfolio()">
+                    <div class="col col-33" ng-repeat="item in vm.portfolioList">
+                        <button class="button button-small button-clear button-dark" on-request="vm.choosePortfolioByIndex($index)">{{item.name}}</button>
+                    </div>
+                </div>
+                <div class="row select-options-box" ng-if="vm.isPageCompareStateChooseCompareIndex()">
+                    <div class="col col-33" ng-repeat="item in vm.compareIndexList">
+                        <button class="button button-small button-clear button-dark" on-request="vm.chooseCompareIndexByIndex($index)">{{item.name}}</button>
+                    </div>
+                </div>
+            </div>
+            <div class="content-under-overlay">
+                <div class="overlay" ng-class="{'active' : vm.pageCompareState != null}" ng-click="vm.hideCompareOverlay()">
+                </div>
+                <div class="period-bar">
+                    <div class="button-bar bar-light">
+                        <button class="button button-outline button-positive button-small" ng-class="{actived : item == vm.currentPeriod}" ng-repeat="item in vm.periodList"
+                            on-request="vm.selectPeriod($index)">{{item.label}}</button>
+                    </div>
+                </div>
+                <d3-line-chart-component data="vm.portfolioHistoryData" ng-if="vm.portfolioHistoryData"></d3-line-chart-component>
+                <div class="overlay-box">
+                    <div class="content-over-overlay">
+                        <div class="row profileTitleView">
+                            <div class="col col-50 col-title">{{'performance_optimization'|translate}}</div>
+                            <div class="col col-button">
+                                <button ng-click="vm.toggleProfileOptions()" class="button button-small button-clear button-dark">
+                                    {{vm.profileOptionCurrent.name}}
+                                    <i class="ion ion-chevron-down" ng-class="{'active' : vm.showProfileOverlay}"></i>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="row select-options-box" ng-if="vm.showProfileOverlay">
+                            <div class="col col-33" ng-repeat="item in vm.profileOptionList">
+                                <button class="button button-small button-clear button-dark" ng-click="vm.chooseProfileOption($index)">{{item.name}}</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="content-under-overlay">
+                        <div class="overlay" ng-class="{'active' : vm.showProfileOverlay}" ng-click="vm.hideProfileOverlay()">
+                        </div>
+                        <risk-adjustment-chart-component ng-if="vm.profileChartData" on-change="vm.handleRiskAdjustmentChanged(changed,portfolio_history, defaultState, currentState)"
+                            data="vm.profileChartData"></risk-adjustment-chart-component>
+                        <div class="adjustment">
+                            <button class="button button-outline button-positive" on-request="vm.gotoCompareView()" ng-hide="vm.portfolioCurrentState == null"
+                                ng-class="{inactive:vm.portfolioCurrentState == null}">{{'performance_optimize_portfolio'|translate}}</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+    </ion-content>
+</ion-view>

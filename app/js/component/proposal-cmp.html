@@ -1,0 +1,33 @@
+<div class="proposal-cmp">
+
+  <div class="item item-divider normal-divider item-light margin-top">
+    投资组合建议
+  </div>
+  <!--<div class="distribution">
+    <u-donut donut-data="$ctrl.donutData" total-investment="{{$ctrl.totalInvestment}}" type="double"></u-donut>
+  </div>-->
+
+  <!--<u-bar-chart-v2-ex bar-chart-data="$ctrl.barData" ui-sref="proposalPerf({id: $ctrl.clientId})"></u-bar-chart-v2-ex>-->
+  <barchart-cmp type="ex" data="$ctrl.barData"></barchart-cmp>
+
+  <div class="item item-divider normal-divider item-light item-navigator item-icon-right" ui-sref="proposalForm({id: $ctrl.clientId})"
+    nav-direction="forward">
+    产品定制组合
+    <i class="icon unicon-forward accessory"></i>
+  </div>
+
+  <div class="list">
+    <a class="item group-item" ng-repeat="group in $ctrl.groupsList || []">
+      {{ group | transAsset }} (调整配比：{{ ($ctrl.proposal.allocation_analysis.suggest[group] / $ctrl.proposal.allocation_analysis.suggest.total  - ($ctrl.proposal.allocation_analysis.in_hand.total == 0  ? 0 : $ctrl.proposal.allocation_analysis.in_hand[group] / $ctrl.proposal.allocation_analysis.in_hand.total)) * 100 | formatPercentWithSign:true}}，
+      金额：+{{ ($ctrl.proposal.asset_groups[group].amount - $ctrl.proposal.asset_groups[group].in_hand.amount) | formatMoney}}万元)
+      <span class="selected-count">已选{{ $ctrl.proposal.asset_groups[group].products.length }}只</span>
+    </a>
+  </div>
+
+  <!--<div class="item item-divider normal-divider item-light item-navigator item-icon-right" ui-sref="proposalEFProfile({clientId: $ctrl.clientId})"
+    nav-direction="forward" ng-if="$ctrl.UserModel.features['EFFICIENT_FRONTIER']">
+    有效边界优化
+    <i class="icon unicon-forward accessory"></i>
+  </div>-->
+
+</div>

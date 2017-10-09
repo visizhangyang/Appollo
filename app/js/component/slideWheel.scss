@@ -1,0 +1,97 @@
+.shadow-circle {
+    position: absolute;
+    top: 0;
+    left: 0;
+    border-radius: 1000px;
+    opacity: 0.25;
+    transform: rotate(45deg);
+    background-image: radial-gradient(50% 101%, #FFFFFF 0%, #000000 26%, #DDDDDD 51%, #000000 77%, #FFFFFF 100%);
+}
+
+#wheel-thumb {
+    display: block;
+    height: 30px;
+    width: 30px;
+    border-radius: 50%;
+    position: absolute;
+    z-index: 3;
+    box-shadow: 0 4px 10px 0 rgba(0, 0, 0, 0.75);
+    background-color: white;
+    background-repeat: no-repeat;
+    background-position: 50%;
+    background-size: 7px 30px;
+}
+
+.wheel-touch-box {
+    z-index: 10;
+    position: absolute;
+    display: none;
+    flex-direction: column;
+    background: rgba(0, 0, 0, 0.5);
+    border-radius: 4px;
+    color: #fff;
+    font-size: 8px;
+    padding: 5px;
+    transform: translate(-50%, -135%);
+    text-align: center;
+    div {
+        white-space: nowrap;
+    }
+    &:after {
+        content: ' ';
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        transform: translate(-50%, 100%);
+        width: 0;
+        height: 0;
+        border-style: solid;
+        border-width: 12px 6px 0 6px;
+        border-color: rgba(0, 0, 0, 0.5) transparent transparent transparent;
+    }
+    .level {
+        font-size: 30px;
+        line-height: 1;
+        @include bold-font();
+    }
+}
+
+.riskalyze-result {
+    width: 300px;
+    height: 300px;
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translate(-50%, 0%);
+    text-align: center;
+    display: flex;
+    align-items: center;
+    .container {
+        margin: auto;
+    }
+    img {
+        width: 100%;
+    }
+    .pct {
+        font-size: 12px;
+    }
+    .amount {
+        font-size: 24px;
+        line-height: 1.5;
+        @include bold-font();
+    }
+    .profit {
+        color: $profit-color;
+
+        &.en {
+          color: $profit-color-en;
+        }
+    }
+    .loss {
+        color: $loss-color;
+
+        &.en {
+          color: $loss-color-en;
+        }
+    }
+}

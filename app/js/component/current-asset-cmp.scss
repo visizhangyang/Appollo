@@ -1,0 +1,53 @@
+.current-asset-cmp {
+    @include codeSymbol();
+    .symbol:before {
+        margin-right: 5px;
+    }
+    .distribution {
+        // display: flex;
+        // flex-direction: column;
+        // align-items: center;
+        margin: 15px 0;
+        .symbols {
+            margin-top: 20px;
+            width: 40%;
+        }
+        barchart-cmp {
+            flex: 1;
+        }
+    }
+    u-donut {
+        height: 130px;
+        flex-grow: 1;
+        text-align: center;
+        svg {
+            overflow: visible;
+        }
+        path {
+            @include stockFill();
+        }
+        text {
+            fill: #121317;
+            font: 10px sans-serif;
+            text-anchor: middle;
+        }
+    }
+    .item-white,
+    .item-fields-set-4 .item-field {
+        font-size: 12px;
+    }
+    .item-white {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        .item-field {
+            white-space: initial;
+            &.symbol {
+                text-align: left;
+            }
+        }
+    }
+    .item-divider {
+        margin-top: 22px;
+    }
+}

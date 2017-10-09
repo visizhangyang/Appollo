@@ -1,0 +1,40 @@
+@import "tob-oauth";
+.landing-page {
+    .container {
+        position: relative;
+        height: 100%;
+        width: 100%;
+    }
+    .landing-bg {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+    }
+    .bottom-block {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+    }
+    .text-rect {
+        padding: 40px 40px 40px 30px;
+        color: #fff;
+        line-height: 1.5;
+        @include bold-font();
+        font-size: 14px;
+        .title {
+            font-size: 20px;
+        }
+    }
+    .button-bar {
+        background: $positive;
+        .button {
+            background: transparent;
+            min-height: 60px;
+            font-size: 17px;
+            color: #fff;
+            @include bold-font();
+        }
+    }
+}

@@ -1,0 +1,84 @@
+.product-item.card {
+    $product-head-height: 30px;
+    $product-progress-height: 6px;
+    margin: {
+        top: 0;
+        bottom: 10px;
+    }
+    padding: 0;
+    .heading {
+        height: $product-head-height;
+        line-height: $product-head-height;
+        position: relative;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        color: $dark;
+        font-size: 15px;
+        padding-right: 80px;
+        .label-slot-container {
+            position: absolute;
+            bottom: 5px;
+            right: 0;
+        }
+        .label-slot {
+            color: #fff;
+            border-top-left-radius: 3px;
+            border-bottom-left-radius: 3px;
+            &.selling {
+                background-color: $blue;
+            }
+            &.halt-selling {
+                background-color: grey;
+            }
+            .label-slot-text {
+                width: 50px;
+                text-align: left;
+                padding-left: 5px;
+                font-size: 12px;
+                line-height: 18px;
+            }
+        }
+    }
+    .divider {
+        border-bottom: #D8D8D8 1px solid;
+    }
+    .product-body {
+        .row {
+            padding: 0;
+            .col {
+                padding: 0;
+            }
+        }
+        .value-row {
+            color: #FE4A65;
+            .return-rate {
+                @include light-font();
+                font-size: 21px;
+                &.percentage:after {
+                    content: '%';
+                }
+            }
+            .investment_period {
+                text-align: center;
+            }
+            .min_investment {
+                font-size: 10px;
+                text-align: right;
+            }
+        }
+        .label-row {
+            margin-top: 2px;
+            font-size: 10px;
+            .return-rate {
+                text-align: left;
+            }
+            .investment_period {
+                text-align: center;
+            }
+            .min_investment {
+                text-align: right;
+            }
+        }
+    }
+}

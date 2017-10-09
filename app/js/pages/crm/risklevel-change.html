@@ -1,0 +1,102 @@
+<ion-view view-title="选择风险承受度" hide-back-button="true" cache-view="false" class="risklevel-change-page white-theme">
+  <ion-nav-buttons>
+    <back-btn state="tab.crm"></back-btn>
+  </ion-nav-buttons>
+
+  <ion-content scroll="false">
+    <div class=" margin-top container">
+      <ion-input class="item item-light item-input amount-input">
+        <ion-label>客户投资金额</ion-label>
+        <div class="item-right">
+          <input type="number" min="1" placeholder="必填项" ng-model="vm.form.amount" required>
+          <span class="unit">万</span>
+        </div>
+      </ion-input>
+
+      <ion-input class="item item-light item-input period-input">
+        <ion-label>投资年限</ion-label>
+        <div class="right-item">
+          <button ng-click="vm.choosePeriod()" class="button button-small button-clear button-dark">
+            <span class="display-text">{{vm.periodCurrent.name}}</span>
+            <i class="ion ion-chevron-down" ng-class="{'active' : vm.isPageCompareStateChoosePeriod() }"></i>
+          </button>
+        </div>
+      </ion-input>
+
+      <div class="row select-options-box" ng-if="vm.isPageCompareStateChoosePeriod()">
+        <div class="col col-33 text-center" ng-repeat="item in vm.periodList">
+          <button class="button button-small button-clear button-dark" on-request="vm.choosePeriodByValue(item.value)">{{item.name}}</button>
+        </div>
+      </div>
+
+      <div class="slide-wheel-container">
+        <slide-wheel slide-level="vm.form.level">
+          <div ng-if="vm.riskalyze">
+            <div style="height:60px">
+              <div class="profit-label">预期年化收益</div>
+              <div class="amount profit">+ {{ vm.getWin().delta | formatNum }}万</div>
+              <div class="pct profit">+ {{ vm.getWin().deltaPct }}%</div>
+            </div>
+            <svg width="220px" height="84px" viewBox="-1 104 381 167" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+              <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" transform="translate(0.000000, 104.000000)">
+                <g transform="translate(189.358541, 88.249335) rotate(-20.000000) translate(-189.358541, -88.249335) translate(-13, 83)">
+                  <rect fill="#ECECEC" ng-attr-x="{{ vm.getLoss().pXBase - vm.getLoss().pXLen }}" ng-attr-y="-3.41060513e-13" ng-attr-width="{{ vm.getWin().pXBase - vm.getLoss().pXBase + vm.getLoss().pXLen + vm.getWin().pXLen }}"
+                    height="19"></rect>
+                  <path d="M0.837189264,9.5 L394.837189,9.5" stroke="#C1C1C1" stroke-linecap="square"></path>
+                  <circle fill="#2ECC71" ng-attr-cx="{{ vm.getLoss().pXBase - vm.getLoss().pXLen }}" cy="10" r="10"></circle>
+                  <defs>
+                    <linearGradient x1="-40.6162673%" y1="56.0950532%" x2="126.151871%" y2="61.6754591%" id="riskRatio">
+                      <stop stop-color="#000000" offset="0%"></stop>
+                      <stop stop-color="#0A69D5" offset="22.9875948%"></stop>
+                      <stop stop-color="#00101A" offset="42.4574043%"></stop>
+                      <stop stop-color="#074797" offset="70.9024235%"></stop>
+                      <stop stop-color="#0A5FBB" offset="78.9620536%"></stop>
+                      <stop stop-color="#002349" offset="100%"></stop>
+                    </linearGradient>
+                  </defs>
+                  <ellipse stroke="none" fill="url(#riskRatio)" fill-rule="evenodd" cx="198" cy="10" rx="58" ry="58"></ellipse>
+                  <circle fill="#D0011B" ng-attr-cx="{{ vm.getWin().pXBase + vm.getWin().pXLen }}" cy="10" r="10"></circle>
+                  <text transform="rotate(20)" stroke="none" fill="none" font-family="HelveticaNeue, Helvetica Neue" font-size="50" font-weight="normal">
+                    <tspan ng-attr-x="{{163 + (vm.form.level < 10 ? 13 : (vm.form.level < 100 ? 0 : -20)) }}" y="-43" fill="#FFFFFF">{{ vm.form.level }}</tspan>
+                  </text>
+                  <text font-family="PingFangSC-Medium, PingFang SC" font-size="18" font-weight="400" fill="#2ECC71">
+                    <tspan ng-attr-x="{{ vm.getLoss().pXBase - vm.getLoss().pXLen - 27 - (22 - 44 * vm.getLoss().p) }}" y="-10">概率{{ vm.getLoss().p * 100 | formatPercent : false : 0 }}%</tspan>
+                  </text>
+                  <text font-family="PingFangSC-Medium, PingFang SC" font-size="18" font-weight="400" fill="#D0011B">
+                    <tspan ng-attr-x="{{ vm.getWin().pXBase + vm.getWin().pXLen - 34 + (22 - 44 * vm.getWin().p) }}" y="42">概率{{ vm.getWin().p * 100 | formatPercent :false :0 }}%</tspan>
+                  </text>
+                </g>
+              </g>
+            </svg>
+            <div>
+              <div class="loss-label">风险预估</div>
+              <div class="amount loss">- {{ vm.getLoss().delta | formatNum }}万</div>
+              <div class="pct loss">- {{ vm.getLoss().deltaPct }}%</div>
+            </div>
+          </div>
+        </slide-wheel>
+      </div>
+
+      <!--<div class="risk-option">注：P指概率，例如P(0.5)指获得该收益或亏损的概率为50%。</div>-->
+      <!--<div class="risk-option">-->
+      <!--除滑动滑块外，您还可以通过-->
+      <!--<a ui-sref="questionnaire({id: vm.clientId})"-->
+      <!--nav-direction="forward">-->
+      <!--填写问卷-->
+      <!--</a>-->
+      <!--准确测试您的风险承受度。-->
+      <!--</div>-->
+
+    </div>
+
+
+  </ion-content>
+
+  <ion-footer-bar>
+    <button class="button button-full button-positive" on-request="vm.postLevel()" ng-disabled="!vm.isChanged()">
+      是的，这是最适合我的
+    </button>
+  </ion-footer-bar>
+
+  <div class="period-overlay" ng-class="{'active' : vm.pageCompareState === 'choose-period'}" ng-click="vm.hideCompareOverlay()"></div>
+</ion-view>

@@ -1,0 +1,27 @@
+<ion-view view-title="财富体检报告"
+          hide-back-button="true"
+          class="asset-page white-theme">
+  <ion-nav-buttons>
+    <back-btn state="tab.crm"></back-btn>
+  </ion-nav-buttons>
+
+  <ion-content ng-class="{'has-footer': vm.hasNext}">
+    <div class="list" ng-if="vm.report">
+
+      <current-asset-cmp ng-if="vm.report" report="vm.report"></current-asset-cmp>
+      <suggest-asset-cmp ng-if="vm.analysis"
+                         analysis="vm.analysis"></suggest-asset-cmp>
+      <insurance-cmp  ng-if="vm.report" report="vm.report"></insurance-cmp>
+    </div>
+
+  </ion-content>
+
+  <ion-footer-bar ng-if="vm.hasNext">
+    <button class="button button-full button-positive"
+            ui-sref="proposal({id: vm.clientId})"
+            nav-direction="forward">
+      下一步 投资组合配置建议
+    </button>
+  </ion-footer-bar>
+
+</ion-view>

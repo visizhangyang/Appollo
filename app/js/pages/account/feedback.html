@@ -1,0 +1,40 @@
+<ion-view title="{{'account_feedback_title'|translate}}" class="feedback">
+  <ion-nav-buttons>
+    <back-btn state="tab.account"></back-btn>
+  </ion-nav-buttons>
+
+  <ion-content overflow-scroll="false">
+    <ng-form name="feedback_form">
+      <p class="questions-and-comments">
+        {{'account_feedback_question_suggestion'|translate}}
+        <span class="feedback-content-length" ng-bind="content_max_length - data.content.length">
+      </span>
+      </p>
+
+
+      <div class="list">
+        <label class="item item-light item-input">
+          <textarea name="feedback" ng-model="data.content" required
+                    maxlength="{{ content_max_length }}" ng-trim="false"
+                    placeholder="{{'account_feedback_question_suggestion_placeholder'|translate}}">
+        </label>
+      </div>
+      <p class="add-picture">
+        {{'account_feedback_add_pictures'|translate}}
+      </p>
+
+      <div class="list">
+        <div class="item item-light item-img">
+          <m-feedback-image img-output="vm.onSelect(file, oldFile)" ng-repeat="img in data.images" img="img"></m-feedback-image>
+          <m-feedback-image img-output="vm.onSelect(file)" ng-if="data.images.length < images_max_number"></m-feedback-image>
+        </div>
+      </div>
+      <div class="button-floating">
+        <button class="button button-block button-positive submit-feedback" ng-disabled="feedback_form.$invalid" on-request="vm.submitFeedback()">
+          {{'account_feedback_submit'|translate}}
+        </button>
+
+      </div>
+    </ng-form>
+  </ion-content>
+</ion-view>

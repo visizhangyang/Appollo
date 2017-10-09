@@ -1,0 +1,11 @@
+<div class="slide-container"
+     on-release="$ctrl.onRelease()"
+     on-drag="$ctrl.onDrag($event)"
+     on-tap="$ctrl.onTap($event)">
+
+  <div class="slide-indicator" ng-style="$ctrl.indicatorStyle"></div>
+  <div class="slide-thumb" ng-style="$ctrl.thumbStyle">
+    <div class="dot"></div>
+  </div>
+</div>
+

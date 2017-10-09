@@ -1,0 +1,63 @@
+
+<ion-view view-title="选择客户"
+          hide-back-button="true"
+          class="select-client-page">
+  <ion-nav-buttons>
+    <back-btn state="tab.crm"></back-btn>
+  </ion-nav-buttons>
+
+  <ion-content>
+    <div class="search-toolbar">
+      <div class="search-input">
+        <input
+          autocapitalize="off"
+          autocorrect="off"
+          spellcheck="false"
+          placeholder="输入客户名称"
+          type="search"
+          ng-model="vm.searchQuery"
+          autocomplete="off" />
+        <i class="icon ion-search"></i>
+      </div>
+      <button class="button button-clear cancel-search"
+              ng-click="vm.reset()">
+        取消
+      </button>
+    </div>
+    <div class="list">
+
+
+      <customer-item-cmp ng-repeat="item in filtered = (vm.customerList|filter:{name: (vm.searchQuery || '')}) track by item.id"
+                         client="item"
+                         preview="true"
+                         ng-click="vm.select(item)">
+      </customer-item-cmp>
+
+      <div class="blank-page"
+           ng-if="vm.customerList.length === 0 && vm.refresher.loaded">
+        <button class="button button-white button-block"
+                ui-sref="customerForm"
+                nav-direction="forward">
+          点击新增客户
+        </button>
+      </div>
+
+
+      <div class="blank-page"
+           ng-if="vm.customerList.length && vm.refresher.loaded && filtered.length === 0">
+        没有找到相对应的客户,可以尝试其他客户名称
+      </div>
+
+
+    </div>
+  </ion-content>
+
+  <ion-footer-bar>
+    <button class="button button-full button-black"
+            ui-sref="customerForm"
+            nav-direction="forward">
+      新建客户
+    </button>
+  </ion-footer-bar>
+
+</ion-view>

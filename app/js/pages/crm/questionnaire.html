@@ -1,0 +1,45 @@
+<ion-view view-title="问卷调查"
+          hide-back-button="true"
+          class="questionnaire-page white-theme">
+  <ion-nav-buttons>
+    <back-btn state="tab.crm"></back-btn>
+  </ion-nav-buttons>
+
+  <form class="m-form" name="form" novalidate>
+
+    <ion-content>
+        <div class="list margin-top">
+          <div ng-repeat="question in vm.questionList">
+            <div class="item item-divider normal-divider item-light">
+              {{ question.question }}
+            </div>
+            <ion-radio
+              class="item-white"
+              ng-repeat="choice in question.choices"
+              ng-model="vm.formUtil.data[question.label]"
+              ng-change="vm.formUtil.onInputChange(form)"
+              name="{{question.label}}"
+              required
+              ng-value="choice.value">
+              {{choice.answer}}
+            </ion-radio>
+          </div>
+        </div>
+
+        <div class="block-btn-div">
+        </div>
+
+    </ion-content>
+
+    <ion-footer-bar>
+      <button class="button button-full button-positive"
+              on-request="vm.onSubmit($event, form.$valid)"
+              ng-disabled="form.$invalid">
+        下一步
+      </button>
+    </ion-footer-bar>
+
+  </form>
+
+
+</ion-view>

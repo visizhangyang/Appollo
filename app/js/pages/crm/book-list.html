@@ -1,0 +1,37 @@
+<ion-view view-title="资产配置建议书" hide-back-button="true" class="book-list-page white-theme">
+  <ion-nav-buttons>
+    <back-btn state="tab.crm"></back-btn>
+  </ion-nav-buttons>
+
+  <ion-content>
+
+    <div class="item item-divider normal-divider item-light margin-top">
+      客户姓名: {{ vm.client.name }}
+    </div>
+
+    <div class="item item-white">
+      资产配置与投资组合建议书
+    </div>
+    <div class="item item-white pdf-item" ng-repeat="book in vm.bookList">
+      <div class="title" ui-sref="portfolioBook({clientId:vm.clientId,bookId:book.id,fromPage:'book-list'})">
+        <i class="icon unicon-pdf"></i>
+        <div>报告书生成时间: {{ book.created | date: 'yyyy-MM-dd HH:mm' }}</div>
+      </div>
+      <div ng-if="book.status == 'SUCCESS'">
+        <button class="button button-grey button-small" ng-click="vm.getEmail(book)">获取报告书</button>
+      </div>
+      <div class="status" ng-if="book.status == 'FAILURE'">
+        <button class="button button-clear button-small failure" disabled="disabled">生成失败</button>
+      </div>
+      <div class="status" ng-if="book.status == 'PROCESSING'">
+        <button class="button button-clear button-small processing">生成中,预计剩余{{vm.calcRemainingMinutes(book.created)}}分钟</button>
+      </div>
+    </div>
+  </ion-content>
+
+  <ion-footer-bar>
+    <button class="button button-full button-positive" ng-click="vm.backList()">
+      返回客户列表
+    </button>
+  </ion-footer-bar>
+</ion-view>

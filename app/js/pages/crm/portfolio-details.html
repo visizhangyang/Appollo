@@ -1,0 +1,59 @@
+<ion-view view-title="{{'portfolio_details_title'|translate}}" hide-back-button="true" class="portfolio-details-page white-theme">
+  <ion-nav-buttons>
+    <back-btn state="tab.crm"></back-btn>
+  </ion-nav-buttons>
+  <ion-nav-buttons side="right">
+    <button class="button button-small button-clear button-positive profile-button" ng-if="vm.UserModel.features['ATTRIBUTE_ANALYSIS'] && vm.is_analysable"
+      ui-sref="portfolioAnalysis({clientId: vm.clientId,portfolioId: vm.portfolioId})">{{'customer_detail_attribution_analysis'|translate}}</button>
+  </ion-nav-buttons>
+  <ion-content>
+    <div class="item section-header">
+      {{'portfolio_details_invest_portfolio_detail'|translate}}
+    </div>
+
+    <div ng-if="vm.proposal" class="barchart-containr padding-horizontal" ui-sref="proposalPerf({id:vm.clientId,proposal:vm.proposal})">
+      <barchart-cmp data="vm.barData"></barchart-cmp>
+      <div class="arrow-right">
+        <i class="icon unicon-forward"></i>
+      </div>
+    </div>
+
+
+    <div class="item section-header product-section-header">
+      {{'portfolio_details_customized_portfolio'|translate}}
+    </div>
+
+    <div class="list">
+      <div ng-repeat="group in vm.groupsList || []">
+        <div class="group-header padding" ng-click="group.open = !group.open">
+          <div class="dot {{group.code}}"></div>
+          <div class="info">
+            <!--
+            {{ group.code | transAsset }} (调整配比：{{ group.adjustPercent | formatPercent:true }}%&nbsp;&nbsp;+{{ (group.amount | formatMoney)
+            | formatMoney}}万元)
+            -->
+            {{ group.code | transAsset }} ({{'portfolio_details_adjust_amount'|translate}}：+{{'common_eur_symbol'|translate}}{{ (group.amount | formatMoney)}}{{'common_amount_unit'|translate}})
+          </div>
+          <div class="selected-count">{{'portfolio_details_selected_text'|translate}}{{group.products.length }}{{'portfolio_details_selected_unit'|translate}}</div>
+          <div class="chevron"><i class="ion ion-chevron-down" ng-class="{'active' : group.open}"></i></div>
+        </div>
+        <div class="group-body padding-horizontal {{vm.language}}" ng-if="group.open">
+          <div class="row" ng-repeat="product in group.products">
+            <div class="col col-33">{{product.product_name}}</div>
+            <div class="col col-25">{{product.risk_level | transRiskLevel}}</div>
+            <div class="col">{{product.amount / vm.totalInvestment * 100 | formatPercent}}%</div>
+            <div class="col col-20">{{'common_eur_symbol'|translate}}{{product.amount | formatMoney}}{{'common_amount_unit'|translate}}</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </ion-content>
+
+  <ion-footer-bar>
+    <ion-footer-bar>
+      <!--<button class="button button-full button-positive" ng-disabled="vm.book_id == null" on-request="vm.onNext()">
+        查看投资组合报告书
+      </button>-->
+    </ion-footer-bar>
+  </ion-footer-bar>
+</ion-view>

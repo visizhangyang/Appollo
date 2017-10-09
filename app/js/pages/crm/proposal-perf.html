@@ -1,0 +1,92 @@
+<ion-view view-title="{{'proposal_perf_title'|translate}}" hide-back-button="true" cache-view="false" class="proposal-perf-page white-theme">
+  <ion-nav-buttons>
+    <back-btn state="tab.crm"></back-btn>
+  </ion-nav-buttons>
+
+  <ion-content>
+    <div class="mapview" ng-repeat="item in vm.groups">
+      <div class="item item-divider normal-divider item-blue margin-top">
+        {{item.title}}
+      </div>
+
+      <div>
+        <div class="item proposal-item  item-set-5 item-empty topless">
+          <div class="item-field item-field-2x"></div>
+          <div class="item-field">{{'common_period_one_year'|translate}}</div>
+          <div class="item-field">{{'common_period_three_years'|translate}}</div>
+          <div class="item-field">{{'common_period_five_years'|translate}}</div>
+          <div class="item-field">{{'common_period_ten_years'|translate}}</div>
+        </div>
+        <div class="item proposal-item item-set-5 item-empty">
+          <div class="item-field item-field-2x expected-annual-return">{{'proposal_perf_expected_annual_return'|translate}}</div>
+          <div class="item-field">{{ item.stats.earsi['1_year'] * 100| formatPercent }}%</div>
+          <div class="item-field">{{ item.stats.earsi['3_year'] * 100| formatPercent }}%</div>
+          <div class="item-field">{{ item.stats.earsi['5_year'] * 100| formatPercent }}%</div>
+          <div class="item-field">{{ item.stats.earsi['10_year'] * 100| formatPercent }}%</div>
+        </div>
+        <!--<div class="item proposal-item item-set-5 item-empty">
+          <div class="item-field item-field-2x">预期年化(复利)</div>
+          <div class="item-field">{{ item.stats.earci['1_year'] * 100| formatPercent }}%</div>
+          <div class="item-field">{{ item.stats.earci['3_year'] * 100| formatPercent }}%</div>
+          <div class="item-field">{{ item.stats.earci['5_year'] * 100| formatPercent }}%</div>
+          <div class="item-field">{{ item.stats.earci['10_year'] * 100| formatPercent }}%</div>
+        </div>-->
+        <div class="item proposal-item item-set-5 item-empty">
+          <div class="item-field item-field-2x">{{'proposal_perf_standard_deviation'|translate}}</div>
+          <div class="item-field">{{ item.stats.standard_deviation['1_year'] * 100| formatPercentWithSign }}</div>
+          <div class="item-field">{{ item.stats.standard_deviation['3_year'] * 100| formatPercentWithSign }}</div>
+          <div class="item-field">{{ item.stats.standard_deviation['5_year'] * 100| formatPercentWithSign }}</div>
+          <div class="item-field">{{ item.stats.standard_deviation['10_year'] * 100| formatPercentWithSign }}</div>
+        </div>
+        <div class="item proposal-item item-set-5 item-empty">
+          <div class="item-field item-field-2x">{{'proposal_perf_sharpe_ratio'|translate}}</div>
+          <div class="item-field">{{ item.stats.sharp_ratio['1_year'] | formatNum }}</div>
+          <div class="item-field">{{ item.stats.sharp_ratio['3_year'] | formatNum }}</div>
+          <div class="item-field">{{ item.stats.sharp_ratio['5_year'] | formatNum }}</div>
+          <div class="item-field">{{ item.stats.sharp_ratio['10_year'] | formatNum }}</div>
+        </div>
+      </div>
+
+      <div>
+        <projection-graph graph-data="item.stats.profit_map"></projection-graph>
+
+
+      </div>
+    </div>
+    <div class="row tips-box" ng-if="vm.groups && vm.groups.length">
+      <div class="col">
+        <div>
+          <div>{{'proposal_perf_high_pro'|translate}}</div>
+          <div>
+            <svg width="74px" height="64px" viewBox="0 31 74 64" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+              <!-- Generator: Sketch 41.2 (35397) - http://www.bohemiancoding.com/sketch -->
+              <desc>Created with Sketch.</desc>
+              <defs>
+                <linearGradient x1="50%" y1="0%" x2="50%" y2="100%" id="linearGradient-1">
+                  <stop stop-color="#67AAF5" offset="0%"></stop>
+                  <stop stop-color="#E8F3FF" offset="100%"></stop>
+                </linearGradient>
+                <linearGradient x1="50%" y1="0%" x2="50%" y2="100%" id="linearGradient-2">
+                  <stop stop-color="#B7B7B7" offset="0%"></stop>
+                  <stop stop-color="#FFFFFF" offset="100%"></stop>
+                </linearGradient>
+              </defs>
+              <g id="Group-4" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" transform="translate(0.000000, 31.000000)">
+                <rect id="Rectangle-16" fill="url(#linearGradient-1)" x="0.279642058" y="0.575757576" width="35.901566" height="62.799127"></rect>
+                <polygon id="Rectangle-16" fill="url(#linearGradient-2)" points="37.2371365 0.575757576 73.1387025 0.575757576 73.1387025 63.3748846 56.4313866 63.3748846 37.2371365 63.3748846"></polygon>
+              </g>
+            </svg>
+          </div>
+          <div>{{'proposal_perf_low_pro'|translate}}</div>
+        </div>
+      </div>
+      <div class="col">
+        <!--<div><span class="line" style="border-color: #2ECC71"></span><span>无风险收益曲线</span></div>-->
+        <div><span class="line" style="border-color: #E94050"></span><span>{{'proposal_perf_break_even'|translate}}</span></div>
+        <div class="tip-text">
+          {{'proposal_perf_risk_warning'|translate}}
+        </div>
+      </div>
+    </div>
+  </ion-content>
+</ion-view>

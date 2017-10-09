@@ -1,0 +1,16 @@
+.product-new-form-page {
+  .borderless-divider {
+    border-bottom-width: 0;
+    z-index: 10;
+  }
+  .item-content {
+    background: none;
+  }
+
+  .upload-attachment {
+    p {
+      margin-top: 4px;
+      padding-left: 15px;
+    }
+  }
+}

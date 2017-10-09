@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="88px" height="88px" viewBox="0 0 88 88" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 3.8.3 (29802) - http://www.bohemiancoding.com/sketch -->
+    <title>银行</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Brokerage-detail_0630" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Brokerage-Design-Version-1.0" transform="translate(-3078.000000, -5556.000000)">
+            <g id="bank-cards" transform="translate(2223.000000, 4860.000000)">
+                <g id="bank1" transform="translate(790.000000, 650.000000)">
+                    <g id="银行" transform="translate(65.000000, 46.000000)">
+                        <ellipse id="Oval-33" fill="#FFFFFF" cx="44" cy="44" rx="44" ry="44"></ellipse>
+                        <path d="M39.4163838,8.74011047 C39.4163838,8.74011047 57.1823828,-4.14959501 79.0198274,25.9836923 L71.4771772,33.3741241 C71.4771772,33.3741241 48.2172749,2.58160707 39.4163838,8.74011047 Z M75.2813456,45.9803266 C71.3786471,45.6239554 60.731732,45.9803266 60.731732,45.9803266 L42.8083113,64.5332593 L25.7727942,46.1579429 L43.3394679,27.6050102 L60.5539248,45.0888294 L69.7806472,35.9905487 L53.4552264,18.3291132 C53.4552264,18.3291132 47.395058,9.60086635 38.1173718,9.80239253 C21.0648667,12.4552513 8,27.5139249 8,45.693408 C8,65.7446935 23.8939268,82 43.5025522,82 C62.3999488,82 77.8408636,66.9037536 78.9382852,47.860099 C78.74349,47.2612133 78.0107431,46.2296726 75.2813456,45.9803266 Z" id="Shape" fill="#005BAC"></path>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

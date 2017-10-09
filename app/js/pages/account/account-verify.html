@@ -1,0 +1,23 @@
+<ion-view view-title="认证"
+          class="account-verify-page"
+          hide-back-button="true">
+  <ion-nav-buttons>
+    <back-btn state="accountProfile"></back-btn>
+  </ion-nav-buttons>
+
+  <ion-content>
+    <div class="page-title">您需要认证通过后，才能上传产品</div>
+
+    <upload-img-component img-output="vm.onSelected(file)"></upload-img-component>
+
+  </ion-content>
+
+
+  <ion-footer-bar>
+    <button class="button button-full button-positive"
+            ng-disabled="!vm.verify.file"
+            on-request="vm.postVerify()">
+      提交认证
+    </button>
+  </ion-footer-bar>
+</ion-view>

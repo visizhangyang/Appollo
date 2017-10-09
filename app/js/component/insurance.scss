@@ -1,0 +1,35 @@
+.insurance-cmp {
+  .item-white, .item-fields-set-4 .item-field {
+    font-size: 12px;
+  }
+
+  .item-white {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+  }
+
+  .item-divider {
+    margin-top: 22px;
+  }
+
+  .item-field {
+    white-space: initial;
+    &.symbol {
+      text-align: left;
+    }
+  }
+
+  table {
+    margin: 15px;
+
+    tr.split {
+      height: 10px;
+    }
+
+    td.header {
+      width: 80px;
+    }
+  }
+
+}

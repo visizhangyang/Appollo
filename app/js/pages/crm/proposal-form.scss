@@ -1,0 +1,163 @@
+.proposal-form-page {
+    .header-section {
+        border-bottom: 1px solid #F1F1F1;
+        .center-col {
+            border-left: 1px solid #F1F1F1;
+            text-align: center;
+        }
+    }
+    .scroll-container {
+        margin-top: 1px;
+        background: #FFF;
+        height: 45px;
+        border: {
+            top: 1px solid white;
+        }
+    }
+    .segment-bar {
+        width: 96%;
+        height: 30px;
+        margin-top: 7px;
+        margin-left: auto;
+        margin-right: auto;
+        background-color: white;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        color: #6c6c7f;
+        font-size: 13px;
+        border-radius: 5px;
+        border: 1px solid #F1F1F1;
+        @include light-font();
+        .segment-btn {
+            min-width: 25%;
+            text-align: center;
+            padding: 5px 0;
+            color: #121317;
+            font-size: 10px;
+            border-left: 1px solid #F1F1F1;
+            &.active {
+                background: #F0F0F0;
+                color: #424242;
+            }
+            &.en {
+              font-size: 9px;
+            }
+        }
+    }
+    .proposal-item {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        background: #FFF;
+        @include proposalCheckbox();
+        padding: 5px 15px;
+        border-bottom: 1px solid #F0F0F0;
+        &.header {
+            background: #FCFCFC;
+        }
+        .item-field {
+          max-height: unset;
+          font-size: 9px;
+        }
+        .item-field-checkbox {
+            label {
+                border-width: 0;
+            }
+            width: 32px;
+            height: 32px;
+            flex: none;
+        }
+        .item-field-product-name {
+            flex: 1;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+            overflow: hidden;
+        }
+        .item-field-risk {
+            width: 60px;
+            text-align: center;
+        }
+        .item-field-percent {
+            width: 60px;
+            text-align: center;
+        }
+        .euro-symbol::before{
+            content: "£";
+            position: absolute;
+            left:31px;
+            top: 2px;
+        }        
+        .item-field-amount {
+            width: 100px;
+            text-align: right;
+            font-size: $font-size-base;
+            position: relative;
+            input {
+                display: inline-block;
+                width: 32px;
+                height: 25px;
+                margin-left:8px;
+                text-align: right;
+                background-color: transparent;
+                position: relative;
+                top: -1px;  
+            }
+            .txt {
+                padding: 0;
+            }
+            .icon-button {
+                width: 17px;
+                height: 17px;
+                padding: 0;
+                background-color: #00A1FF;
+                border-width: 0;
+                border-radius: 5px;
+                text-align: center;
+                .icon {
+                    color: white;
+                    &:disabled {
+                        opacity: 0.3;
+                    }
+                }
+            }
+        }
+        .input-field {
+            display: flex;
+            input {
+                max-width: 80%;
+                vertical-align: top;
+            }
+        }
+    }
+    .slide-title {
+        margin: 12px 0 5px 0;
+        text-align: center;
+        font-size: 15px;
+        color: #121317;
+        span {
+            border-radius: 4px;
+            padding: 3px 20px;
+            background: #dbdbdb;
+            margin: 0 3px;
+        }
+    }
+    money-slide {
+        display: block;
+        position: relative;
+        margin-bottom: 20px;
+    }
+    .slide-row {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        margin: 10px 30px;
+        .amount {
+            color: #00a1ff;
+            @include bold-font();
+        }
+    }
+}
+.loading-failed{
+    margin: auto 50px;
+}

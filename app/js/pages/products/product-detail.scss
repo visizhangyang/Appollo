@@ -1,0 +1,32 @@
+.product-detail-page {
+
+  .detail-tool-bar {
+    text-align: center;
+    button {
+      &:first-child {
+        flex-grow: 3;
+      }
+      &:last-child {
+        flex-grow: 7;
+      }
+    }
+
+    .collect-icon {
+      width: 20px;
+      height: 20px;
+      display: block;
+      margin: auto;
+      @include icon-collect-able();
+
+      &.collected {
+        @include icon-collected();
+      }
+    }
+  }
+
+  .item-field-detail {
+    .field-label {
+      white-space: normal;
+    }
+  }
+}

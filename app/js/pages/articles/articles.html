@@ -1,0 +1,26 @@
+<ion-view view-title=""
+          hide-back-button="true"
+          class="articles-page">
+  <ion-nav-title ng-bind="vm.article ? vm.article.title :'文章'">
+  </ion-nav-title>
+  <ion-nav-buttons >
+    <back-btn state="tab.crm"></back-btn>
+  </ion-nav-buttons>
+
+  <ion-content ng-class="vm.lightTheme ? 'light-page' : 'dark-page'">
+
+    <div ng-if="vm.article">
+      <div class="head-img"
+           ng-click="vm.onClickHead()"
+           ng-if="vm.article.imgBg"
+           ng-style="{'background-image': vm.article.displayImg}">
+        <h2>{{ vm.article.imgTitle }}</h2>
+      </div>
+      <div ng-include="vm.article.templateUrl">
+      </div>
+    </div>
+    <h2 ng-if="!vm.article" class="padding">
+      找不到文章
+    </h2>
+  </ion-content>
+</ion-view>

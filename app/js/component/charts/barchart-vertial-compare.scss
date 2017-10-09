@@ -1,0 +1,123 @@
+.barchart-vertial-compare {
+    display: flex;
+    flex-direction: column;
+    margin: 8px 15px;
+    height: 160px;
+    positive-box {
+        flex: 4;
+        border-bottom: 1px solid #9B9B9B;
+        display: flex;
+        align-items: flex-end;
+        .lines-box {
+            // height: 25px;
+            flex: 1;
+            display: flex;
+            justify-content: center;
+        }
+        .line-box {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-end;
+            .line-box {
+                flex: 1;
+            }
+            .line1 {
+                width: 25px;
+                background: #00A1FF;
+                border-top-left-radius: 5px;
+                border-top-right-radius: 5px;
+                transition: height 0.2s;
+            }
+            .line2 {
+                @extend .line1;
+                margin-left: 2px;
+                background: #4B4B4B;
+                transition: height 0.2s;
+            }
+            .line-value {
+                font-size: 10px;
+                width: 25px;
+                text-align: center;
+                white-space: nowrap;
+            }
+        }
+    }
+    negative-box {
+        flex: 1;
+        border-bottom: 1px solid #F0F0F0;
+        display: flex;
+        .lines-box {
+            // height: 25px;
+            flex: 1;
+            display: flex;
+            justify-content: center;
+        }
+        .line-box {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            .line-box {
+                flex: 1;
+            }
+            .line1 {
+                width: 25px;
+                background: #00A1FF;
+                border-bottom-left-radius: 5px;
+                border-bottom-right-radius: 5px;
+                transition: height 0.2s;
+            }
+            .line2 {
+                @extend .line1;
+                margin-left: 2px;
+                background: #4B4B4B;
+                transition: height 0.2s;
+            }
+            .line-value {
+                font-size: 10px;
+                width: 25px;
+                text-align: center;
+                white-space: nowrap;
+            }
+        }
+    }
+    label-box {
+        flex: 0.8;
+        display: flex;
+        align-items: center;
+        font-size: 10px;
+        div {
+            flex: 1;
+            text-align: center;
+            transform: scale(0.86)
+        }
+    }
+}
+
+.barchart-vertial-compare-component {
+    display: block;
+    .legend {
+        display: flex;
+        justify-content: center;
+        .line {
+            margin: 0 15px;
+            display: flex;
+            align-items: center;
+            .color {
+                margin-left: 5px;
+                width: 10px;
+                height: 10px;
+            }
+            .label {
+                font-size: 10px;
+                color: #9B9B9B;
+            }
+        }
+        .line1 .color {
+            background: #00A1FF;
+        }
+        .line2 .color {
+            background: #4B4B4B;
+        }
+    }
+}

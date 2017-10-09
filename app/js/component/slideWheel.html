@@ -1,0 +1,22 @@
+
+<div id="shadow">
+  <div class="shadow-circle" id="s1"></div>
+  <div class="shadow-circle" id="s2"></div>
+  <div class="shadow-circle" id="s3"></div>
+  <div class="shadow-circle" id="s4"></div>
+</div>
+
+<div class="wheel-container"
+     on-release="onDragEnd()"
+     on-touch="onDrag()" >
+  <div id="wheel">
+  </div>
+
+  <div class="riskalyze-result">
+    <div class="container">
+      <ng-transclude></ng-transclude>
+    </div>
+  </div>
+
+  <a id="wheel-thumb"></a>
+</div>

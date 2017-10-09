@@ -1,0 +1,57 @@
+{
+    "files": {
+        "app.css": {
+            "filename": "app.css",
+            "version": "7e313a8a4e36fb546a2fb1eab07bc44bd4d483196c4ba190ce5a0aa1b775fcf0"
+        },
+        "vendors.bundle.js": {
+            "filename": "vendors.bundle.js",
+            "version": "1c134880414fd408a9976271a31799988595585e2e45fcbb44fc5f865fe2abe3"
+        },
+        "app.bundle.js": {
+            "filename": "app.bundle.js",
+            "version": "bbfebc6e119ce4fe216a52428020e46cdd4d0c366b7959abdd965202cd9be823"
+        },
+        "fonts_ionicons.eot": {
+            "filename": "fonts/ionicons.eot",
+            "version": "b825451c7db655698d7ea857ab5c2e966f3726d6703524363a40bd495444497c"
+        },
+        "fonts_ionicons.svg": {
+            "filename": "fonts/ionicons.svg",
+            "version": "7e48ea3b44621f80f56e043a3de08f27641ff7350590cd35d289a2c392d1f8a4"
+        },
+        "fonts_ionicons.ttf": {
+            "filename": "fonts/ionicons.ttf",
+            "version": "00bb0a8ce35e7e84e3b9c8867144229180cf5ea99a90fe02fed93717e90bce0f"
+        },
+        "fonts_ionicons.woff": {
+            "filename": "fonts/ionicons.woff",
+            "version": "e9c99be54552d3b1e81312a6fa2f6e441981fa7c786ac148a3b4b31c3bc41f96"
+        },
+        "public_home-pro-left.png": {
+            "filename": "public/home-pro-left.png",
+            "version": "3af1a57297f27fba86f863e082f9505fd597b7c5e3e7c3693c4ccd1c3632900b"
+        },
+        "public_home-pro-right.png": {
+            "filename": "public/home-pro-right.png",
+            "version": "7ae33610027f8bd8d37c46dcd349eea79136fc7f2981c0aebce52b9e7fcbeda5"
+        },
+        "public_avatar1.png": {
+            "filename": "public/avatar1.png",
+            "version": "2a9614dee33886b91240c65682c3bfa8787ef648e46ccbf2254a69655f4984bd"
+        }
+    },
+    "load": [
+        "app.css",
+        "vendors.bundle.js",
+        "app.bundle.js",
+        "fonts/ionicons.eot",
+        "fonts/ionicons.svg",
+        "fonts/ionicons.ttf",
+        "fonts/ionicons.woff",
+        "public/home-pro-left.png",
+        "public/home-pro-right.png",
+        "public/avatar1.png"
+    ],
+    "root": "./"
+}

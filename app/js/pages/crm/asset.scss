@@ -1,0 +1,32 @@
+.asset-page {
+    .block-text {
+        padding: 15px;
+    }
+}
+
+.asset-form-allocation-page {
+    .bar-chart-legend {
+        text-align: right;
+        font-size: 10px;
+        line-height: 10px;
+        margin: 0 15px;
+        hr {
+            width: 65%;
+            margin-right: 0;
+            border: 0;
+            border-top: 1px solid #F1F1F1;
+        }
+        span {
+            display: inline-block;
+            vertical-align: middle;
+        }
+        .text {
+            margin-left: 15px;
+            color: #C1C1C1;
+        }
+        .flag {
+            width: 10px;
+            height: 10px;
+        }
+    }
+}

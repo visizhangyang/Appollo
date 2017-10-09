@@ -1,0 +1,50 @@
+<ion-view view-title="{{'portfolio_details_title'|translate}}" hide-back-button="true" class="proposal-page white-theme">
+    <ion-nav-buttons>
+        <back-btn state="tab.crm"></back-btn>
+    </ion-nav-buttons>
+    <ion-content>
+        <div class="item section-header">
+            {{'portfolio_details_invest_portfolio_detail'|translate}}
+        </div>
+
+        <div ng-if="vm.proposal" class="barchart-containr padding-horizontal" ui-sref="proposalPerf({id:vm.clientId,proposal:vm.proposal})">
+            <barchart-cmp data="vm.barData"></barchart-cmp>
+            <div class="arrow-right">
+                <i class="icon unicon-forward"></i>
+            </div>
+        </div>
+
+        <div class="item section-header product-section-header item-icon-right">
+            {{'portfolio_details_customized_portfolio'|translate}}
+        </div>
+
+        <div class="list">
+            <div ng-repeat="group in vm.groupsList || []">
+                <div class="group-header padding" ng-click="group.open = !group.open">
+                    <div class="dot {{group.code}}"></div>
+                    <div class="info">
+                        {{ group.code | transAsset }} ({{'portfolio_details_adjust_amount'|translate}}：+{{'common_eur_symbol'|translate}}{{ (group.amount | formatMoney)}}{{'common_amount_unit'|translate}})
+                    </div>
+                    <div class="selected-count">{{'portfolio_details_selected_text'|translate}}{{group.products.length }}{{'portfolio_details_selected_unit'|translate}}</div>
+                    <div class="chevron"><i class="ion ion-chevron-down" ng-class="{'active' : group.open}"></i></div>
+                    </div>
+                    <div class="group-body padding-horizontal {{vm.language}}" ng-if="group.open">
+                    <div class="row" ng-repeat="product in group.products">
+                        <div class="col col-33">{{product.product_name}}</div>
+                        <div class="col col-25">{{product.risk_level | transRiskLevel}}</div>
+                        <div class="col">{{product.amount / vm.totalInvestment * 10 | formatPercent}}%</div>
+                        <div class="col col-20">{{'common_eur_symbol'|translate}}{{product.amount | formatMoney}}{{'common_amount_unit'|translate}}</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </ion-content>
+
+    <ion-footer-bar>
+        <ion-footer-bar>
+            <button class="button button-full button-positive" on-request="vm.onNext()">
+      {{'proposal_suggestion_footer_save_for_review'|translate}}
+    </button>
+        </ion-footer-bar>
+    </ion-footer-bar>
+</ion-view>

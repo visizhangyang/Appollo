@@ -1,0 +1,33 @@
+
+.u-tabs > .tabs,
+.tabs.u-tabs{
+
+  @include tab-style(#27282f, #484a58, #bbbbbb);
+  @include tab-badge-style(#bbbbbb, #27282f);
+
+  border-width: 0;
+  .tab-item.tab-item-active,
+  .tab-item.active,
+  .tab-item.activated {
+    color: #00a1ff;
+    i {
+      -webkit-filter: grayScale(0%);
+    }
+  }
+
+  .tab-item {
+    .icon {
+      margin: 4px auto;
+    }
+    .tab-title {
+      font-size: 10px;
+    }
+  }
+}
+
+
+.u-tabs > .tabs {
+  @include skinny-border-bottom(#484a58);
+  background-position-y: 0;
+
+}

@@ -1,0 +1,50 @@
+<ion-view view-title="{{'birthday_reminder_title'|translate}}"
+          hide-back-button="true"
+          class="reminder-page">
+  <ion-nav-buttons>
+    <back-btn state="tab.crm"></back-btn>
+  </ion-nav-buttons>
+
+  <ion-content class="has-support">
+
+    <div class="blank-page"
+         ng-if="!vm.reminderList.length">
+      <p>{{'birthday_reminder_no_result1'|translate}} <br>
+        {{'birthday_reminder_no_result2'|translate}}</p>
+    </div>
+
+    <div class="list">
+      <div class="reminder-container"
+           ng-click="vm.forwardDetail(item.id)"
+           ng-repeat="item in vm.reminderList">
+        <div class="reminder-body">
+          <div class="header" ng-bind="item.name"></div>
+          <div class="position">
+            <span ng-bind="item.job_position"></span>
+            <span ng-if="item.job_position && item.company">|</span>
+            <span ng-bind="item.company"></span>
+          </div>
+          <div class="birthday-bar">
+            <div>{{'birthday_reminder_birthday'|translate}} <span class="birthday" ng-bind="item.birthday | date: 'dd/MM/yyyy'"></span></div>
+            <div class="days-diff">
+              <i class="icon unicon-cake"></i>
+              {{'birthday_reminder_days_diff_before'|translate}}
+              <span class="highlight" ng-bind="item.daysDiff"></span> {{'birthday_reminder_days_diff_after'|translate}}
+            </div>
+          </div>
+        </div>
+        <div class="action-bar">
+          <a href="sms:{{ item.phone }}" class="action u-tap send-message">
+            <i class="icon unicon-send-message"></i>
+          </a>
+          <a href="tel:{{ item.phone }}" class="action u-tap call-tel">
+            <i class="icon unicon-call-tel"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!--<support-tel-cmp></support-tel-cmp>-->
+  </ion-content>
+
+</ion-view>

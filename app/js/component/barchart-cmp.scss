@@ -1,0 +1,31 @@
+barchart-cmp {
+    display: block;
+    .button-bar-container {
+        margin-top: 10px;
+        display: flex;
+        justify-content: center;
+        .button-bar {
+            flex: initial;
+            width: 120px;
+            .button {
+              @include light-font();
+            }
+            .button.selected {
+                background-color: #F1F1F1;
+                color: #424242;
+            }
+
+            &.en {
+              width: 200px;
+            }
+        }
+    }
+    .legend {
+        text-align: center;
+        svg {
+            vertical-align: middle;
+        }
+        color: #9B9B9B;
+        font-size: 10px;
+    }
+}

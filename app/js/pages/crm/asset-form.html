@@ -1,0 +1,65 @@
+<ion-view view-title="资产收入及负债情况" hide-back-button="true"
+          class="assetForm white-theme">
+  <ion-nav-buttons>
+    <back-btn state="tab.crm"></back-btn>
+  </ion-nav-buttons>
+    <ion-content>
+        <div class="list margin-top">
+
+          <div class="item item-divider normal-divider item-light">
+            资产收入及负债情况 <span>(货币单位: 万元)</span>
+          </div>
+
+          <div class="margin-top">
+            <money-slide
+              middle="100"
+              is-required="true"
+              value="vm.data.planning_invest"
+              on-change="vm.onChangePlaningInvest(value)"
+              label="'计划投资金额'"></money-slide>
+            <money-slide
+              middle="100"
+              is-required="true"
+              value="vm.data.annual_income || 0"
+              on-change="vm.onChangeIncome(value)"
+              label="'年收入'"></money-slide>
+            <money-slide
+              middle="100"
+              is-required="true"
+              value="vm.data.annual_expenditure || 0"
+              on-change="vm.onChangeExpenditure(value)"
+              label="'年支出'"></money-slide>
+            <money-slide
+              middle="100"
+              value="vm.data.liability || 0"
+              on-change="vm.onChangeLiability(value)"
+              label="'负债'"></money-slide>
+            <money-slide
+              middle="100"
+              min="0"
+              max="500"
+              is-linear="true"
+              value="vm.data.yearly_repayment || 0"
+              on-change="vm.onChangeRepayment(value)"
+              label="'每年偿还额'"></money-slide>
+          </div>
+        </div>
+
+      <!--<div class="error">-->
+        <!--<div ng-if="vm.formUtil.submitError">-->
+            <!--<span>-->
+              <!--{{ vm.formUtil.submitError }}-->
+            <!--</span>-->
+        <!--</div>-->
+      <!--</div>-->
+    </ion-content>
+
+    <ion-footer-bar>
+      <button class="button button-full button-positive"
+              ng-click="vm.next()"
+              ng-disabled="!vm.isValid()">
+        下一步 资产配置情况
+      </button>
+    </ion-footer-bar>
+
+</ion-view>

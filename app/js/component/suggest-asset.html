@@ -1,0 +1,30 @@
+<div class="suggest-asset-cmp">
+	<div class="bar-chart-box">
+		<barchart-cmp data="$ctrl.allocation"></barchart-cmp>
+	</div>
+
+	<div class="item item-fields-set-4 item-white">
+		<div class="item-field">资产类别</div>
+		<div class="item-field">已持有</div>
+		<div class="item-field">建议调整</div>
+		<div class="item-field">推荐</div>
+	</div>
+	<div class="item item-fields-set-4 item-white" ng-repeat="code in $ctrl.analysisKeys">
+		<div class="item-field symbol" ng-class="code | uppercase">{{ code | uppercase | transAsset }}</div>
+		<div class="item-field">{{ $ctrl.analysis.current_status[code][0] }}万元
+			<!--<br> {{ $ctrl.analysis.current_status[code][1] * 100 |formatNum:false:1 }}%-->
+		</div>
+		<div class="item-field">
+			{{ $ctrl.analysis.suggest_adjustment[code][0] | formatNum:true:0 }}万元
+			<!--<br> {{ $ctrl.analysis.suggest_adjustment[code][1] * 100 |formatNum:true:1 }}%-->
+		</div>
+		<div class="item-field">{{ $ctrl.analysis.target_status[code][0] |number:0 }}万元
+		</div>
+	</div>
+	<div class="item item-fields-set-4 item-white">
+		<div class="item-field symbol TOTAL">总计</div>
+		<div class="item-field">{{ $ctrl.analysis.current_status.total}}万元</div>
+		<div class="item-field">{{ $ctrl.analysis.suggest_adjustment.total}}万元</div>
+		<div class="item-field">{{ $ctrl.analysis.target_status.total}}万元</div>
+	</div>
+</div>

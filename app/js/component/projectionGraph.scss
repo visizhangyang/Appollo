@@ -1,0 +1,109 @@
+projection-graph {
+    $m-blue: #1580f3;
+    $m-gray: #9b9b9b; // for text
+    $m-night-sky: #121317; // for background
+    $m-graph-axis: #e8ecff;
+    $m-graph-gain: $m-blue;
+    $m-graph-loss: #3d5472;
+    $m-graph-gradient-blue: rgba(0, 123, 255, 0.52);
+    $m-graph-gradient-gray: rgba(99, 99, 99, 1);
+    $m-graph-touch-line: #65a8f7;
+    display: block;
+    width: 100%;
+    position: relative;
+    svg {
+        overflow: visible;
+    }
+    .dot-text {
+        fill: rgba(255, 255, 255, 0.5);
+    }
+    rect {
+        &.gain {
+            fill: $m-graph-gradient-blue;
+        }
+        &.loss {
+            fill: $m-graph-gradient-gray;
+        }
+    }
+    .median {
+        stroke: #65a8f7;
+        stroke-dasharray: 4;
+        fill: none;
+    }
+    .base-line {
+        stroke: #979797;
+        stroke-dasharray: 4;
+        fill: none;
+    }
+    .x-axis {
+        line {
+            stroke: $m-graph-axis;
+            stroke-width: 0.2px;
+        }
+        .today,
+        .year-label {
+            fill: $m-gray;
+            font-size: 11px;
+        }
+    }
+    .touch-line {
+        stroke: $m-graph-touch-line;
+        stroke-width: 0.5px;
+    }
+    stop {
+        stop-color: #fff;
+    }
+    rect.android {
+        shape-rendering: crispEdges;
+    }
+    .y-axis {
+        path {
+            display: none;
+        }
+        line {
+            stroke: #4B4B4B;
+        }
+        text {
+            text-anchor: end;
+            font-size: 8px;
+            color: $base-color;
+            transform: translateY(-100%);
+        }
+    }
+    .x-axis {
+        path {
+            stroke: #00a1ff;
+            stroke-width: 3px;
+            stroke-linejoin: bevel;
+        }
+        text {
+          font-size: 8px;
+        }
+    }
+    .line-path {
+        fill: none;
+        stroke: $m-graph-gradient-blue;
+    }
+    .graphTouch {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+    }
+    .float-info {
+        position: absolute;
+        left: 0;
+        font-size: 9px;
+        color: white;
+        background: rgba(0, 0, 0, 0.5);
+        border-radius: 2px;
+        padding: 3px;
+        max-width: 150px;
+        &.touch-info {
+            bottom: 100px;
+            div {
+                line-height: 15px;
+                text-align: right;
+            }
+        }
+    }
+}

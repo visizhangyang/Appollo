@@ -1,0 +1,70 @@
+<ion-modal-view class="user-login-modal">
+  <ion-header-bar>
+    <h1 class="title">{{'login_title'|translate}}</h1>
+    <div class="buttons">
+      <button class="button cancel-button"
+              ng-click="vm.back()">
+        <i class="icon ion-cancel"></i>
+      </button>
+    </div>
+  </ion-header-bar>
+
+  <ion-content>
+    <form name="form"
+          novalidate
+          class="m-form">
+
+      <div class="list margin-top">
+        <ion-input class="item item-input item-send-code">
+          <ion-label>{{'login_phone_number'|translate}}</ion-label>
+          <input type="tel"
+                 size="11"
+                 ng-pattern="/^1[3|4|5|7|8][0-9]\d{8}$|^0{6}\d{5}$/"
+                 ng-model="vm.user.phone"
+                 name="uPhone"
+                 placeholder="{{'login_phone_number_placeholder'|translate}}"
+                 ng-change="vm.clearError(form)"
+                 required>
+        </ion-input>
+
+        <ion-input class="item item-input">
+          <ion-label>{{'login_password'|translate}}</ion-label>
+          <input type="password"
+                 ng-model="vm.user.password"
+                 ng-pattern="/^(?=.*\d)(?=.*[a-zA-Z])\w{8,}$/"
+                 name="password"
+                 placeholder="{{'login_password_placeholder'|translate}}"
+                 ng-change="vm.clearError(form)"
+                 required>
+        </ion-input>
+        <div class="error">
+          <span ng-if="form.uPhone.$dirty && form.uPhone.$invalid && form.uPhone.$touched">
+            {{'login_incorrect_phone_number_format'|translate}}<span ng-if="form.password.$invalid && form.password.$touched">；</span>
+          </span>
+          <span ng-if="form.password.$dirty && form.password.$invalid && form.password.$touched">
+            {{'login_incorrect_password_format'|translate}}
+          </span>
+          <div ng-if="vm.submitError">
+            <span>
+              {{ vm.submitError }}
+            </span>
+          </div>
+        </div>
+      </div>
+
+      <button class="button button-full button-positive margin-top"
+              ng-disabled="form.$invalid"
+              ng-click="vm.login($event, form.$valid)">
+        {{'login_sign_in'|translate}}
+      </button>
+
+      <!--<div class="register-link">
+        <a class="positive" ng-click="vm.goSignup()">
+          注册账户
+        </a>
+        <a class="positive" ng-click="vm.goSMSLogin()">忘记密码</a>
+      </div>-->
+    </form>
+  </ion-content>
+
+</ion-modal-view>

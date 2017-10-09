@@ -1,0 +1,47 @@
+<div class="risk-level-adjustment-graph">
+    <slide-wheel ng-if="vm.riskLevel && vm.year && vm.amount" slide-level="vm.riskLevel">
+        <div ng-if="vm.riskalyze">
+            <div style="height:60px">
+                <div class="profit-label {{vm.language}}">{{'risk-level-adjustment_profit'|translate}}</div>
+                <div class="amount profit {{vm.language}}"> &ge; {{'common_eur_symbol'|translate}}{{ vm.getWin().delta | formatMoney }}{{'common_amount_unit'|translate}}</div>
+                <div class="pct profit {{vm.language}}"> &ge; {{ vm.getWin().deltaPct }}%</div>
+            </div>
+            <svg width="220px" height="84px" viewBox="-1 104 381 167" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" transform="translate(0.000000, 104.000000)">
+                    <g transform="translate(189.358541, 88.249335) rotate(-20.000000) translate(-189.358541, -88.249335) translate(-13, 83)">
+                        <rect fill="#ECECEC" ng-attr-x="{{ vm.getLoss().pXBase - vm.getLoss().pXLen }}" ng-attr-y="-3.41060513e-13" ng-attr-width="{{ vm.getWin().pXBase - vm.getLoss().pXBase + vm.getLoss().pXLen + vm.getWin().pXLen }}"
+                            height="19"></rect>
+                        <path d="M0.837189264,9.5 L394.837189,9.5" stroke="#C1C1C1" stroke-linecap="square"></path>
+                        <circle class="loss {{vm.language}}" ng-attr-cx="{{ vm.getLoss().pXBase - vm.getLoss().pXLen }}" cy="10" r="10"></circle>
+                        <defs>
+                            <linearGradient x1="-40.6162673%" y1="56.0950532%" x2="126.151871%" y2="61.6754591%" id="riskRatio{{vm.riskRatioId}}">
+                                <stop stop-color="#000000" offset="0%"></stop>
+                                <stop stop-color="#0A69D5" offset="22.9875948%"></stop>
+                                <stop stop-color="#00101A" offset="42.4574043%"></stop>
+                                <stop stop-color="#074797" offset="70.9024235%"></stop>
+                                <stop stop-color="#0A5FBB" offset="78.9620536%"></stop>
+                                <stop stop-color="#002349" offset="100%"></stop>
+                            </linearGradient>
+                        </defs>
+                        <ellipse stroke="none" fill="url(#riskRatio{{vm.riskRatioId}})" fill-rule="evenodd" cx="198" cy="10" rx="58" ry="58"></ellipse>
+                        <circle class="profit {{vm.language}}" ng-attr-cx="{{ vm.getWin().pXBase + vm.getWin().pXLen }}" cy="10" r="10"></circle>
+                        <text transform="rotate(20)" stroke="none" fill="none" font-family="HelveticaNeue, Helvetica Neue" font-size="50" font-weight="normal">
+                            <tspan ng-attr-x="{{163 + (vm.riskLevel < 10 ? 13 : (vm.riskLevel < 100 ? 0 : -20)) }}" y="-43" fill="#FFFFFF">{{ vm.riskLevel }}</tspan>
+                        </text>
+                        <text font-family="PingFangSC-Medium, PingFang SC" font-size="18" font-weight="400">
+                            <tspan class="probability loss {{vm.language}}" ng-attr-x="{{ vm.getLoss().pXBase - vm.getLoss().pXLen - 57 - (22 - 44 * vm.getLoss().p) }}" y="-10">{{'risk-level-adjustment_probability'|translate}}{{ vm.getLoss().p * 100 | formatPercent : false : 0 }}%</tspan>
+                        </text>
+                        <text font-family="PingFangSC-Medium, PingFang SC" font-size="18" font-weight="400">
+                            <tspan class="probability profit {{vm.language}}" ng-attr-x="{{ vm.getWin().pXBase + vm.getWin().pXLen - 34 + (22 - 44 * vm.getWin().p) }}" y="42">{{'risk-level-adjustment_probability'|translate}}{{ vm.getWin().p * 100 | formatPercent :false :0 }}%</tspan>
+                        </text>
+                    </g>
+                </g>
+            </svg>
+            <div>
+                <div class="loss-label {{vm.language}}">{{'risk-level-adjustment_loss'|translate}}</div>
+                <div class="amount loss {{vm.language}}">&ge; {{'common_eur_symbol'|translate}}{{ vm.getLoss().delta | formatMoney }}{{'common_amount_unit'|translate}}</div>
+                <div class="pct loss {{vm.language}}">&ge; {{ vm.getLoss().deltaPct }}%</div>
+            </div>
+        </div>
+    </slide-wheel>
+</div>

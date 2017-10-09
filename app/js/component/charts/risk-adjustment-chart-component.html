@@ -1,0 +1,20 @@
+<div class="risk-adjustment-chart-component">
+    <risk-adjustment-chart data="$ctrl.chartData" negative="$ctrl.isChartNegative()"></risk-adjustment-chart>
+    <div class="legend">
+        <div class="line line1"><span class="color"></span><span class="label">{{$ctrl.line1Label}}</span></div>
+        <div class="line line2"><span class="color"></span><span class="label">{{$ctrl.line2Label}}</span></div>
+    </div>
+    <div class="risk-range-selector" ng-if="$ctrl.canAdjustRiskLevel">
+        <div class="range">
+            <input type="range" min="0" max="{{$ctrl.rangeBarMaxValue}}" step="1" ng-model="$ctrl.rangeBarStopIndex" ng-change="$ctrl.adjustRisk()"
+            />
+        </div>
+        <div class="labels">
+            <div>{{$ctrl.rangeBarLeftLabel}}<br/>({{$ctrl.rangeBarLeftValue | formatPercent:false:0 }}%)</div>
+            <div>{{$ctrl.rangeBarRightLabel}}<br/>({{$ctrl.rangeBarRightValue | formatPercent:false:0 }}%)</div>
+        </div>
+    </div>
+    <div class="optimize-sharp－ratio" ng-if="$ctrl.isSharpAdjustment">
+        <button class="button button-outline button-positive" ng-hide="$ctrl.rangeBarStopIndex === 1" ng-click="$ctrl.optimizeSharpRatio()">{{'performance_generate_optimal_sharp_ratio'|translate}}</button>
+    </div>
+</div>

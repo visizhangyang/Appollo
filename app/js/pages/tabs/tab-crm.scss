@@ -1,0 +1,87 @@
+
+.tab-crm-page {
+
+  .toolbar {
+    $toolbar-height: 48px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-top: 20px;
+    padding: 0 15px;
+    height: $toolbar-height;
+    background: $light;
+
+    .text {
+      line-height: 48px;
+      color: $base-color;
+    }
+
+    .quick-links {
+      font-size: 13px;
+      color: $blue;
+      display: flex;
+      .button {
+        border-width: 0;
+        line-height: 15px;
+        min-height: 48px;
+        font-size: 7px;
+        color: $blue;
+        margin-right: 10px;
+        .icon {
+          display: block;
+          margin: auto;
+          width: 18px;
+          height: 21px;
+        }
+      }
+    }
+  }
+
+  .segment-bar {
+    display: flex;
+    flex-direction: row;
+    margin: 20px 0 0 0;
+    height: 100px;
+
+    .segment {
+      padding-top: 13px;
+      background: $light;
+      flex: 1;
+      text-align: center;
+      line-height: 1.5;
+      position: relative;
+      &:first-child:before {
+        display: none;
+      }
+      &:before {
+        content: ' ';
+        height: 80%;
+        width: 1px;
+        position: absolute;
+        background: #E6E6E6;
+        left: -1px;
+        bottom: 10%;
+      }
+
+      &.active {
+        &:after {
+          content: ' ';
+          height: 2px;
+          width: 70%;
+          position: absolute;
+          background: #00a1ff;
+          left: 15%;
+          bottom: 0;
+        }
+      }
+      .segment-title {
+        color: $base-color;
+        text-align: center;
+      }
+      .segment-info {
+        font-size: 40px;
+        color: $blue;
+      }
+    }
+  }
+}

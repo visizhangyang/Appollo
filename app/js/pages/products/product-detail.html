@@ -1,0 +1,61 @@
+<ion-view view-title=""
+          hide-back-button="true"
+          class="product-detail-page">
+  <ion-nav-title ng-bind="vm.title">
+  </ion-nav-title>
+  <ion-nav-buttons >
+    <back-btn state="tab.crm"></back-btn>
+  </ion-nav-buttons>
+
+
+  <ion-content ng-class="{'has-footer': vm.couldOrder && vm.refresher.loaded}">
+
+    <refresh-view refresher="vm.refresher">
+      <div class="list margin-top product-detail-list">
+        <div class="item-group" ng-if="vm.product.benchmark_yield_list.length">
+          <div class="item item-divider">
+            收益说明
+          </div>
+          <div class="item item-fields-set-3">
+            <div class="item-field">认购金额（万）</div><!--
+       --><div class="item-field">预期年化收益率</div><!--
+       --><div class="item-field">佣金费率</div>
+          </div>
+          <div class="item item-fields-set-3"
+               ng-repeat="benchmark in vm.product.benchmark_yield_list">
+            <div class="item-field">{{ benchmark | benchmarkInvest }}</div><!--
+         --><div class="item-field">{{ benchmark | benchmarkReturn }}</div><!--
+         --><div class="item-field"
+                 ng-if="vm.user.logged">
+              {{ benchmark.commision_rate }}%
+            </div><!--
+           --><div class="item-field"
+                   ng-if="!vm.user.logged"
+                   ng-click="vm.user.login($event)">
+              <a>佣金登录可见</a>
+            </div>
+          </div>
+
+          <div class="item item-field-detail">
+            <div class="field field-label">佣金结算方式</div>
+            <div class="field field-value">{{ vm.product.payment_date | transPayDate }}</div>
+          </div>
+        </div>
+
+        <div ng-include="vm.productInfoTemplate"></div>
+
+      </div>
+    </refresh-view>
+
+  </ion-content>
+
+
+  <ion-footer-bar ng-if="vm.couldOrder && vm.refresher.loaded">
+    <div class="button-bar detail-tool-bar">
+      <button class="button button-balanced"
+              ng-click="vm.onClickCollect()">
+        <i class="icon collect-icon" ng-class="{collected: vm.product.collection_id > 0}"></i>
+      </button>
+    </div>
+  </ion-footer-bar>
+</ion-view>

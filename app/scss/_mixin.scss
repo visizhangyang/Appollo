@@ -1,0 +1,57 @@
+@mixin vertical-div($top) {
+  position: absolute;
+  top: $top;
+  transform: translateY(-50%);
+}
+
+@mixin cover-background($x-position, $y-position) {
+  background: {
+    size: cover;
+    repeat: no-repeat;
+    position: $x-position $y-position;
+  };
+}
+
+@mixin skinny-border-bottom($color) {
+  background: {
+    image: linear-gradient(to top, $color 0%, $color 51%, transparent 51%);
+    size: 100% 1px;
+    repeat: no-repeat;
+    position-y: 100%;
+  };
+}
+
+// FIXME: if you are using safari
+//   please plase using backdrop-filter instead
+@mixin glass-frost($blur) {
+  filter: blur($blur);
+  transform: scale(1.15);
+}
+
+
+$touch-area-width: 48px;
+@mixin m-nav-icon {
+  width: $touch-area-width;
+  .icon {
+    display: inline-block;
+    &:before {
+      font-size: 17px;
+      line-height: 31px;
+    }
+  }
+}
+
+@mixin light-font {
+  font-family: HelveticaNeue-Light, PingFangSC-Ultralight;
+}
+
+@mixin bold-font {
+  font-family: HelveticaNeue, PingFangSC-Light ;
+}
+
+
+@mixin activated {
+  &.activated, &:active {
+    opacity: 0.3;
+  }
+}

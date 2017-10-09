@@ -1,0 +1,21 @@
+<div class="portfolio-cmp">
+
+  <div class="item item-divider normal-divider item-light margin-top">
+    投资组合建议
+  </div>
+
+  <div class="distribution">
+    <u-donut donut-data="$ctrl.donutData" total-investment="{{$ctrl.totalInvestment}}" type="double"></u-donut>
+  </div>
+  <div class="item item-divider normal-divider item-light item-navigator item-icon-right" ui-sref="proposalAdjustDetail({clientId: $ctrl.clientId, portfolioId: $ctrl.portfolioId})" nav-direction="forward">
+    产品定制组合
+    <i class="icon unicon-forward accessory"></i>
+  </div>
+
+  <div class="list">
+    <a class="item group-item" ng-repeat="group in $ctrl.groupsList || []">
+      {{ group | transAsset }} (配置：{{ $ctrl.proposal.asset_groups[group].amount / $ctrl.proposal.total_investment * 100 | formatPercent}}%，金额：{{$ctrl.proposal.asset_groups[group].amount | formatMoney}}万元)
+    </a>
+  </div>
+
+</div>

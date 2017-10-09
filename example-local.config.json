@@ -1,0 +1,35 @@
+{
+  "__COMMENT__": "this is local config to override setting",
+  "__raven": "!@!##@$%^&*(((&%^$#"
+}
+
+{
+  "raven": "https://9aec0756170d4745a5d3a8e7c0e2e182@sentry.micaiapp.com/66",
+  "staticBaseUrl": "http://hnwi-stage.micapp.com/wechatapp/",
+  "apiBaseUrl": "http://hnwi-stage.micapp.com/",
+  "sentry": {
+    "version": "1.1.1",
+    "opt": {
+      "DOMAIN": "http://hnwi-stage.micapp.com/wechatapp",
+      "API_URL": "https://sentry.micaiapp.com/api/0/projects/micai/staging-hnwi-app/",
+      "API_KEY": "500c140807c54fc782adc1a1906e89ee",
+      "debug": true
+    }
+  }
+}
+
+
+{
+  "raven": "https://6038dfd45f2945c2adb206441eb05adb@sentry.micaiapp.com/67",
+  "staticBaseUrl": "https://wm.micaiapp.com/wechatapp/",
+  "apiBaseUrl": "https://wm.micaiapp.com/",
+  "sentry": {
+    "version": "1.1.1",
+    "opt": {
+      "DOMAIN": "https://wm.micaiapp.com/wechatapp",
+      "API_URL": "https://sentry.micaiapp.com/api/0/projects/micai/prod-hnwi-app/",
+      "API_KEY": "500c140807c54fc782adc1a1906e89ee",
+      "debug": true
+    }
+  }
+}

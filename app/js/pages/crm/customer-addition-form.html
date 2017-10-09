@@ -1,0 +1,63 @@
+<ion-view view-title="创建客户-详细信息"
+          hide-back-button="true"
+          class="customer-form-page">
+  <ion-nav-buttons>
+    <back-btn state="tab.crm"></back-btn>
+  </ion-nav-buttons>
+
+  <ion-content>
+    <form class="m-form" name="form" novalidate>
+      <div class="list margin-top">
+        <!--<ion-input class="item item-input item-select">-->
+          <!--<ion-label>所属区域</ion-label>-->
+          <!--<select ng-options="opt.value as opt.name for opt in vm.statusOptions"-->
+                  <!--ng-model="vm.formUtil.data.area">-->
+          <!--</select>-->
+        <!--</ion-input>-->
+        <ion-input class="item item-input item-select">
+          <ion-label>客户状态</ion-label>
+          <select ng-options="opt.value as opt.name for opt in vm.statusOptions"
+                  ng-model="vm.formUtil.data.status">
+          </select>
+        </ion-input>
+        <ion-input class="item item-input item-select">
+          <ion-label>客户来源</ion-label>
+          <select ng-options="opt.value as opt.name for opt in vm.sourceOptions"
+                  ng-model="vm.formUtil.data.source">
+          </select>
+        </ion-input>
+        <ion-input class="item item-input">
+          <ion-label>生日</ion-label>
+          <input type="date" ng-model="vm.formUtil.data.birthday" />
+        </ion-input>
+
+        <ion-input class="item item-input">
+          <ion-label>微信</ion-label>
+          <input type="text" ng-model="vm.formUtil.data.we_chat" />
+        </ion-input>
+        <ion-input class="item item-input">
+          <ion-label>备注</ion-label>
+          <input type="text"  ng-model="vm.formUtil.data.note" />
+        </ion-input>
+
+        <div class="error">
+          <div ng-if="vm.formUtil.submitError">
+            <span>
+              {{ vm.formUtil.submitError }}
+            </span>
+          </div>
+        </div>
+      </div>
+
+      <div class="block-btn-div">
+        <button class="button button-block button-positive"
+                on-request="vm.goNext($event, form.$valid)"
+                ng-disabled="form.$invalid">
+          确认
+        </button>
+      </div>
+    </form>
+
+  </ion-content>
+
+</ion-view>

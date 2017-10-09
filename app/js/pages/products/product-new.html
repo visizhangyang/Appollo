@@ -1,0 +1,24 @@
+<ion-view view-title="上传产品"
+          hide-back-button="true"
+          class="product-new-page">
+  <ion-nav-buttons >
+    <back-btn state="tab.account"></back-btn>
+  </ion-nav-buttons>
+
+
+  <ion-content>
+    <div class="page-title">
+      请选择您要发布的产品类型
+    </div>
+    <div class="list">
+      <div class="item item-icon-right"
+           ng-repeat="productType in vm.productTypeList"
+           ng-click="vm.selectProduct(productType.value)">
+        {{ productType.name }}
+        <i class="icon unicon-forward accessory"></i>
+      </div>
+    </div>
+
+  </ion-content>
+
+</ion-view>

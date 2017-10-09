@@ -1,0 +1,29 @@
+.suggest-asset-cmp {
+    .bar-chart-box {
+        margin: 15px 0;
+        u-bar-chart {
+            width: 100%;
+            height: 150px;
+            @include BarChart();
+        }
+    }
+    @include codeSymbol();
+    .item-white,
+    .item-fields-set-4 .item-field {
+        font-size: 12px;
+    }
+    .item-white {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        .item-field {
+            white-space: initial;
+            &.symbol {
+                text-align: left;
+            }
+        }
+    }
+    .item-divider {
+        margin-top: 22px;
+    }
+}

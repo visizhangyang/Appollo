@@ -1,0 +1,170 @@
+@mixin proposalItem {
+  .item-white {
+    font-size: 12px;
+    border-color: #fff;
+  }
+  .proposal-item {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    .item-field {
+      font-size: 10px;
+      text-align: center;
+
+      overflow : hidden;
+      text-overflow: ellipsis;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+
+      white-space: initial;
+      word-break: break-all;
+    }
+  }
+  .item-set-5 .item-field {
+    flex: 1;
+
+    &.item-field-2x{
+      flex: 2;
+    }
+  }
+  .item-set-4 .item-field {
+    &:first-child {
+      width: 40%;
+    }
+    width: 20%;
+  }
+}
+
+@mixin proposalCheckbox {
+  .item-checkbox {
+    padding-left: 0px;
+    padding-right: 0px;
+    background-color: transparent;
+
+    .checkbox {
+      left: -5px;
+      margin-top: -18px;
+    }
+
+    .checkbox-icon {
+      width: 20px;
+      height: 20px;
+    }
+
+    .checkbox-icon:before {
+      background-color: #FFF;
+      border-color: #979797;
+      broder-width: 2px;
+    }
+
+    input:checked + .checkbox-icon:before {
+      background-color: #00A1FF;
+      border-color: #00A1FF;
+    }
+
+    input:checked + .checkbox-icon:after {
+      width: 14px;
+      height: 6px;
+      left: 20%;
+      top: 30%;
+    }
+  }
+}
+
+@mixin proposal-portfolio-common {
+  .group-item {
+    background-color: #FAFAFA;
+    border-color: #FFF;
+    color: #121317;
+    font-size: 12px;
+
+    .selected-count {
+      float: right;
+    }
+  }
+
+  .distribution {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin: 15px 0;
+    .symbols {
+      margin-top: 20px;
+      width: 50%;
+    }
+  }
+
+  u-donut {
+    height: 224px;
+    flex-grow: 1;
+    text-align: center;
+    svg {
+      overflow: visible;
+    }
+    path {
+      @include stockFill();
+    }
+
+    text {
+      fill: #121317;
+      font: 10px sans-serif;
+      text-anchor: middle;
+
+      &.total-investment {
+        font-size: 12px;
+      }
+    }
+  }
+}
+
+.proposal-cmp {
+
+  @include codeSymbol();
+  @include proposal-portfolio-common();
+
+  .symbol:before {
+    margin-right: 5px;
+  }
+
+  .is-company {
+    position: relative;
+    &:before {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      content: ' ';
+      margin-right: 8px;
+      display: inline-block;
+      background: orange;
+    }
+  }
+
+  .highlight {
+    color: red;
+  }
+
+
+  .item-navigator {
+    .icon {
+      color: #C1C1C1;
+      width: 10px;
+    }
+    margin-top: 15px;
+  }
+
+  .left {
+    text-align: left;
+  }
+
+  .return-chart-title {
+    text-align: center;
+    margin-top: 20px;
+    @include bold-font();
+  }
+
+  .block-text {
+    padding: 15px;
+  }
+}

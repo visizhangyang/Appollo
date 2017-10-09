@@ -1,0 +1,42 @@
+<ion-view view-title="风险配置模型" hide-back-button="true" class="risklevel-page white-theme">
+  <ion-nav-buttons>
+    <back-btn state="tab.crm"></back-btn>
+  </ion-nav-buttons>
+
+  <ion-content scroll="false" ng-class="{'has-footer': vm.toAssetForm}">
+    <div class="margin-top" ng-if="vm.risklevel">
+      <!--<div class="block-text">基于您的风险测试,结果如下</div>-->
+      <div class="item item-light normal-divider item-divider">
+        风险承受度
+      </div>
+
+      <div class="risk-level-box">
+        <div class="risk-value">{{ vm.risklevel }}</div>
+        <div class="block-text">
+          <p class="risk-date">于{{vm.risk_level_ts}}选择风险承受度</p>
+          <p class="risk-tips">注: 风险承受度的数值越大,投资者的风险承受能力及意愿越强,投资的预期回报率就越高</p>
+        </div>
+      </div>
+
+      <div class="risk-model">
+        <div class="title">该风险配置模型如下：</div>
+        <u-bar-chart bar-chart-data="vm.allocation"></u-bar-chart>
+      </div>
+
+      <div class="btn-bar">
+        <button class="button button-blue" ui-sref="risklevelChange({id: vm.clientId})" nav-direction="forward">
+          调整风险承受度
+        </button>
+      </div>
+
+    </div>
+
+  </ion-content>
+
+  <ion-footer-bar ng-if="vm.toAssetForm">
+    <button class="button button-full button-positive" nav-direction="forward" ui-sref="assetForm({id: vm.clientId, risklevel: vm.risklevel})">
+      下一步 资产收入及负债情况
+    </button>
+  </ion-footer-bar>
+
+</ion-view>

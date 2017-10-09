@@ -1,0 +1,45 @@
+<ion-modal-view class="customer-search-modal">
+  <ion-header-bar>
+    <div class="buttons">
+      <button class="button back-button"
+              ng-click="vm.cancel()">
+        <i class="icon ion-back"></i>
+      </button>
+    </div>
+    <h1 class="title">{{'customer_search_title'|translate}}</h1>
+
+  </ion-header-bar>
+
+  <div class="search-toolbar">
+    <div class="search-input">
+      <input
+        autocapitalize="off"
+        autocorrect="off"
+        spellcheck="false"
+        placeholder="{{'customer_search_input_placeholder'|translate}}"
+        type="search"
+        ng-model="vm.searchQuery"
+        ng-model-options="{ updateOn: 'default blur', debounce: { 'default': 800, 'blur': 0 } }"
+        ng-change="vm.query()"
+        autocomplete="off" />
+      <i class="icon ion-search"></i>
+    </div>
+    <button class="button button-clear cancel-search"
+            ng-click="vm.reset()">
+      {{'common_button_cancel'|translate}}
+    </button>
+  </div>
+
+  <ion-content>
+    <customer-item-cmp ng-repeat="item in vm.customerList track by item.id"
+                       client="item"
+                       ng-click="vm.forwardDetail(item.id)">
+    </customer-item-cmp>
+    <div class="mismatch-hint" ng-if="vm.mismatch">
+      {{'customer_search_mismatch_hint1'|translate}}
+      <br>
+      {{'customer_search_mismatch_hint2'|translate}}
+    </div>
+
+  </ion-content>
+</ion-modal-view>

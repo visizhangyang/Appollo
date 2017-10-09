@@ -1,0 +1,58 @@
+<ion-view view-title="个人"
+          class="tab-account-page"
+          hide-nav-bar="true"
+          hide-back-button="true">
+  <ion-content has-bouncing="false">
+    <div class="glass-header">
+      <div class="background-filter">
+      </div>
+      <div class="background-overlay"></div>
+
+      <div class="header-info u-tap"
+           ng-click="vm.onClickUserInfo()"
+           ng-if="vm.refresher.loaded">
+        <button ng-if="!vm.isLogged"
+                class="login-btn button button-clear">
+          登录 / 注册
+        </button>
+        <div ng-if="vm.isLogged">
+          <div class="username">{{ vm.user.real_name || vm.user.phone }}</div>
+          <div class="company-name">
+            {{ vm.user.company }}
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="list">
+      <user-link link-state="accountProfile">
+        <div class="item item-icon-left item-icon-right">
+          <i class="icon unicon-account-info"></i>
+          <span class="account-info">
+            {{'tabs_account_personal_information'|translate}}
+            <i ng-if="vm.nameCardApproved" class="icon unicon-account-approved"></i>
+          </span>
+          <i class="icon unicon-forward accessory"></i>
+        </div>
+      </user-link>
+      <user-link link-state="accountCollection">
+        <div class="item item-icon-left item-icon-right">
+          <i class="icon unicon-account-collection" style="top: -1px;"></i>
+          {{'tabs_account_my_following'|translate}}
+          <i class="icon unicon-forward accessory"></i>
+        </div>
+      </user-link>
+    </div>
+
+    <list class="list">
+      <user-link link-state="userFeedback">
+        <div class="item item-icon-left item-icon-right">
+          <i class="icon unicon-account-support"></i>
+          {{'tabs_account_support_feedback'|translate}}
+          <i class="icon unicon-forward accessory"></i>
+        </div>
+      </user-link>
+    </list>
+
+  </ion-content>
+</ion-view>

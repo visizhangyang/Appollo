@@ -1,0 +1,25 @@
+<ion-view view-title="{{'comparison_title'|translate}}" hide-back-button="true" class="proposal-page white-theme" cache-view="false">
+    <ion-nav-buttons>
+        <back-btn state="tab.crm"></back-btn>
+    </ion-nav-buttons>
+
+    <ion-content class="portfolio-compare">
+
+        <barchart-vertial-compare-component data="vm.barchartData"></barchart-vertial-compare-component>
+
+        <div class="product-list" ng-if="vm.products">
+            <div class="row padding-horizontal header">
+                <div class="col col-50">{{'comparison_product_name'|translate}}</div>
+                <div class="col text-right">{{'comparison_amount_percentage'|translate}}</div>
+            </div>
+            <div class="row padding-horizontal product" ng-repeat="item in vm.products">
+                <div class="col col-75">{{item.name}}</div>
+                <div class="col text-right">{{item.adjust*100 | formatPercent:true}}%</div>
+            </div>
+        </div>
+
+    </ion-content>
+    <ion-footer-bar>
+        <button class="button button-full button-positive" on-request="vm.save()">{{'comparison_confirm_adjustment'|translate}}</button>
+    </ion-footer-bar>
+</ion-view>

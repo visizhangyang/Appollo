@@ -1,0 +1,61 @@
+.circle-btn {
+  width: 45px;
+  height: 45px;
+  background: $green;
+  border-radius: 50%;
+  i {
+    color: $light;
+    font-size: 27px;
+    line-height: 45px;
+    display: block;
+    text-align: center;
+  }
+}
+
+.button {
+  @include bold-font();
+  @include activated();
+
+  //@mixin button-style
+  //$bg-color, $border-color, $active-bg-color, $active-border-color, $color
+
+    // red theme button
+  &.button-red {
+    @include button-style(#1a1c20, #1a1c20, #1a1c20, #1a1c20, $red);
+  }
+
+  &.button-white {
+    @include button-style($stable, $stable, $stable, $stable, $light);
+    border-color: #979797;
+  }
+
+  &.button-orange {
+    @include button-style($orange, $orange, $orange, $orange, white)
+  }
+
+  &.button-black {
+    @include button-style(#1a1c20, #1a1c20, #1a1c20, #1a1c20, #1580f3)
+  }
+
+  &.button-blue {
+    @include button-style(white, #00A1FF, white, #00A1FF, #00A1FF);
+    border-color: #00A1FF;
+    border-radius: 4px;
+  }
+
+  &.button-grey {
+    @include button-style(#f1f1f1, transparent, #f1f1f1, transparent, #00a1ff);
+    border-radius: 4px;
+  }
+}
+
+.block-btn-div {
+  width: 100%;
+  padding: 0 15px;
+  margin: 20px 0;
+
+  .button-block {
+    border-radius: 2px;
+  }
+}
+

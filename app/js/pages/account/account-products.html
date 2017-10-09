@@ -1,0 +1,66 @@
+<ion-view view-title="我的产品"
+          class="product-attachments-page"
+          hide-back-button="true">
+  <ion-nav-buttons >
+    <back-btn state="tab.account"></back-btn>
+  </ion-nav-buttons>
+
+  <ion-content>
+
+    <ion-refresher
+      pulling-text="往下拉来刷新..."
+      on-refresh="vm.pullRefresh()">
+    </ion-refresher>
+
+    <refresh-view refresher="vm.refresher">
+
+      <div class="blank-page"
+           ng-if="!vm.productList.length">
+        <p>
+          您目前没有上传的产品
+        </p>
+
+        <button class="button button-white button-block"
+                nav-direction="back"
+                ui-sref="tab.account">
+          点击返回
+        </button>
+      </div>
+
+      <div class="card"
+           ui-sref="productOrders({productId: product.id})"
+           ng-repeat="product in vm.productList">
+        <div class="item item-divider"
+             ng-bind="product.product_name">
+        </div>
+        <div class="item item-fields-set-4">
+          <div class = "item-field">预约人数</div>
+          <div class = "item-field">佣金费率</div>
+          <div class = "item-field">最高收益率</div>
+          <div class = "item-field">状态</div>
+        </div>
+        <div class="item item-fields-set-4">
+          <div class = "item-field"
+               ng-bind="product.orders_count">
+          </div>
+          <div class = "item-field"
+               ng-bind="product.maxB.commision_rate + '%'">
+          </div>
+          <div class = "item-field"
+               ng-bind="product.maxB | benchmarkReturn ">
+          </div>
+          <div class="item-field"
+               ng-bind="product.status | transStatus">
+          </div>
+        </div>
+      </div>
+
+    </refresh-view>
+
+    <ion-infinite-scroll ng-if="vm.productList.next"
+                         on-infinite="vm.loadMore()"
+                         distance="20%">
+    </ion-infinite-scroll>
+
+  </ion-content>
+</ion-view>

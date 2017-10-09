@@ -1,0 +1,76 @@
+.proposal-perf-page {
+    @include proposalItem();
+    .proposal-item {
+      .item-field {
+        &.expected-annual-return {
+          word-break: normal;
+        }
+      }
+    }
+
+    .mapview {
+        .item-blue {
+            background: #fcfcfc;
+            color: $base-color;
+            box-shadow: 0 0 2px #979797;
+            border: none;
+            margin-bottom: 2px;
+        }
+        .item-field {
+            &.item-field-2x {
+                flex: 2;
+            }
+        }
+    }
+    .item-empty {
+        background: white;
+        color: $base-color;
+        border-color: #f0f0f0;
+        &.topless {
+            border-top-width: 0;
+        }
+    }
+    .annotate {
+        display: block;
+        margin-left: auto;
+        margin-right: 20px;
+        margin-top: 20px;
+    }
+    .tips-box {
+        margin-top: 25px;
+        padding: 0 15px;
+        .col {
+            padding: 5px;
+            color: $secondary-base-color;
+            background: #F0F0F0;
+        }
+        .col:first-child {
+            flex: unset;
+            width: 100px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            justify-content: center;
+            font-size: 10px;
+            svg {
+                height: 50px;
+            }
+        }
+        .col:last-child {
+            margin-left: 1px;
+            font-size: 10px;
+            .line {
+                display: inline-block;
+                border-width: 1px;
+                border-style: solid;
+                width: 40px;
+                vertical-align: middle;
+                margin-right: 5px;
+            }
+            .tip-text {
+                margin-top: 5px;
+            }
+        }
+    }
+}

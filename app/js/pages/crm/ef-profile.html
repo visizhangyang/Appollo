@@ -1,0 +1,95 @@
+<ion-view view-title="有效边界优化" hide-back-button="true" class="ef-profile white-theme">
+    <ion-nav-buttons>
+        <back-btn state="tab.crm"></back-btn>
+    </ion-nav-buttons>
+
+    <ion-content ng-class="{'has-footer' : vm.canCreate}">
+        <div class="condition-box">
+            <div class="row">
+                <div class="col">
+                    <div>
+                        计划投资金额<br/><span class="sub-text">起投金额100万</span>
+                    </div>
+                </div>
+                <div class="col">
+                    <button class="icon ion-minus" ng-click="vm.changeInvestment(false)"  ng-disabled="vm.isProposalEFProfile || vm.investment <= 100 || vm.investment == null"></button>
+                    <input class="txt" ng-class="{value: vm.investment != null}" type="number" placeholder="选择投资金额" ng-model="vm.investment" ng-disabled="vm.isProposalEFProfile">
+                    <span class="ext" ng-if="vm.investment != null">万</span>
+                    <button class="icon ion-plus" ng-click="vm.changeInvestment(true)" ng-disabled="vm.isProposalEFProfile"></button>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">自选产品个数</div>
+                <div class="col">
+                    <button class="icon ion-minus" ng-click="vm.changeProductCount(false)" ng-disabled="vm.productCount <= 0 || vm.productCount == null"></button>
+                    <input class="txt" ng-class="{value: vm.productCount != null}" type="number" placeholder="选择产品数量" ng-model="vm.productCount">
+                    <span class="ext" ng-if="vm.productCount != null">只</span>
+                    <button class="icon ion-plus" ng-click="vm.changeProductCount(true)" ng-disabled="vm.productCount >= vm.productCountMaxValue"></button>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">目标收益</div>
+                <div class="col">
+                    <button class="icon ion-minus" ng-click="vm.changeReturnTarget(false)" ng-disabled="vm.returnTargetRange ==null || vm.returnTarget <= vm.returnTargetRange[0]"></button>
+                    <input class="txt" ng-class="{value: vm.returnTarget != null}" type="number" placeholder="选择目标收益" ng-model="vm.returnTarget">
+                    <span class="ext" ng-if="vm.returnTarget != null">%</span>
+                    <button class="icon ion-plus" ng-click="vm.changeReturnTarget(true)" ng-disabled="vm.returnTargetRange ==null || vm.returnTarget >= vm.returnTargetRange[1]"></button>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">投资策略</div>
+                <div class="col">
+                    <button class="button button-clear button-dark" ng-click="vm.toggleStrategyMode()">
+                        <span class="strategy-placeholder" ng-if="vm.strategy === null">请选择投资策略</span>
+                        <span class="strategy-value" ng-if="vm.strategy !== null">{{vm.strategy.label}}</span>
+                        <i class="ion ion-chevron-down" ng-class="{'active' : vm.isSlectStrategy}"></i>
+                    </button>
+                </div>
+            </div>
+            <div class="strategy-row" ng-if="vm.isSlectStrategy">
+                <button ng-click="vm.selectStrategy(0)" class="col button button-clear button-dark">最小风险</button>
+                <button ng-click="vm.selectStrategy(1)" class="col button button-clear button-dark">最优夏普率</button>
+            </div>
+            <div class="button-row" ng-if="!vm.isSlectStrategy">
+                <button class="button button-positive" ng-disabled="!vm.canGenerate" ng-click="vm.generate()">
+                    生成配置
+                </button>
+            </div>
+        </div>
+        <div class="product-box">
+            <div class="overlay" ng-class="{active : vm.isDirtyData }">
+                <ion-spinner icon="ios" ng-show="vm.isLoading"></ion-spinner>
+            </div>
+            <div class="product-list" ng-if="vm.products">
+                <div class="row title-row">
+                    <div class="col product-name-col">产品名称</div>
+                    <div class="col">历史年化收益率</div>
+                    <div class="col">配比</div>
+                    <div class="col">金额</div>
+                </div>
+                <div class="row product-row" ng-repeat="product in vm.products">
+                    <div class="col product-name-col">{{product.name}}</div>
+                    <div class="col">{{product.return_rate | formatPercent}}%</div>
+                    <div class="col">{{product.percentage * 100 | formatPercent }}%</div>
+                    <div class="col">{{product.investment}}万</div>
+                </div>
+            </div>
+            <div class="product-list"  ng-if="vm.products == null">
+                <div class="row title-row">
+                    <div class="col product-name-col col-67">产品名称</div>
+                    <div class="col">历史年化收益率</div>
+                </div>
+                <div class="row product-row" ng-repeat="product in vm.validProducts">
+                    <div class="col product-name-col">{{product.product_name}}</div>
+                    <div class="col">{{product.return_rate | formatPercent}}%</div>
+                </div>
+            </div>
+        </div>
+    </ion-content>
+
+    <ion-footer-bar ng-if="vm.canCreate">
+        <button class="button button-full button-positive" on-request="vm.create()">
+            接受优化
+        </button>
+    </ion-footer-bar>
+</ion-view>

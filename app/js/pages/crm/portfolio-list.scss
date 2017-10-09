@@ -1,0 +1,58 @@
+.portfolio-list-page {
+    ion-content {
+        background-color: #F0F0F0;
+        .portfolio-item {
+            background-color: #fff;
+            padding: 10px 20px;
+            .text {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                border-color: #F0F0F0;
+                margin-right: 10px;
+                font-size: 14px;
+                .risk-level {
+                    color: #424242;
+                }
+                .date {
+                    color: #9B9B9B;
+                }
+                .text-right{
+                    text-align: center;
+                }
+                span{
+                    display: inline-block;
+                }
+                span:nth-child(1){
+                    width:60%;
+                }
+                span:nth-child(2){
+                    width:20%;
+                }
+                span:nth-child(3){
+                    width:20%;
+                    text-align: right;
+                }
+
+                &.en {
+                  font-size: 12px;
+                  span:nth-child(1){
+                    width:50%;
+                  }
+                  span:nth-child(2){
+                    width:30%;
+                  }
+                }
+            }
+        }
+    }
+    .no-data {
+        margin-top: 50px;
+        text-align: center;
+        font-size: 14px;
+        color: #9B9B9B;
+        &.en {
+          font-size: 12px;
+        }
+    }
+}

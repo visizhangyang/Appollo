@@ -1,0 +1,129 @@
+.proposal-page {
+    .section-header {
+        background-color: white;
+        border-top: none;
+        border-bottom: 1px solid #F0F0F0;
+        &.product-section-header {
+            margin-top: 0;
+        }
+        &.profile-section-header {
+            margin: {
+                top: 20px;
+                bottom: 20px;
+            }
+        }
+    }
+    .barchart-containr {
+        margin-top: 20px;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        barchart-cmp {
+            flex: 1;
+        }
+        .arrow-right {
+            text-align: right;
+            margin-top: -60px;
+            .icon {
+                display: block;
+                width: 7px;
+                height: 16px;
+            }
+        }
+    }
+    .group-header {
+        margin-top: 1px;
+        background-color: #FFF;
+        border-bottom: 1px solid #F0F0F0;
+        color: #121317;
+        font-size: 12px;
+        display: flex;
+        .dot {
+            width: 15px;
+            &:before {
+                width: 8px;
+                height: 8px;
+                content: '';
+                display: inline-block;
+                border-radius: 50%;
+            }
+            &.CASH:before {
+                background: $cash;
+            }
+            &.FIXED_INCOME:before {
+                background: $fixed_income;
+            }
+            &.STOCK:before {
+                background: $stock;
+            }
+            &.ALTERNATIVE:before {
+                background: $alternative;
+            }
+        }
+        .info {
+            flex: 1;
+        }
+        .total-amount {
+            text-align: right;
+        }
+        .chevron {
+            width: 20px;
+            text-align: right;
+            .ion-chevron-down {
+                transition: transform .25s;
+                color: #9B9B9B;
+                &.active {
+                    transform: rotate(180deg);
+                }
+            }
+        }
+    }
+    .group-body {
+        .row {
+            margin-top: 1px;
+            border-bottom: 1px solid #F0F0F0;
+            .col {
+                white-space: nowrap;
+                text-overflow: ellipsis;
+                overflow: hidden;
+                &:not(:first-child):not(:last-child) {
+                    text-align: center;
+                }
+                &:last-child {
+                    text-align: right;
+                }
+            }
+        }
+    }
+    .btn-bar {
+        margin: 35px 0;
+        display: flex;
+        justify-content: space-around;
+        button {
+            width: 40%;
+        }
+    }
+
+    .list {
+      margin-top: 20px;
+      margin-bottom: 0;
+    }
+
+    .button-bar {
+      >.button:first-child, >button:last-child {
+        border-radius: 0;
+      }
+
+    }
+
+    .summary {
+      padding: 0 25px 0 5px;
+      border-top: none;
+      border-bottom: 1px solid #F0F0F0;
+      @include bold-font();
+      color: #000;
+      .total-amount {
+        text-align: right;
+      }
+    }
+}

@@ -1,0 +1,56 @@
+@import "barChart";
+@import "product-item";
+@import "user-login";
+@import "user-signup";
+@import "moneyText";
+@import "customer-item";
+@import "current-asset-cmp";
+@import "suggest-asset";
+@import "insurance";
+@import "proposal-cmp";
+@import "portfolio-cmp";
+@import "slideWheel";
+@import "moneySlide";
+@import "slider";
+@import "projectionGraph";
+@import "charts/d3-line-chart";
+@import "charts/risk-adjustment-chart";
+@import "risk-level-adjustment-graph";
+@import "barChartV2";
+@import "barchart-cmp";
+@import "charts/barchart-vertial-compare";
+.file-input-util {
+    display: none;
+}
+
+.has-support {
+    .scroll {
+        min-height: 98%;
+        position: relative;
+        padding-bottom: 60px;
+    }
+}
+
+support-tel-cmp {
+    width: 100%;
+    display: block;
+    text-align: center;
+    margin-top: 20px;
+    font-size: 15px;
+    position: absolute;
+    bottom: 20px;
+    a {
+        color: #C1C1C1;
+        text-decoration: none;
+        display: block;
+        span {
+            vertical-align: middle;
+        }
+        .icon {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            vertical-align: middle;
+        }
+    }
+}
